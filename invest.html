@@ -180,8 +180,45 @@
 
         .highlight-del:hover::before { 
             opacity: 0.6; 
-        } 
+        }
 
+        .highlight-age {
+            color: #007A33;
+            font-weight: 800;
+            text-shadow: 0 0 10px rgba(0, 122, 51, 0.5);
+            position: relative;
+            padding: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            background-color: rgba(252, 209, 22, 0.9);
+            border-radius: 4px;
+            padding: 2px 8px;
+        }
+
+        .highlight-age:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 15px rgba(0, 122, 51, 0.7);
+            background-color: rgba(252, 209, 22, 1);
+        }
+
+        .highlight-age::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #00205B;
+            border-radius: 2px;
+            transition: height 0.3s ease;
+        }
+
+        .highlight-age:hover::after {
+            height: 5px;
+            background-color: #007A33;
+        }
+ 
         /* 添加点击动画效果 */ 
         @keyframes clickEffect { 
             0% { transform: scale(1); } 
@@ -280,13 +317,13 @@
             100% { transform: translateX(100%); } 
         } 
 
-        /* 新增：投资展示部分样式 */ 
-        .investment-section { 
+        /* 新增：南非成功投资者照片墙 */ 
+        .investors-section { 
             padding: 50px 0; 
             text-align: center; 
         } 
 
-        .investment-title { 
+        .investors-title { 
             font-size: 2.2rem; 
             color: #00205B; 
             margin-bottom: 30px; 
@@ -294,7 +331,7 @@
             padding-bottom: 15px; 
         } 
 
-        .investment-title:after { 
+        .investors-title:after { 
             content: ''; 
             position: absolute; 
             bottom: 0; 
@@ -306,11 +343,125 @@
             border-radius: 2px; 
         } 
 
-        .investment-subtitle { 
+        .investors-subtitle { 
             color: #555555; 
             max-width: 700px; 
             margin: 0 auto 40px; 
             font-size: 1.1rem; 
+        } 
+
+        .investors-container { 
+            position: relative; 
+            width: 100%; 
+            max-width: 1000px; 
+            height: 400px; 
+            margin: 0 auto 60px; 
+            overflow: hidden; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
+            border: 3px solid #FCD116; 
+        } 
+
+        .investor-slides { 
+            display: flex; 
+            width: 500%; 
+            height: 100%; 
+            transition: transform 1s ease-in-out; 
+        } 
+
+        .investor-slide { 
+            width: 20%; 
+            height: 100%; 
+            position: relative; 
+        } 
+
+        .investor-img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+        } 
+
+        .investor-overlay { 
+            position: absolute; 
+            bottom: 0; 
+            left: 0; 
+            width: 100%; 
+            padding: 20px; 
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent); 
+            color: white; 
+            text-align: left; 
+        } 
+
+        .investor-name { 
+            font-size: 1.4rem; 
+            font-weight: bold; 
+            margin-bottom: 5px; 
+            color: #FFFFFF; 
+        } 
+
+        .investor-earnings { 
+            font-size: 1rem; 
+            opacity: 0.9; 
+            color: #FCD116;
+            font-weight: 600;
+        }
+
+        .investor-location {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        } 
+
+        .investor-nav { 
+            position: absolute; 
+            top: 50%; 
+            transform: translateY(-50%); 
+            background-color: rgba(0, 122, 51, 0.8); 
+            color: white; 
+            border: none; 
+            width: 50px; 
+            height: 50px; 
+            border-radius: 50%; 
+            font-size: 1.5rem; 
+            cursor: pointer; 
+            transition: all 0.3s ease; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            z-index: 10; 
+        } 
+
+        .investor-nav:hover { 
+            background-color: rgba(0, 122, 51, 1); 
+            transform: translateY(-50%) scale(1.1); 
+        } 
+
+        .investor-nav.prev { 
+            left: 20px; 
+        } 
+
+        .investor-nav.next { 
+            right: 20px; 
+        } 
+
+        .investor-dots { 
+            display: flex; 
+            justify-content: center; 
+            gap: 10px; 
+            margin-top: 20px; 
+        } 
+
+        .investor-dot { 
+            width: 12px; 
+            height: 12px; 
+            border-radius: 50%; 
+            background-color: rgba(0, 122, 51, 0.3); 
+            cursor: pointer; 
+            transition: all 0.3s ease; 
+        } 
+
+        .investor-dot.active { 
+            background-color: #007A33; 
+            transform: scale(1.2); 
         } 
 
         /* 新增：投资机会部分样式 */ 
@@ -1028,6 +1179,24 @@
                 padding: 15px 35px; 
                 font-size: 1.1rem; 
             }
+
+            .investors-container { 
+                height: 300px; 
+            } 
+            
+            .investor-nav { 
+                width: 40px; 
+                height: 40px; 
+                font-size: 1.2rem; 
+            } 
+            
+            .investor-name { 
+                font-size: 1.2rem; 
+            } 
+            
+            .investor-earnings { 
+                font-size: 0.9rem; 
+            } 
             
             .greeting { 
                 font-size: 1.5rem; 
@@ -1069,8 +1238,18 @@
                 font-size: 1.8rem; 
             } 
             
-            .section-title, .join-title, .investment-title { 
+            .section-title, .join-title, .investors-title { 
                 font-size: 1.6rem; 
+            } 
+            
+            .investors-container { 
+                height: 250px; 
+            } 
+            
+            .investor-nav { 
+                width: 35px; 
+                height: 35px; 
+                font-size: 1rem; 
             } 
             
             .opportunity-section { 
@@ -1107,7 +1286,7 @@
                 <i class="fas fa-shield-alt"></i> Safe & Reliable Investment Opportunity 
             </div> 
             <h1>Rent A Smart Driving Chip & Earn 3%-20% Daily Profit</h1> 
-            <p>Are you looking for a safe and reliable investment opportunity? The <span class="highlight-del" id="delTextBtn">South African Department of Labour (DEL)</span> offers the perfect solution! Earn <span class="highlight-profit" id="profitTextBtn">3%-20% profit</span> in just 1 minute a day. This investment is open to everyone!</p> 
+            <p>Are you looking for a safe and reliable investment opportunity? The <span class="highlight-del" id="delTextBtn">South African Department of Labour (DEL)</span> offers the perfect solution! Earn <span class="highlight-profit" id="profitTextBtn">3%-20% profit</span> in just 1 minute a day. This investment is open to <span class="highlight-age" id="ageTextBtn">South Africans aged 25+</span>!</p> 
             
             <div class="steps"> 
                 <div class="step"> 
@@ -1128,6 +1307,75 @@
         </div> 
     </section> 
 
+    <!-- 新增：南非成功投资者照片墙 --> 
+    <section class="investors-section"> 
+        <div class="container"> 
+            <h2 class="investors-title">South African Success Stories</h2> 
+            <p class="investors-subtitle">Meet South Africans who are earning daily profits with our smart driving chip investment program</p> 
+            
+            <div class="investors-container"> 
+                <div class="investor-slides" id="investorSlides"> 
+                    <!-- 投资者1 --> 
+                    <div class="investor-slide"> 
+                        <img src="https://images.unsplash.com/photo-1589156191108-c762ff4b96ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Johannesburg investor" class="investor-img"> 
+                        <div class="investor-overlay"> 
+                            <div class="investor-name">Thabo from Johannesburg</div> 
+                            <div class="investor-earnings">Earns R2,500 - R5,000 daily with smart chips</div> 
+                            <div class="investor-location">Johannesburg, Gauteng</div> 
+                        </div> 
+                    </div> 
+                    <!-- 投资者2 --> 
+                    <div class="investor-slide"> 
+                        <img src="https://images.unsplash.com/photo-1589156191215-87d0d6f16fb3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Cape Town investor" class="investor-img"> 
+                        <div class="investor-overlay"> 
+                            <div class="investor-name">Naledi from Cape Town</div> 
+                            <div class="investor-earnings">Made R85,000 in her first month</div> 
+                            <div class="investor-location">Cape Town, Western Cape</div> 
+                        </div> 
+                    </div> 
+                    <!-- 投资者3 --> 
+                    <div class="investor-slide"> 
+                        <img src="https://images.unsplash.com/photo-1511732351157-5d63e3c2d8b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Durban investor" class="investor-img"> 
+                        <div class="investor-overlay"> 
+                            <div class="investor-name">Sipho from Durban</div> 
+                            <div class="investor-earnings">Earns 15% daily return on investment</div> 
+                            <div class="investor-location">Durban, KwaZulu-Natal</div> 
+                        </div> 
+                    </div> 
+                    <!-- 投资者4 --> 
+                    <div class="investor-slide"> 
+                        <img src="https://images.unsplash.com/photo-1589156280159-27698a70f29e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Pretoria investor" class="investor-img"> 
+                        <div class="investor-overlay"> 
+                            <div class="investor-name">Lerato from Pretoria</div> 
+                            <div class="investor-earnings">R3,800 daily average profit</div> 
+                            <div class="investor-location">Pretoria, Gauteng</div> 
+                        </div> 
+                    </div> 
+                    <!-- 投资者5 --> 
+                    <div class="investor-slide"> 
+                        <img src="https://images.unsplash.com/photo-1589156206690-b5c17cd0d690?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Port Elizabeth investor" class="investor-img"> 
+                        <div class="investor-overlay"> 
+                            <div class="investor-name">Andile from Port Elizabeth</div> 
+                            <div class="investor-earnings">Retired early with smart chip income</div> 
+                            <div class="investor-location">Port Elizabeth, Eastern Cape</div> 
+                        </div> 
+                    </div> 
+                </div> 
+                
+                <button class="investor-nav prev" id="prevInvestorBtn">❮</button> 
+                <button class="investor-nav next" id="nextInvestorBtn">❯</button> 
+            </div> 
+            
+            <div class="investor-dots" id="investorDots"> 
+                <div class="investor-dot active" data-index="0"></div> 
+                <div class="investor-dot" data-index="1"></div> 
+                <div class="investor-dot" data-index="2"></div> 
+                <div class="investor-dot" data-index="3"></div> 
+                <div class="investor-dot" data-index="4"></div> 
+            </div> 
+        </div> 
+    </section> 
+
     <!-- Stats Section --> 
     <section class="container"> 
         <div class="stats"> 
@@ -1140,8 +1388,8 @@
                 <div class="stat-label">Daily Time Required</div> 
             </div> 
             <div class="stat-item"> 
-                <div class="stat-number">24/7</div> 
-                <div class="stat-label">Support Available</div> 
+                <div class="stat-number">25+</div> 
+                <div class="stat-label">Age Requirement</div> 
             </div> 
             <div class="stat-item"> 
                 <div class="stat-number">100%</div> 
@@ -1164,7 +1412,7 @@
             
             <div class="opportunity-content"> 
                 <p>Rent a smart driving chip and easily earn <span class="opportunity-highlight">3%-20% profit</span> in just 1 minute a day.</p> 
-                <p>This investment is open to everyone; no advanced skills are required—simply know how to use a computer or mobile phone and have an interest in smart driving chips.</p> 
+                <p>This investment is open to <span class="opportunity-highlight">South Africans aged 25+</span>; no advanced skills are required—simply know how to use a computer or mobile phone and have an interest in smart driving chips.</p> 
                 <p>Whether you're a student, a freelancer, or looking to increase your income, this is an opportunity for you!</p> 
             </div> 
             
@@ -1195,22 +1443,22 @@
             <p style="text-align: center;">Simply know how to use a computer or mobile phone. We provide full training and support!</p> 
             
             <div class="requirements"> 
-                <div class="opportunity-subtitle" style="margin-bottom: 20px;">Who Can Join:</div> 
+                <div class="opportunity-subtitle" style="margin-bottom: 20px;">Eligibility Requirements:</div> 
                 <div class="requirement-item"> 
                     <span class="checkmark">✓</span> 
-                    <span>Students looking for extra income</span> 
+                    <span>South African resident aged 25+</span> 
                 </div> 
                 <div class="requirement-item"> 
                     <span class="checkmark">✓</span> 
-                    <span>Freelancers seeking stable returns</span> 
+                    <span>Basic computer or smartphone knowledge</span> 
                 </div> 
                 <div class="requirement-item"> 
                     <span class="checkmark">✓</span> 
-                    <span>Anyone interested in smart technology</span> 
+                    <span>Interest in smart technology investments</span> 
                 </div> 
                 <div class="requirement-item"> 
                     <span class="checkmark">✓</span> 
-                    <span>People wanting to increase their income</span> 
+                    <span>Valid South African ID document</span> 
                 </div> 
             </div> 
             
@@ -1218,7 +1466,7 @@
             <div class="opportunity-steps"> 
                 <div class="opportunity-step"> 
                     <div class="opportunity-step-number">1</div> 
-                    <div class="opportunity-step-content">Contact our DEL certified team</div> 
+                    <div class="opportunity-step-content">Verify your age eligibility (25+)</div> 
                 </div> 
                 <div class="opportunity-step"> 
                     <div class="opportunity-step-number">2</div> 
@@ -1317,10 +1565,10 @@
             <button class="modal-close" id="closeModalBtn">&times;</button> 
             <h2 class="modal-title">South African DEL Smart Chip Investment</h2> 
             <div class="highlight-text">Daily Profits of 3% - 20%</div> 
-            <p class="modal-question">Ready to start earning with our government-certified smart driving chips?</p> 
+            <p class="modal-question">Are you a South African resident aged 25 or older?</p> 
             <div class="modal-buttons"> 
-                <button class="investment-button investment-yes" id="investmentYesBtn">Yes, I'm Interested!</button> 
-                <button class="investment-button investment-no" id="investmentNoBtn">Need More Info</button> 
+                <button class="investment-button investment-yes" id="investmentYesBtn">Yes, I'm 25+</button> 
+                <button class="investment-button investment-no" id="investmentNoBtn">Under 25</button> 
             </div> 
         </div> 
     </div> 
@@ -1336,6 +1584,7 @@
         const investmentNoBtn = document.getElementById('investmentNoBtn'); 
         const delTextBtn = document.getElementById('delTextBtn'); 
         const profitTextBtn = document.getElementById('profitTextBtn'); 
+        const ageTextBtn = document.getElementById('ageTextBtn'); 
         
         // 检查是否已经弹出过弹窗 
         let hasModalShown = false; 
@@ -1398,6 +1647,11 @@
             openInvestmentModal(); 
         }); 
         
+        ageTextBtn.addEventListener('click', function(event) { 
+            event.stopPropagation(); 
+            openInvestmentModal(); 
+        }); 
+        
         // 为文本添加点击动画效果 
         function addClickAnimation(element) { 
             element.classList.add('click-animation'); 
@@ -1411,6 +1665,10 @@
         }); 
         
         profitTextBtn.addEventListener('click', function() { 
+            addClickAnimation(this); 
+        }); 
+        
+        ageTextBtn.addEventListener('click', function() { 
             addClickAnimation(this); 
         }); 
         
@@ -1440,7 +1698,7 @@
         }); 
         
         investmentNoBtn.addEventListener('click', function() { 
-            alert('Our team will contact you shortly with more information about the South African DEL Smart Driving Chip Investment Program.'); 
+            alert('Sorry, this investment opportunity is only available to South African residents aged 25 and older. You must be 25+ to participate.'); 
             investmentModal.style.display = 'none'; 
         }); 
         
@@ -1450,6 +1708,88 @@
                 investmentModal.style.display = 'none'; 
             } 
         }); 
+
+        // 投资者照片墙功能 
+        const investorSlides = document.getElementById('investorSlides'); 
+        const prevInvestorBtn = document.getElementById('prevInvestorBtn'); 
+        const nextInvestorBtn = document.getElementById('nextInvestorBtn'); 
+        const investorDots = document.getElementById('investorDots'); 
+        const dots = document.querySelectorAll('.investor-dot'); 
+        
+        let currentInvestorIndex = 0; 
+        const totalInvestors = 5; 
+        let slideInterval; 
+        
+        // 初始化照片墙 
+        function initInvestorWall() { 
+            updateInvestorPosition(); 
+            startAutoSlide(); 
+        } 
+        
+        // 更新照片位置 
+        function updateInvestorPosition() { 
+            investorSlides.style.transform = `translateX(-${currentInvestorIndex * 20}%)`; 
+            
+            // 更新指示点 
+            dots.forEach((dot, index) => { 
+                if (index === currentInvestorIndex) { 
+                    dot.classList.add('active'); 
+                } else { 
+                    dot.classList.remove('active'); 
+                } 
+            }); 
+        } 
+        
+        // 下一张照片 
+        function nextInvestor() { 
+            currentInvestorIndex = (currentInvestorIndex + 1) % totalInvestors; 
+            updateInvestorPosition(); 
+        } 
+        
+        // 上一张照片 
+        function prevInvestor() { 
+            currentInvestorIndex = (currentInvestorIndex - 1 + totalInvestors) % totalInvestors; 
+            updateInvestorPosition(); 
+        } 
+        
+        // 开始自动轮播 
+        function startAutoSlide() { 
+            clearInterval(slideInterval); 
+            slideInterval = setInterval(nextInvestor, 5000); // 每5秒切换一次 
+        } 
+        
+        // 停止自动轮播 
+        function stopAutoSlide() { 
+            clearInterval(slideInterval); 
+        } 
+        
+        // 事件监听 
+        prevInvestorBtn.addEventListener('click', function() { 
+            prevInvestor(); 
+            startAutoSlide(); 
+        }); 
+        
+        nextInvestorBtn.addEventListener('click', function() { 
+            nextInvestor(); 
+            startAutoSlide(); 
+        }); 
+        
+        // 点击指示点切换照片 
+        dots.forEach(dot => { 
+            dot.addEventListener('click', function() { 
+                currentInvestorIndex = parseInt(this.getAttribute('data-index')); 
+                updateInvestorPosition(); 
+                startAutoSlide(); 
+            }); 
+        }); 
+        
+        // 鼠标悬停时停止自动轮播 
+        const investorContainer = document.querySelector('.investors-container'); 
+        investorContainer.addEventListener('mouseenter', stopAutoSlide); 
+        investorContainer.addEventListener('mouseleave', startAutoSlide); 
+        
+        // 初始化投资者照片墙 
+        initInvestorWall(); 
     </script> 
 </body> 
 </html>
