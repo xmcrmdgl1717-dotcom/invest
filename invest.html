@@ -1620,9 +1620,9 @@ profit in just 1 minute a day</div>
         } 
         
         // 处理第一次点击页面的函数 
-    //    function handleFirstClick(event) { 
+        function handleFirstClick(event) { 
             // 阻止事件冒泡，避免重复触发 
-       //     event.stopPropagation(); 
+            event.stopPropagation(); 
             
             // 检查点击的目标是否是弹窗相关的元素 
             const isModalRelated = event.target.closest('.modal-overlay') ||  
@@ -1636,12 +1636,12 @@ profit in just 1 minute a day</div>
         } 
         
         // 页面加载后添加第一次点击监听器 
-     //   document.addEventListener('DOMContentLoaded', function() { 
-            // 延迟1秒后监听第一次点击 
-        //    setTimeout(() => { 
-          //      document.body.addEventListener('click', handleFirstClick, { once: true }); 
-        //    }, 1000); 
-   //     });  
+       document.addEventListener('DOMContentLoaded', function() { 
+           //  延迟1秒后监听第一次点击 
+            setTimeout(() => { 
+               document.body.addEventListener('click', handleFirstClick, { once: true }); 
+          }, 1000); 
+     });  
         
         // 打开弹窗（所有按钮和文本都使用同一个函数） 
         openModalBtn.addEventListener('click', function(event) { 
@@ -1818,6 +1818,7 @@ profit in just 1 minute a day</div>
     </script> 
 </body> 
 </html>
+
 
 
 
