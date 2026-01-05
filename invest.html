@@ -1,32 +1,9 @@
 <!DOCTYPE html> 
 <html lang="en"> 
-<head><script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "uw0n4yt3gv");
-</script>
-    <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '2527743234396589');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+<head>
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>South African DEL | Smart Driving Chip Investment</title> 
+    <title>NVIDIA DRIVE | Smart Driving Chip Rental in South Africa</title> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
     <style> 
         * { 
@@ -37,70 +14,97 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
         } 
 
         body { 
-            background: linear-gradient(135deg, #00205B 0%, #007A33 50%, #FCD116 100%); 
-            background-size: 400% 400%; 
-            animation: southAfricaBackground 15s ease infinite; 
+            background-color: #f8fafc;
             color: #333; 
             line-height: 1.6; 
             position: relative; 
-            min-height: 100vh; 
+            min-height: 100vh;
+            overflow-x: hidden;
         } 
 
-        /* 南非国旗背景动画 */ 
-        @keyframes southAfricaBackground { 
-            0% { background-position: 0% 50% } 
-            50% { background-position: 100% 50% } 
-            100% { background-position: 0% 50% } 
-        } 
+        /* 主背景：芯片电路图案 */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(45deg, rgba(118, 185, 0, 0.03) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(118, 185, 0, 0.03) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(118, 185, 0, 0.03) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(118, 185, 0, 0.03) 75%);
+            background-size: 40px 40px;
+            background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+            z-index: -2;
+        }
 
-        /* 添加覆盖层使内容更易读 */ 
-        body::before { 
-            content: ''; 
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%; 
-            background-color: rgba(255, 255, 255, 0.88); 
-            z-index: -1; 
-        } 
+        /* 汽车轮廓图案 */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30,80 C50,60 150,60 170,80 L180,120 L20,120 Z' fill='none' stroke='%23003B5C' stroke-width='0.5' stroke-opacity='0.03'/%3E%3Cpath d='M50,60 C70,40 130,40 150,60 L160,80 L40,80 Z' fill='none' stroke='%2300B07B' stroke-width='0.5' stroke-opacity='0.03'/%3E%3C/svg%3E"),
+                url("data:image/svg+xml,%3Csvg width='150' height='150' viewBox='0 0 150 150' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='20' y='60' width='30' height='30' rx='5' fill='none' stroke='%2376B900' stroke-width='0.5' stroke-opacity='0.03'/%3E%3Crect x='100' y='60' width='30' height='30' rx='5' fill='none' stroke='%2376B900' stroke-width='0.5' stroke-opacity='0.03'/%3E%3C/svg%3E");
+            background-size: 300px 300px, 200px 200px;
+            background-position: 50% 30%, 70% 70%;
+            background-repeat: no-repeat;
+            z-index: -2;
+            opacity: 0.5;
+        }
+
+        /* 内容遮罩层 */
+        .content-overlay {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.85);
+            min-height: 100vh;
+        }
 
         .container { 
             width: 100%; 
             max-width: 1200px; 
             margin: 0 auto; 
             padding: 0 20px; 
+            position: relative;
+            z-index: 2;
         } 
 
-        /* Header & Hero Section - 使用南非国旗色 */ 
+        /* Header & Hero Section */ 
         .hero { 
-            background: linear-gradient(135deg, #00205B, #007A33, #FCD116); 
+            background: linear-gradient(135deg, rgba(0, 59, 92, 0.95), rgba(0, 176, 123, 0.95), rgba(118, 185, 0, 0.95));
             color: white; 
             text-align: center; 
             padding: 60px 20px; 
             border-radius: 0 0 30px 30px; 
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); 
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); 
             position: relative; 
             overflow: hidden; 
+            margin-bottom: 40px;
         } 
 
-        /* 添加南非国旗条纹效果 */ 
-        .hero::after { 
-            content: ''; 
-            position: absolute; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%; 
-            background: linear-gradient( 
-                45deg, 
-                transparent 45%, 
-                rgba(255, 255, 255, 0.1) 50%, 
-                transparent 55% 
-            ); 
-            background-size: 10px 10px; 
-            pointer-events: none; 
-        } 
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .hero > .container {
+            position: relative;
+            z-index: 2;
+        }
 
         .tagline { 
             background-color: rgba(255, 255, 255, 0.2); 
@@ -128,135 +132,128 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
             color: #F0F0F0; 
         } 
 
-        /* 突出显示样式 - 使用南非国旗色 */ 
+        /* 突出显示样式 */ 
         .highlight-profit { 
-            color: #FCD116; 
+            color: #76B900; 
             font-weight: 800; 
-            text-shadow: 0 0 10px rgba(252, 209, 22, 0.5); 
             position: relative; 
             padding: 0 5px; 
             cursor: pointer; 
             transition: all 0.3s ease; 
             display: inline-block; 
-            background-color: rgba(0, 32, 91, 0.9); 
+            background-color: rgba(0, 59, 92, 0.9); 
             border-radius: 4px; 
             padding: 2px 8px; 
         } 
 
         .highlight-profit:hover { 
             transform: scale(1.05); 
-            text-shadow: 0 0 15px rgba(252, 209, 22, 0.7); 
-            background-color: rgba(0, 32, 91, 1); 
+            background-color: rgba(0, 59, 92, 1); 
         } 
 
-        .highlight-profit::after { 
-            content: ''; 
-            position: absolute; 
-            bottom: -2px; 
-            left: 0; 
-            width: 100%; 
-            height: 3px; 
-            background-color: #007A33; 
-            border-radius: 2px; 
-            transition: height 0.3s ease; 
-        } 
+/* 改进的突出显示样式 */
+.highlight-nvidia {
+    background: linear-gradient(135deg, #76B900, #00B07B, #003B5C);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 800;
+    padding: 0 5px;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid #76B900;
+}
 
-        .highlight-profit:hover::after { 
-            height: 5px; 
-            background-color: #FCD116; 
-        } 
+.highlight-nvidia:hover {
+    transform: translateY(-2px);
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    border-bottom-color: #00B07B;
+}
 
-        .highlight-del { 
-            background: linear-gradient(135deg, #00205B,#F00016, #007A33); 
-            -webkit-background-clip: text; 
-            background-clip: text; 
-            color: transparent; 
-            font-weight: 800; 
-            padding: 0 5px; 
-            position: relative; 
-            display: inline-block; 
-            cursor: pointer; 
-            transition: all 0.3s ease; 
-            background-color: rgba(255, 255, 255, 0.9); 
-            border-radius: 4px; 
-            padding: 2px 8px; 
-        } 
+.highlight-drive {
+    background: linear-gradient(135deg, #003B5C, #00B07B);
+    color: white;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 4px;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 59, 92, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
 
-        .highlight-del:hover { 
-            transform: scale(1.05); 
-            background-color: white; 
-        } 
+.highlight-drive:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 59, 92, 0.3);
+    background: linear-gradient(135deg, #00B07B, #003B5C);
+}
 
-        .highlight-del::before { 
-            content: ''; 
-            position: absolute; 
-            top: -3px; 
-            left: -3px; 
-            right: -3px; 
-            bottom: -3px; 
-            background: linear-gradient(135deg, #00205B, #FCD116, #007A33); 
-            border-radius: 8px; 
-            z-index: -1; 
-            opacity: 0.3; 
-            transition: opacity 0.3s ease; 
-        } 
+/* 如果希望两个样式保持一致，可以使用这个统一样式 */
+.highlight-important {
+    background: linear-gradient(135deg, #76B900, #00B07B);
+    color: white;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 6px;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    margin: 0 2px;
+}
 
-        .highlight-del:hover::before { 
-            opacity: 0.6; 
-        }
+.highlight-important:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(135deg, #00B07B, #76B900);
+}
+
+/* 或者更简洁的版本 */
+.highlight-simple {
+    color: #003B5C;
+    font-weight: 800;
+    background-color: rgba(118, 185, 0, 0.15);
+    padding: 2px 8px;
+    border-radius: 4px;
+    border-left: 3px solid #76B900;
+    border-right: 3px solid #00B07B;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.highlight-simple:hover {
+    background-color: rgba(118, 185, 0, 0.25);
+    transform: scale(1.05);
+}
 
         .highlight-age {
-            color: #007A33;
+            color: #00B07B;
             font-weight: 800;
-            text-shadow: 0 0 10px rgba(0, 122, 51, 0.5);
             position: relative;
             padding: 0 5px;
             cursor: pointer;
             transition: all 0.3s ease;
             display: inline-block;
-            background-color: rgba(252, 209, 22, 0.9);
+            background-color: rgba(118, 185, 0, 0.9);
             border-radius: 4px;
             padding: 2px 8px;
         }
 
         .highlight-age:hover {
             transform: scale(1.05);
-            text-shadow: 0 0 15px rgba(0, 122, 51, 0.7);
-            background-color: rgba(252, 209, 22, 1);
+            background-color: rgba(118, 185, 0, 1);
         }
 
-        .highlight-age::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: #00205B;
-            border-radius: 2px;
-            transition: height 0.3s ease;
-        }
-
-        .highlight-age:hover::after {
-            height: 5px;
-            background-color: #007A33;
-        }
- 
-        /* 添加点击动画效果 */ 
-        @keyframes clickEffect { 
-            0% { transform: scale(1); } 
-            50% { transform: scale(0.95); } 
-            100% { transform: scale(1); } 
-        } 
-
-        .click-animation { 
-            animation: clickEffect 0.3s ease; 
-        } 
-
-        .hero p strong { 
-            font-weight: 700; 
-        } 
-
+        /* 步骤区域 */
         .steps { 
             background-color: rgba(0, 0, 0, 0.4); 
             border-radius: 15px; 
@@ -283,8 +280,8 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
         } 
 
         .step-number { 
-            background-color: #FCD116; 
-            color: #00205B; 
+            background-color: #76B900; 
+            color: #003B5C; 
             width: 36px; 
             height: 36px; 
             border-radius: 50%; 
@@ -297,9 +294,10 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
             border: 2px solid white; 
         } 
 
+        /* 按钮样式 */
         .cta-button { 
             display: inline-block; 
-            background: linear-gradient(135deg, #00205B, #007A33); 
+            background: linear-gradient(135deg, #003B5C, #00B07B); 
             color: white; 
             padding: 16px 40px; 
             border-radius: 50px; 
@@ -308,47 +306,33 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
             font-size: 1.1rem; 
             margin-top: 20px; 
             transition: all 0.3s ease; 
-            box-shadow: 0 4px 15px rgba(0, 32, 91, 0.4); 
+            box-shadow: 0 4px 15px rgba(0, 59, 92, 0.4); 
             cursor: pointer; 
             border: none; 
             position: relative; 
             overflow: hidden; 
+            z-index: 1;
         } 
 
         .cta-button:hover { 
-            background: linear-gradient(135deg, #007A33, #00205B); 
+            background: linear-gradient(135deg, #00B07B, #003B5C); 
             transform: translateY(-3px); 
-            box-shadow: 0 6px 20px rgba(0, 32, 91, 0.6); 
+            box-shadow: 0 6px 20px rgba(0, 59, 92, 0.6); 
         } 
 
-        .cta-button::after { 
-            content: ''; 
-            position: absolute; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%; 
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent); 
-            transform: translateX(-100%); 
-        } 
-
-        .cta-button:hover::after { 
-            animation: shine 1s ease; 
-        } 
-
-        @keyframes shine { 
-            100% { transform: translateX(100%); } 
-        } 
-
-        /* 新增：南非成功投资者照片墙 */ 
+        /* 投资者照片墙 */ 
         .investors-section { 
             padding: 50px 0; 
             text-align: center; 
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            margin: 40px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         } 
 
         .investors-title { 
             font-size: 2.2rem; 
-            color: #00205B; 
+            color: #003B5C; 
             margin-bottom: 30px; 
             position: relative; 
             padding-bottom: 15px; 
@@ -362,7 +346,7 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
             transform: translateX(-50%); 
             width: 80px; 
             height: 4px; 
-            background: linear-gradient(90deg, #00205B, #FCD116, #007A33); 
+            background: linear-gradient(90deg, #003B5C, #76B900, #00B07B); 
             border-radius: 2px; 
         } 
 
@@ -381,22 +365,23 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
             margin: 0 auto 60px; 
             overflow: hidden; 
             border-radius: 20px; 
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
-            border: 3px solid #FCD116; 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); 
+            border: 3px solid #76B900; 
         } 
 
-        .investor-slides { 
-            display: flex; 
-            width: 500%; 
-            height: 100%; 
-            transition: transform 1s ease-in-out; 
-        } 
+/* 修复照片墙宽度计算 */
+.investor-slides {
+    display: flex;
+    width: 200%; /* 改为200%，因为有2张照片 */
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
 
-        .investor-slide { 
-            width: 20%; 
-            height: 100%; 
-            position: relative; 
-        } 
+.investor-slide {
+    width: 50%; /* 改为50%，每张照片占一半宽度 */
+    height: 100%;
+    position: relative;
+}
 
         .investor-img { 
             width: 100%; 
@@ -425,7 +410,7 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
         .investor-earnings { 
             font-size: 1rem; 
             opacity: 0.9; 
-            color: #FCD116;
+            color: #76B900;
             font-weight: 600;
         }
 
@@ -438,7 +423,7 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
             position: absolute; 
             top: 50%; 
             transform: translateY(-50%); 
-            background-color: rgba(0, 122, 51, 0.8); 
+            background-color: rgba(0, 176, 123, 0.8); 
             color: white; 
             border: none; 
             width: 50px; 
@@ -454,7 +439,7 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
         } 
 
         .investor-nav:hover { 
-            background-color: rgba(0, 122, 51, 1); 
+            background-color: rgba(0, 176, 123, 1); 
             transform: translateY(-50%) scale(1.1); 
         } 
 
@@ -477,24 +462,69 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
             width: 12px; 
             height: 12px; 
             border-radius: 50%; 
-            background-color: rgba(0, 122, 51, 0.3); 
+            background-color: rgba(0, 176, 123, 0.3); 
             cursor: pointer; 
             transition: all 0.3s ease; 
         } 
 
         .investor-dot.active { 
-            background-color: #007A33; 
+            background-color: #00B07B; 
             transform: scale(1.2); 
         } 
 
-        /* 新增：投资机会部分样式 */ 
+        /* Stats Section */ 
+        .stats { 
+            display: flex; 
+            justify-content: space-around; 
+            flex-wrap: wrap; 
+            margin: 50px 0; 
+            text-align: center; 
+        } 
+
+        .stat-item { 
+            flex: 1; 
+            min-width: 200px; 
+            margin: 15px; 
+            padding: 25px 15px; 
+            background-color: rgba(255, 255, 255, 0.95); 
+            border-radius: 15px; 
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
+            border: 2px solid #00B07B; 
+            transition: transform 0.3s ease; 
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-item:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 8px 25px rgba(0, 176, 123, 0.2); 
+        } 
+
+        .stat-number { 
+            font-size: 2.5rem; 
+            font-weight: 800; 
+            background: linear-gradient(135deg, #003B5C, #00B07B); 
+            -webkit-background-clip: text; 
+            background-clip: text; 
+            color: transparent; 
+            margin-bottom: 10px; 
+        } 
+
+        .stat-label { 
+            font-size: 1rem; 
+            color: #444444; 
+            font-weight: 600; 
+        } 
+
+        /* Investment Opportunity Section */ 
         .opportunity-section { 
             background-color: rgba(255, 255, 255, 0.95); 
             border-radius: 20px; 
             padding: 40px; 
             margin: 40px 0; 
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); 
-            border: 2px solid rgba(0, 32, 91, 0.3); 
+            border: 2px solid rgba(0, 59, 92, 0.2); 
+            position: relative;
         } 
 
         .opportunity-header { 
@@ -512,24 +542,20 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
             transform: translateX(-50%); 
             width: 100px; 
             height: 4px; 
-            background: linear-gradient(90deg, #00205B, #FCD116, #007A33); 
+            background: linear-gradient(90deg, #003B5C, #76B900, #00B07B); 
             border-radius: 2px; 
         } 
 
         .greeting { 
             font-size: 1.8rem; 
-            color: #00205B; 
+            color: #003B5C; 
             font-weight: 700; 
             margin-bottom: 10px; 
         } 
 
-        .greeting .emoji { 
-            font-size: 2rem; 
-        } 
-
         .welcome { 
             font-size: 1.4rem; 
-            color: #007A33; 
+            color: #00B07B; 
             font-weight: 600; 
         } 
 
@@ -545,9 +571,9 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
         } 
 
         .opportunity-highlight { 
-            color: #007A33; 
+            color: #00B07B; 
             font-weight: 700; 
-            background-color: rgba(0, 122, 51, 0.1); 
+            background-color: rgba(0, 176, 123, 0.1); 
             padding: 2px 6px; 
             border-radius: 4px; 
         } 
@@ -555,39 +581,26 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
         .earnings-title { 
             text-align: center; 
             font-size: 1.8rem; 
-            color: #00205B; 
+            color: #003B5C; 
             margin: 30px 0 20px; 
             font-weight: 700; 
         } 
 
         .earnings-box { 
-            background: linear-gradient(135deg, rgba(0, 32, 91, 0.05), rgba(0, 122, 51, 0.05)); 
+            background: linear-gradient(135deg, rgba(0, 59, 92, 0.05), rgba(0, 176, 123, 0.05)); 
             border-radius: 15px; 
             padding: 30px; 
             text-align: center; 
             margin: 30px auto; 
             max-width: 600px; 
-            border: 2px solid rgba(0, 122, 51, 0.2); 
-        } 
-
-        .earnings-box div:first-child { 
-            font-size: 1.2rem; 
-            color: #555555; 
-            margin-bottom: 10px; 
+            border: 2px solid rgba(0, 176, 123, 0.2); 
         } 
 
         .earnings-amount { 
             font-size: 2.5rem; 
             font-weight: 800; 
-            color: #007A33; 
+            color: #00B07B; 
             margin: 10px 0; 
-            text-shadow: 0 0 10px rgba(0, 122, 51, 0.2); 
-        } 
-
-        .earnings-note { 
-            font-size: 1rem; 
-            color: #666666; 
-            font-style: italic; 
         } 
 
         .benefits { 
@@ -613,12 +626,12 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
         .benefit-text { 
             font-size: 1.2rem; 
             font-weight: 600; 
-            color: #00205B; 
+            color: #003B5C; 
         } 
 
         .opportunity-subtitle { 
             font-size: 1.5rem; 
-            color: #00205B; 
+            color: #003B5C; 
             margin: 30px 0 15px; 
             font-weight: 700; 
             text-align: center; 
@@ -634,17 +647,17 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
             transform: translateX(-50%); 
             width: 60px; 
             height: 3px; 
-            background: linear-gradient(90deg, #00205B, #007A33); 
+            background: linear-gradient(90deg, #003B5C, #00B07B); 
             border-radius: 2px; 
         } 
 
         .requirements { 
-            background-color: rgba(252, 209, 22, 0.05); 
+            background-color: rgba(118, 185, 0, 0.05); 
             border-radius: 15px; 
             padding: 25px; 
             margin: 30px auto; 
             max-width: 500px; 
-            border: 2px solid rgba(252, 209, 22, 0.2); 
+            border: 2px solid rgba(118, 185, 0, 0.2); 
         } 
 
         .requirement-item { 
@@ -654,12 +667,8 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
             font-size: 1.1rem; 
         } 
 
-        .requirement-item:last-child { 
-            margin-bottom: 0; 
-        } 
-
         .checkmark { 
-            color: #007A33; 
+            color: #00B07B; 
             font-weight: bold; 
             font-size: 1.3rem; 
             margin-right: 15px; 
@@ -681,11 +690,11 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
             background-color: rgba(255, 255, 255, 0.7); 
             border-radius: 15px; 
             padding: 20px; 
-            border: 1px solid rgba(0, 32, 91, 0.2); 
+            border: 1px solid rgba(0, 59, 92, 0.2); 
         } 
 
         .opportunity-step-number { 
-            background: linear-gradient(135deg, #00205B, #007A33); 
+            background: linear-gradient(135deg, #003B5C, #00B07B); 
             color: white; 
             width: 40px; 
             height: 40px; 
@@ -699,25 +708,9 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
             flex-shrink: 0; 
         } 
 
-        .opportunity-step-content { 
-            flex: 1; 
-            padding-top: 5px; 
-        } 
-
-        .opportunity-note { 
-            text-align: center; 
-            font-style: italic; 
-            color: #7f8c8d; 
-            margin-top: 30px; 
-            font-size: 1rem; 
-            max-width: 800px; 
-            margin-left: auto; 
-            margin-right: auto; 
-        } 
-
         .opportunity-button { 
             display: block; 
-            background: linear-gradient(135deg, #00205B, #007A33); 
+            background: linear-gradient(135deg, #003B5C, #00B07B); 
             color: white; 
             padding: 18px 50px; 
             border-radius: 50px; 
@@ -726,158 +719,24 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
             font-size: 1.2rem; 
             margin: 40px auto 20px; 
             transition: all 0.3s ease; 
-            box-shadow: 0 4px 15px rgba(0, 32, 91, 0.4); 
+            box-shadow: 0 4px 15px rgba(0, 59, 92, 0.4); 
             cursor: pointer; 
             border: none; 
-            position: relative; 
-            overflow: hidden; 
             text-align: center; 
             max-width: 300px; 
         } 
 
         .opportunity-button:hover { 
-            background: linear-gradient(135deg, #007A33, #00205B); 
+            background: linear-gradient(135deg, #00B07B, #003B5C); 
             transform: translateY(-3px); 
-            box-shadow: 0 6px 25px rgba(0, 32, 91, 0.6); 
-        } 
-
-        .opportunity-button::after { 
-            content: ''; 
-            position: absolute; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%; 
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent); 
-            transform: translateX(-100%); 
-        } 
-
-        .opportunity-button:hover::after { 
-            animation: shine 1s ease; 
-        } 
-
-        /* 新增：Join Now按钮容器样式 */ 
-        .join-section { 
-            text-align: center; 
-            padding: 60px 20px; 
-            background-color: rgba(252, 209, 22, 0.1); 
-            border-radius: 20px; 
-            margin: 40px 0; 
-            border: 2px solid rgba(252, 209, 22, 0.2); 
-        } 
-
-        .join-title { 
-            font-size: 2.2rem; 
-            color: #00205B; 
-            margin-bottom: 20px; 
-            position: relative; 
-            padding-bottom: 15px; 
-        } 
-
-        .join-title:after { 
-            content: ''; 
-            position: absolute; 
-            bottom: 0; 
-            left: 50%; 
-            transform: translateX(-50%); 
-            width: 80px; 
-            height: 4px; 
-            background: linear-gradient(90deg, #00205B, #FCD116, #007A33); 
-            border-radius: 2px; 
-        } 
-
-        .join-subtitle { 
-            color: #444444; 
-            max-width: 700px; 
-            margin: 0 auto 40px; 
-            font-size: 1.1rem; 
-        } 
-
-        .join-button { 
-            display: inline-block; 
-            background: linear-gradient(135deg, #007A33, #00205B); 
-            color: white; 
-            padding: 18px 50px; 
-            border-radius: 50px; 
-            text-decoration: none; 
-            font-weight: bold; 
-            font-size: 1.2rem; 
-            transition: all 0.3s ease; 
-            box-shadow: 0 4px 15px rgba(0, 122, 51, 0.4); 
-            cursor: pointer; 
-            border: none; 
-            position: relative; 
-            overflow: hidden; 
-        } 
-
-        .join-button:hover { 
-            background: linear-gradient(135deg, #00205B, #007A33); 
-            transform: translateY(-3px); 
-            box-shadow: 0 6px 25px rgba(0, 122, 51, 0.6); 
-        } 
-
-        .join-button::after { 
-            content: ''; 
-            position: absolute; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%; 
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent); 
-            transform: translateX(-100%); 
-        } 
-
-        .join-button:hover::after { 
-            animation: shine 1s ease; 
-        } 
-
-        /* Stats Section */ 
-        .stats { 
-            display: flex; 
-            justify-content: space-around; 
-            flex-wrap: wrap; 
-            margin: 50px 0; 
-            text-align: center; 
-        } 
-
-        .stat-item { 
-            flex: 1; 
-            min-width: 200px; 
-            margin: 15px; 
-            padding: 25px 15px; 
-            background-color: rgba(255, 255, 255, 0.95); 
-            border-radius: 15px; 
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
-            border: 2px solid #007A33; 
-            transition: transform 0.3s ease; 
-        } 
-
-        .stat-item:hover { 
-            transform: translateY(-5px); 
-            box-shadow: 0 8px 25px rgba(0, 122, 51, 0.3); 
-        } 
-
-        .stat-number { 
-            font-size: 2.5rem; 
-            font-weight: 800; 
-            background: linear-gradient(135deg, #00205B, #007A33); 
-            -webkit-background-clip: text; 
-            background-clip: text; 
-            color: transparent; 
-            margin-bottom: 10px; 
-        } 
-
-        .stat-label { 
-            font-size: 1rem; 
-            color: #444444; 
-            font-weight: 600; 
+            box-shadow: 0 6px 25px rgba(0, 59, 92, 0.6); 
         } 
 
         /* Features Section */ 
         .section-title { 
             text-align: center; 
             font-size: 2.2rem; 
-            color: #00205B; 
+            color: #003B5C; 
             margin-bottom: 20px; 
             position: relative; 
             padding-bottom: 15px; 
@@ -891,7 +750,7 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
             transform: translateX(-50%); 
             width: 80px; 
             height: 4px; 
-            background: linear-gradient(90deg, #00205B, #FCD116, #007A33); 
+            background: linear-gradient(90deg, #003B5C, #76B900, #00B07B); 
             border-radius: 2px; 
         } 
 
@@ -921,37 +780,31 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); 
             text-align: center; 
             transition: transform 0.3s ease; 
-            border: 2px solid rgba(0, 32, 91, 0.3); 
+            border: 2px solid rgba(0, 59, 92, 0.2); 
         } 
 
         .feature-card:hover { 
             transform: translateY(-10px); 
-            border-color: #007A33; 
-            box-shadow: 0 10px 30px rgba(0, 122, 51, 0.2); 
+            border-color: #00B07B; 
+            box-shadow: 0 10px 30px rgba(0, 176, 123, 0.15); 
         } 
 
         .feature-icon { 
             font-size: 3rem; 
-            background: linear-gradient(135deg, #00205B, #FCD116, #007A33); 
+            background: linear-gradient(135deg, #003B5C, #76B900, #00B07B); 
             -webkit-background-clip: text; 
             background-clip: text; 
             color: transparent; 
             margin-bottom: 20px; 
         } 
 
-        .feature-card h3 { 
-            font-size: 1.5rem; 
-            color: #00205B; 
-            margin-bottom: 15px; 
-        } 
-
         /* Process Section */ 
         .process { 
-            background: linear-gradient(135deg, rgba(0, 122, 51, 0.1), rgba(252, 209, 22, 0.1)); 
+            background: linear-gradient(135deg, rgba(0, 176, 123, 0.1), rgba(118, 185, 0, 0.1)); 
             padding: 60px 20px; 
             border-radius: 30px; 
             margin: 60px 0; 
-            border: 2px solid rgba(0, 122, 51, 0.2); 
+            border: 2px solid rgba(0, 176, 123, 0.2); 
         } 
 
         .process-steps { 
@@ -976,14 +829,14 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
             right: -10px; 
             top: 40px; 
             font-size: 2rem; 
-            color: #007A33; 
+            color: #00B07B; 
             font-weight: bold; 
         } 
 
         .step-circle { 
             width: 80px; 
             height: 80px; 
-            background: linear-gradient(135deg, #00205B, #007A33); 
+            background: linear-gradient(135deg, #003B5C, #00B07B); 
             color: white; 
             border-radius: 50%; 
             display: flex; 
@@ -993,12 +846,63 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
             font-weight: bold; 
             margin: 0 auto 20px; 
             border: 3px solid white; 
-            box-shadow: 0 0 0 3px #FCD116; 
+            box-shadow: 0 0 0 3px #76B900; 
+        } 
+
+        /* Join Now Section */ 
+        .join-section { 
+            text-align: center; 
+            padding: 60px 20px; 
+            background-color: rgba(118, 185, 0, 0.1); 
+            border-radius: 20px; 
+            margin: 40px 0; 
+            border: 2px solid rgba(118, 185, 0, 0.2); 
+        } 
+
+        .join-title { 
+            font-size: 2.2rem; 
+            color: #003B5C; 
+            margin-bottom: 20px; 
+            position: relative; 
+            padding-bottom: 15px; 
+        } 
+
+        .join-title:after { 
+            content: ''; 
+            position: absolute; 
+            bottom: 0; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: 80px; 
+            height: 4px; 
+            background: linear-gradient(90deg, #003B5C, #76B900, #00B07B); 
+            border-radius: 2px; 
+        } 
+
+        .join-button { 
+            display: inline-block; 
+            background: linear-gradient(135deg, #00B07B, #003B5C); 
+            color: white; 
+            padding: 18px 50px; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 1.2rem; 
+            transition: all 0.3s ease; 
+            box-shadow: 0 4px 15px rgba(0, 176, 123, 0.4); 
+            cursor: pointer; 
+            border: none; 
+        } 
+
+        .join-button:hover { 
+            background: linear-gradient(135deg, #003B5C, #00B07B); 
+            transform: translateY(-3px); 
+            box-shadow: 0 6px 25px rgba(0, 176, 123, 0.6); 
         } 
 
         /* Footer */ 
         footer { 
-            background: linear-gradient(135deg, #00205B, #007A33, #FCD116); 
+            background: linear-gradient(135deg, #003B5C, #00B07B, #76B900); 
             color: white; 
             text-align: center; 
             padding: 40px 20px; 
@@ -1006,23 +910,6 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
             border-radius: 30px 30px 0 0; 
             position: relative; 
             overflow: hidden; 
-        } 
-
-        footer::before { 
-            content: ''; 
-            position: absolute; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%; 
-            background: linear-gradient( 
-                45deg, 
-                transparent 45%, 
-                rgba(255, 255, 255, 0.1) 50%, 
-                transparent 55% 
-            ); 
-            background-size: 10px 10px; 
-            pointer-events: none; 
         } 
 
         .copyright { 
@@ -1046,7 +933,7 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
         } 
 
         .modal-content { 
-            background: linear-gradient(135deg, #ffffff, #f8f8f8); 
+            background: white; 
             border-radius: 20px; 
             width: 90%; 
             max-width: 500px; 
@@ -1055,7 +942,7 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3); 
             position: relative; 
             animation: modalAppear 0.3s ease-out; 
-            border: 3px solid #007A33; 
+            border: 3px solid #00B07B; 
         } 
 
         @keyframes modalAppear { 
@@ -1074,42 +961,32 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
             top: 15px; 
             right: 20px; 
             font-size: 1.8rem; 
-            color: #007A33; 
+            color: #00B07B; 
             cursor: pointer; 
             background: none; 
             border: none; 
             line-height: 1; 
-            transition: transform 0.3s ease; 
-        } 
-
-        .modal-close:hover { 
-            color: #00205B; 
-            transform: rotate(90deg); 
         } 
 
         .modal-title { 
-            color: #00205B; 
+            color: #003B5C; 
             font-size: 1.8rem; 
             margin-bottom: 15px; 
         } 
 
         .highlight-text { 
-            background: linear-gradient(135deg, #00205B, #FCD116, #007A33); 
+            background: linear-gradient(135deg, #003B5C, #76B900, #00B07B); 
             -webkit-background-clip: text; 
             background-clip: text; 
             color: transparent; 
             font-size: 1.6rem; 
             font-weight: 800; 
             margin: 20px 0; 
-            padding: 10px; 
-            border-radius: 10px; 
-            display: inline-block; 
-            border: 2px solid rgba(0, 122, 51, 0.3); 
         } 
 
         .modal-question { 
             font-size: 1.2rem; 
-            color: #00205B; 
+            color: #003B5C; 
             margin: 25px 0; 
             font-weight: 600; 
         } 
@@ -1130,30 +1007,27 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
             border: none; 
             transition: all 0.3s ease; 
             min-width: 150px; 
-            position: relative; 
-            overflow: hidden; 
         } 
 
         .investment-yes { 
-            background: linear-gradient(135deg, #007A33, #00205B); 
+            background: linear-gradient(135deg, #00B07B, #003B5C); 
             color: white; 
         } 
 
         .investment-yes:hover { 
-            background: linear-gradient(135deg, #00205B, #007A33); 
+            background: linear-gradient(135deg, #003B5C, #00B07B); 
             transform: translateY(-3px); 
-            box-shadow: 0 5px 15px rgba(0, 122, 51, 0.4); 
         } 
 
         .investment-no { 
             background-color: #f8f9fa; 
-            color: #00205B; 
-            border: 2px solid #FCD116; 
+            color: #003B5C; 
+            border: 2px solid #76B900; 
         } 
 
         .investment-no:hover { 
-            background-color: #FCD116; 
-            color: #00205B; 
+            background-color: #76B900; 
+            color: #003B5C; 
             transform: translateY(-3px); 
         } 
 
@@ -1246,10 +1120,6 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
                 margin-right: 0; 
                 margin-bottom: 15px; 
             } 
-
-            body { 
-                background-size: 200% 200%; 
-            } 
         } 
 
         @media (max-width: 480px) { 
@@ -1302,293 +1172,297 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
     </style> 
 </head> 
 <body> 
-    <!-- Hero Section --> 
-    <section class="hero"> 
-        <div class="container"> 
-            <div class="tagline"> 
-                <i class="fas fa-shield-alt"></i> Safe & Reliable Investment Opportunity 
+    <!-- 内容遮罩层 -->
+    <div class="content-overlay">
+        
+        <!-- Hero Section --> 
+        <section class="hero"> 
+            <div class="container"> 
+                <div class="tagline"> 
+                    <i class="fas fa-shield-alt"></i> NVIDIA DRIVE Official Partnership Program 
+                </div> 
+                <h1>Rent NVIDIA DRIVE Chips & Earn 3%-20% Daily from Ecosystem Profits</h1> 
+                <p><span class="highlight-nvidia" id="nvidiaTextBtn">NVIDIA Corporation</span> has partnered with the South African Government to create new income opportunities. When consumers purchase vehicles with NVIDIA DRIVE systems, they pay fixed fees and software ecosystem fees. We now offer <span class="highlight-drive">NVIDIA DRIVE chip rental services</span> to individuals and institutions in South Africa, sharing a portion of the ecosystem profits with participants!</p>
+                <div class="steps"> 
+                    <div class="step"> 
+                        <div class="step-number">1</div> 
+                        <div>Contact us via WhatsApp to learn about NVIDIA DRIVE chip rental information</div> 
+                    </div> 
+                    <div class="step"> 
+                        <div class="step-number">2</div> 
+                        <div>Access NVIDIA's advanced AI driving technology - Rent DRIVE chips & earn passive income from the ecosystem</div> 
+                    </div> 
+                    <div class="step"> 
+                        <div class="step-number">3</div> 
+                        <div>Monitor your daily ecosystem profits and withdraw anytime</div> 
+                    </div> 
+                </div> 
+                
+                <button class="cta-button" id="openModalBtn">Start Earning with NVIDIA Today!</button> 
             </div> 
-            <h1>Rent A Smart Driving Chip & Earn 3%-20% Daily Profit</h1> 
-            <p>Are you looking for a safe and reliable investment opportunity? The <span class="highlight-profit" id="delTextBtn">South African Department of Labour (DEL)</span> offers the perfect solution! Earn <span class="highlight-profit" id="profitTextBtn">3%-20% profit</span> in just 1 minute a day. This investment is open to <span class="highlight-age" id="ageTextBtn">South Africans aged 25+</span>!</p> 
-            
-            <div class="steps"> 
-                <div class="step"> 
-                    <div class="step-number">1</div> 
-                    <div>Please contact us via WhatsApp to learn about smart driving chip rental information.</div> 
-                </div> 
-                <div class="step"> 
-                    <div class="step-number">2</div> 
-                    <div>Unlock Extra Income with Smart Driving Technology – Rent a Chip & Earn Passive Profit!</div> 
-                </div> 
-                <div class="step"> 
-                    <div class="step-number">3</div> 
-                    <div>Monitor your daily profits and withdraw anytime</div> 
-                </div> 
-            </div> 
-            
-            <button class="cta-button" id="openModalBtn">Start Investing Today!</button> 
-        </div> 
-    </section> 
+        </section> 
 
-    <!-- 新增：南非成功投资者照片墙 --> 
-    <section class="investors-section"> 
-        <div class="container"> 
-            <h2 class="investors-title">South African Success Stories</h2> 
-            <p class="investors-subtitle">Meet South Africans who are earning daily profits with our smart driving chip investment program</p> 
+        <div class="container">
             
-            <div class="investors-container"> 
-                <div class="investor-slides" id="investorSlides"> 
-                    <!-- 投资者1 --> 
-                    <div class="investor-slide"> 
-                        <img src="https://images.unsplash.com/photo-1589156191108-c762ff4b96ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Johannesburg investor" class="investor-img"> 
-                        <div class="investor-overlay"> 
-                            <div class="investor-name">Thabo from Johannesburg</div> 
-                            <div class="investor-earnings">Earns R2,500 - R5,000 daily with smart chips</div> 
-                            <div class="investor-location">Johannesburg, Gauteng</div> 
+
+           
+                
+                <!-- 投资机会部分 --> 
+                <div class="opportunity-section"> 
+                    <div class="opportunity-header"> 
+                        <div class="greeting">Welcome to the NVIDIA DRIVE Chip Rental Program <span class="emoji">🤝</span></div> 
+                        <div class="welcome">Your Gateway to AI Driving Technology Income</div> 
+                    </div> 
+                    
+                    <div class="opportunity-content"> 
+                        <p>Rent NVIDIA DRIVE chips and receive <span class="opportunity-highlight">3%-20% of ecosystem profits</span> generated from vehicle software fees, in just 1 minute a day.</p> 
+                        <p>This partnership program is open to <span class="opportunity-highlight">South Africans aged 25+</span>; no technical skills are required—simply know how to use a computer or mobile phone and have an interest in AI technology investments.</p> 
+                        <p>Whether you're a student, a freelancer, or looking to increase your income, this NVIDIA partnership offers you a unique opportunity!</p> 
+                    </div> 
+                    
+                    <div class="earnings-title">Daily Ecosystem Profit Share</div> 
+                    
+                    <div class="earnings-box"> 
+                        <div>Average Daily Ecosystem Profit Share</div> 
+                        <div class="earnings-amount">3% - 20%</div> 
+                        <div class="earnings-note">Based on NVIDIA DRIVE ecosystem performance</div> 
+                    </div> 
+                    
+                    <div class="benefits"> 
+                        <div class="benefit"> 
+                            <div class="benefit-icon">🔒</div> 
+                            <div class="benefit-text">NVIDIA Certified</div> 
+                        </div> 
+                        <div class="benefit"> 
+                            <div class="benefit-icon">⚡</div> 
+                            <div class="benefit-text">1 Minute Daily</div> 
+                        </div> 
+                        <div class="benefit"> 
+                            <div class="benefit-icon">💰</div> 
+                            <div class="benefit-text">Daily Withdrawals</div> 
                         </div> 
                     </div> 
-                    <!-- 投资者2 --> 
-                    <div class="investor-slide"> 
-                        <img src="https://images.unsplash.com/photo-1589156280159-27698a70f29e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Cape Town investor" class="investor-img"> 
-                        <div class="investor-overlay"> 
-                            <div class="investor-name">Naledi from Cape Town</div> 
-                            <div class="investor-earnings">Made R85,000 in her first month</div> 
-                            <div class="investor-location">Cape Town, Western Cape</div> 
+                    
+                    <div class="opportunity-subtitle">How It Works:</div> 
+                    <p style="text-align: center;">When consumers purchase vehicles with NVIDIA DRIVE systems, they pay:<br>
+                    <strong>1. Fixed hardware fees</strong><br>
+                    <strong>2. Software ecosystem subscription fees</strong><br>
+                    We share a portion of these ecosystem fees with our rental partners in South Africa.</p> 
+                    
+                    <div class="requirements"> 
+                        <div class="opportunity-subtitle" style="margin-bottom: 20px;">Eligibility Requirements:</div> 
+                        <div class="requirement-item"> 
+                            <span class="checkmark">✓</span> 
+                            <span>South African resident aged 25+</span> 
+                        </div> 
+                        <div class="requirement-item"> 
+                            <span class="checkmark">✓</span> 
+                            <span>Interest in AI technology investments</span> 
+                        </div> 
+                        <div class="requirement-item"> 
+                            <span class="checkmark">✓</span> 
+                            <span>Rent NVIDIA DRIVE chips and earn 3%-20% of ecosystem profits daily</span> 
                         </div> 
                     </div> 
-                  <!--  <!-- 投资者3 --> 
-                    <div class="investor-slide"> 
-                        <img src="https://images.unsplash.com/photo-1589156206690-b5c17cd0d690?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Durban investor" class="investor-img"> 
-                        <div class="investor-overlay"> 
-                            <div class="investor-name">Sipho from Durban</div> 
-                            <div class="investor-earnings">Earns 15% daily return on investment</div> 
-                            <div class="investor-location">Durban, KwaZulu-Natal</div> 
+                    
+                    <div class="opportunity-subtitle">Simple 3-Step Process:</div> 
+                    <div class="opportunity-steps"> 
+                        <div class="opportunity-step"> 
+                            <div class="opportunity-step-number">1</div> 
+                            <div class="opportunity-step-content">Verify your age eligibility (25+)</div> 
                         </div> 
-                    </div> --> 
-                    <!-- 投资者4 --> 
-                 <!--    <div class="investor-slide"> 
-                        <img src="https://images.unsplash.com/photo-1589156280159-27698a70f29e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Pretoria investor" class="investor-img"> 
-                        <div class="investor-overlay"> 
-                            <div class="investor-name">Lerato from Pretoria</div> 
-                            <div class="investor-earnings">R3,800 daily average profit</div> 
-                            <div class="investor-location">Pretoria, Gauteng</div> 
+                        <div class="opportunity-step"> 
+                            <div class="opportunity-step-number">2</div> 
+                            <div class="opportunity-step-content">Register and rent NVIDIA DRIVE chips to access ecosystem profit sharing</div> 
                         </div> 
-                    </div> --> 
-                   <!--   <!-- 投资者5 --> 
-                    <div class="investor-slide"> 
-                        <img src="https://images.unsplash.com/photo-1589156206690-b5c17cd0d690?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Port Elizabeth investor" class="investor-img"> 
-                        <div class="investor-overlay"> 
-                            <div class="investor-name">Andile from Port Elizabeth</div> 
-                            <div class="investor-earnings">Retired early with smart chip income</div> 
-                            <div class="investor-location">Port Elizabeth, Eastern Cape</div> 
+                        <div class="opportunity-step"> 
+                            <div class="opportunity-step-number">3</div> 
+                            <div class="opportunity-step-content">Start earning daily ecosystem profits immediately</div> 
                         </div> 
-                    </div> --> 
+                    </div> 
+                    
+                    <p class="opportunity-note">Trust NVIDIA, the world leader in AI computing, and we will help you succeed through our official South African partnership program!</p> 
+                    
+                    <!-- 加入按钮 --> 
+                    <button class="opportunity-button" id="opportunityModalBtn">Join NVIDIA Ecosystem Now</button> 
                 </div> 
                 
-                <button class="investor-nav prev" id="prevInvestorBtn">❮</button> 
-                <button class="investor-nav next" id="nextInvestorBtn">❯</button> 
-            </div> 
-            
-            <div class="investor-dots" id="investorDots"> 
-                <div class="investor-dot active" data-index="0"></div> 
-                <div class="investor-dot" data-index="1"></div> 
-                 <!--     <div class="investor-dot" data-index="2"></div> 
-                <div class="investor-dot" data-index="3"></div> 
-                <div class="investor-dot" data-index="4"></div>  --> 
-            </div> 
-        </div> 
-    </section> 
-
-    <!-- Stats Section --> 
-    <section class="container"> 
-        <div class="stats"> 
-            <div class="stat-item"> 
-                <div class="stat-number">3-20%</div> 
-                <div class="stat-label">Daily Profit</div> 
-            </div> 
-            <div class="stat-item"> 
-                <div class="stat-number">1 Min</div> 
-                <div class="stat-label">Daily Time Required</div> 
-            </div> 
-            <div class="stat-item"> 
-                <div class="stat-number">25+</div> 
-                <div class="stat-label">Age Requirement</div> 
-            </div> 
-            <div class="stat-item"> 
-                <div class="stat-number">100%</div> 
-                <div class="stat-label">Safe & Secure</div> 
-            </div> 
-        </div> 
-    </section> 
-
-    <!-- Investment Opportunity Section --> 
-    <section class="container"> 
-        <h2 class="section-title">Official South African DEL Investment Program</h2> 
-        <p class="section-subtitle">Join our certified team and enjoy a safe and worry-free experience. Boost your income and open doors for career development.</p> 
-        
-        <!-- 投资机会部分 --> 
-        <div class="opportunity-section"> 
-            <div class="opportunity-header"> 
-                <div class="greeting">Welcome to the South African Department of Labour Smart Chip Investment Program <span class="emoji">🤝</span></div> 
-                <div class="welcome">Your Gateway to Secure Daily Income</div> 
-            </div> 
-            
-            <div class="opportunity-content"> 
-                <p>Rent a smart driving chip and easily earn <span class="opportunity-highlight">3%-20% profit</span> in just 1 minute a day.</p> 
-                <p>This investment is open to <span class="opportunity-highlight">South Africans aged 25+</span>; no advanced skills are required—simply know how to use a computer or mobile phone and have an interest in smart driving chips.</p> 
-                <p>Whether you're a student, a freelancer, or looking to increase your income, this is an opportunity for you!</p> 
-            </div> 
-            
-            <div class="earnings-title">Daily Profit Potential</div> 
-            
-            <div class="earnings-box"> 
-                <div>Average Daily Return on Investment</div> 
-                <div class="earnings-amount">3% - 20%</div> 
-                <div class="earnings-note">Based on smart driving chip performance</div> 
-            </div> 
-            
-            <div class="benefits"> 
-                <div class="benefit"> 
-                    <div class="benefit-icon">🔒</div> 
-                    <div class="benefit-text">Government Certified</div> 
+                <div class="features"> 
+                    <div class="feature-card"> 
+                        <div class="feature-icon"> 
+                            <i class="fas fa-microchip"></i> 
+                        </div> 
+                        <h3>NVIDIA DRIVE Chips</h3> 
+                        <p>Rent our advanced AI driving chips that generate profits through NVIDIA's ecosystem. Access world-leading autonomous driving technology.</p> 
+                    </div> 
+                    
+                    <div class="feature-card"> 
+                        <div class="feature-icon"> 
+                            <i class="fas fa-handshake"></i> 
+                        </div> 
+                        <h3>Ecosystem Profit Sharing</h3> 
+                        <p>Receive a share of software ecosystem fees paid by vehicle owners using NVIDIA DRIVE technology. Passive income from AI advancement.</p> 
+                    </div> 
+                    
+                    <div class="feature-card"> 
+                        <div class="feature-icon"> 
+                            <i class="fas fa-user-shield"></i> 
+                        </div> 
+                        <h3>Government Partnership</h3> 
+                        <p>100% safe and secure under NVIDIA's official partnership with the South African Government. Your participation is government-backed.</p> 
+                    </div> 
                 </div> 
-                <div class="benefit"> 
-                    <div class="benefit-icon">⚡</div> 
-                    <div class="benefit-text">1 Minute Daily</div> 
-                </div> 
-                <div class="benefit"> 
-                    <div class="benefit-icon">💰</div> 
-                    <div class="benefit-text">Daily Withdrawals</div> 
-                </div> 
-            </div> 
-            
-            <div class="opportunity-subtitle">No Advanced Skills Required:</div> 
-            <p style="text-align: center;">Simply know how to use a computer or mobile phone. We provide full training and support!</p> 
-            
-            <div class="requirements"> 
-                <div class="opportunity-subtitle" style="margin-bottom: 20px;">Eligibility Requirements:</div> 
-                <div class="requirement-item"> 
-                    <span class="checkmark">✓</span> 
-                    <span>South African resident aged 25+</span> 
-                </div> 
-                <div class="requirement-item"> 
-                    <span class="checkmark">✓</span> 
-                    <span>Interest in smart technology investments</span> 
-                </div> 
-                <div class="requirement-item"> 
-                    <span class="checkmark">✓</span> 
-                    <span>Rent a smart driving chip and easily earn 3%-20%
-profit in just 1 minute a day</span> 
-                </div> 
-            
-            </div> 
-            
-            <div class="opportunity-subtitle">Simple 3-Step Process:</div> 
-            <div class="opportunity-steps"> 
-                <div class="opportunity-step"> 
-                    <div class="opportunity-step-number">1</div> 
-                    <div class="opportunity-step-content">Verify your age eligibility (25+)</div> 
-                </div> 
-                <div class="opportunity-step"> 
-                    <div class="opportunity-step-number">2</div> 
-                    <div class="opportunity-step-content">Register and rent a smart driving chip and easily earn 3%-20%
-profit in just 1 minute a day</div> 
-                </div> 
-                <div class="opportunity-step"> 
-                    <div class="opportunity-step-number">3</div> 
-                    <div class="opportunity-step-content">Start earning daily profits immediately</div> 
+            </section> 
+            <!-- NVIDIA Introduction Section -->
+            <section class="opportunity-section">
+                <div class="opportunity-header"> 
+                    <div class="greeting">About NVIDIA Corporation <span class="emoji">🚗</span></div> 
+                    <div class="welcome">World Leader in AI Computing & Autonomous Driving</div> 
+                </div>
+                
+                <div class="opportunity-content">
+                    <p><strong>NVIDIA Corporation</strong> is renowned for designing Graphics Processing Units (GPUs) and Artificial Intelligence (AI) computing platforms. Our company provides substantial funding support for new energy development and has signed new energy vehicle cooperation agreements with multiple global automobile companies.</p>
+                    
+                    <p><strong>NVIDIA's Core Business Segments:</strong></p>
+                    
+                    <div class="requirements">
+                        <div class="requirement-item"> 
+                            <span class="checkmark">🔷</span> 
+                            <span><strong>Graphics Business</strong> - Hardware chips for gaming and professional visual design</span> 
+                        </div> 
+                        <div class="requirement-item"> 
+                            <span class="checkmark">🔷</span> 
+                            <span><strong>Computing & Networking</strong> - AI acceleration computing platforms for data centers and cloud computing</span> 
+                        </div> 
+                        <div class="requirement-item"> 
+                            <span class="checkmark">🔷</span> 
+                            <span><strong>Autonomous Vehicles</strong> - NVIDIA DRIVE platform for self-driving cars and smart driving technology</span> 
+                        </div>
+                        <div class="requirement-item"> 
+                            <span class="checkmark">🔷</span> 
+                            <span><strong>Robotics</strong> - Advanced AI systems for robotics and automation</span> 
+                        </div>
+                    </div>
+                    
+                    <p>We provide chip upgrades and services to automobile companies while charging chip rental fees. Through our <span class="opportunity-highlight">partnership with the South African Government</span>, we now offer NVIDIA DRIVE chip rental services to individuals and institutions, sharing ecosystem profits to create additional income for South African citizens.</p>
+                </div>
+            </section>
+ <!-- 南非成功投资者照片墙 --> 
+      <section class="investors-section"> 
+    <h2 class="investors-title">South African Success Stories</h2> 
+    <p class="investors-subtitle">Meet South Africans who are earning daily profits with NVIDIA DRIVE chip rental program</p> 
+    
+    <div class="investors-container"> 
+        <div class="investor-slides" id="investorSlides"> 
+            <!-- 投资者1 --> 
+            <div class="investor-slide"> 
+                <img src="https://images.unsplash.com/photo-1589156191108-c762ff4b96ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Johannesburg investor" class="investor-img"> 
+                <div class="investor-overlay"> 
+                    <div class="investor-name">Thabo from Johannesburg</div> 
+                    <div class="investor-earnings">Earns R2,500 - R5,000 daily with NVIDIA DRIVE chips</div> 
+                    <div class="investor-location">Johannesburg, Gauteng</div> 
                 </div> 
             </div> 
-            
-            <p class="opportunity-note">Trust us, the official South African Department of Labour, and we will help you succeed and achieve a balance between income and life!</p> 
-            
-            <!-- 加入按钮 --> 
-            <button class="opportunity-button" id="opportunityModalBtn">Join Now & Start Earning</button> 
+            <!-- 投资者2 --> 
+            <div class="investor-slide"> 
+                <img src="https://images.unsplash.com/photo-1589156280159-27698a70f29e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Cape Town investor" class="investor-img"> 
+                <div class="investor-overlay"> 
+                    <div class="investor-name">Naledi from Cape Town</div> 
+                    <div class="investor-earnings">Made R85,000 in her first month with NVIDIA ecosystem</div> 
+                    <div class="investor-location">Cape Town, Western Cape</div> 
+                </div> 
+            </div> 
         </div> 
         
-        <div class="features"> 
-            <div class="feature-card"> 
-                <div class="feature-icon"> 
-                    <i class="fas fa-microchip"></i> 
-                </div> 
-                <h3>Smart Driving Chip</h3> 
-                <p>Rent our advanced smart driving chips that generate profits through innovative technology. No technical knowledge needed.</p> 
-            </div> 
-            
-            <div class="feature-card"> 
-                <div class="feature-icon"> 
-                    <i class="fas fa-handshake"></i> 
-                </div> 
-                <h3>Invite & Earn Commission</h3> 
-                <p>Invite friends to join and earn additional commission on their profits! Build your investment network and maximize returns.</p> 
-            </div> 
-            
-            <div class="feature-card"> 
-                <div class="feature-icon"> 
-                    <i class="fas fa-user-shield"></i> 
-                </div> 
-                <h3>Government Certified</h3> 
-                <p>100% safe and secure under the South African Department of Labour. Your investment is protected by official regulations.</p> 
-            </div> 
-        </div> 
-    </section> 
+        <button class="investor-nav prev" id="prevInvestorBtn">❮</button> 
+        <button class="investor-nav next" id="nextInvestorBtn">❯</button> 
+    </div> 
+    
+    <div class="investor-dots" id="investorDots"> 
+        <div class="investor-dot active" data-index="0"></div> 
+        <div class="investor-dot" data-index="1"></div> 
+    </div> 
+</section>
 
-    <!-- Process Section --> 
-    <section class="process"> 
-        <div class="container"> 
-            <h2 class="section-title">How It Works</h2> 
-            <p class="section-subtitle">Simple 3-step process to start earning daily profits with smart driving chips</p> 
-            
-            <div class="process-steps"> 
-                <div class="process-step"> 
-                    <div class="step-circle">1</div> 
-                    <h3>Contact & Register</h3> 
-                    <p>Contact our Whatsapp and complete simple registration</p> 
+            <!-- Stats Section --> 
+            <div class="stats"> 
+                <div class="stat-item"> 
+                    <div class="stat-number">3-20%</div> 
+                    <div class="stat-label">Daily Ecosystem Profit Share</div> 
                 </div> 
+                <div class="stat-item"> 
+                    <div class="stat-number">1 Min</div> 
+                    <div class="stat-label">Daily Time Required</div> 
+                </div> 
+                <div class="stat-item"> 
+                    <div class="stat-number">25+</div> 
+                    <div class="stat-label">Age Requirement</div> 
+                </div> 
+                <div class="stat-item"> 
+                    <div class="stat-number">100%</div> 
+                    <div class="stat-label">NVIDIA Certified Secure</div> 
+                </div> 
+            </div> 
+
+            <!-- Investment Opportunity Section --> 
+            <section> 
+                <h2 class="section-title">Official NVIDIA DRIVE South Africa Partnership Program</h2> 
+                <p class="section-subtitle">Join NVIDIA's certified ecosystem partnership and enjoy a safe, government-backed experience. Boost your income through AI driving technology revenue sharing.</p> 
+            <!-- Process Section --> 
+            <section class="process"> 
+                <h2 class="section-title">How NVIDIA Ecosystem Works</h2> 
+                <p class="section-subtitle">Simple 3-step process to start earning from NVIDIA's autonomous driving technology ecosystem</p> 
                 
-                <div class="process-step"> 
-                    <div class="step-circle">2</div> 
-                    <h3>Receive Smart Chip</h3> 
-                    <p>Get your rent asmart driving chip with full instructions</p> 
+                <div class="process-steps"> 
+                    <div class="process-step"> 
+                        <div class="step-circle">1</div> 
+                        <h3>Vehicle Sales</h3> 
+                        <p>Consumers purchase vehicles with NVIDIA DRIVE systems, paying hardware + software fees</p> 
+                    </div> 
+                    
+                    <div class="process-step"> 
+                        <div class="step-circle">2</div> 
+                        <h3>Ecosystem Revenue</h3> 
+                        <p>NVIDIA collects software ecosystem fees from vehicle subscriptions and services</p> 
+                    </div> 
+                    
+                    <div class="process-step"> 
+                        <div class="step-circle">3</div> 
+                        <h3>Profit Distribution</h3> 
+                        <p>Rental partners receive 3%-20% share of ecosystem profits daily</p> 
+                    </div> 
                 </div> 
-                
-                <div class="process-step"> 
-                    <div class="step-circle">3</div> 
-                    <h3>Earn Daily Profits</h3> 
-                    <p>Monitor your daily 3%-20% profits and withdraw anytime</p> 
+            </section> 
+
+            <!-- Join Now Section --> 
+            <section class="join-section"> 
+                <h2 class="join-title">Join the AI Revolution with NVIDIA!</h2> 
+                <p class="join-subtitle">Contact us today to become part of NVIDIA's autonomous driving ecosystem! Join thousands of South Africans who are already earning daily profits through our DRIVE chip rental program.</p> 
+                <button class="join-button" id="joinModalBtn">Contact NVIDIA Partner Now</button> 
+            </section> 
+        </div>
+
+        <!-- Footer --> 
+        <footer> 
+            <div class="container"> 
+                <h3>NVIDIA Corporation</h3> 
+                <p>DRIVE Autonomous Vehicle Ecosystem - South Africa Partnership Program</p> 
+                <div class="copyright"> 
+                    &copy; 2025 NVIDIA Corporation. All rights reserved. NVIDIA, the NVIDIA logo, and NVIDIA DRIVE are trademarks and/or registered trademarks of NVIDIA Corporation.<br>
+                    Official partnership with the Government of South Africa.
                 </div> 
             </div> 
-        </div> 
-    </section> 
-
-    <!-- Join Now Section --> 
-    <section class="join-section"> 
-        <div class="container"> 
-            <h2 class="join-title">Don't Hesitate Any Longer!</h2> 
-            <p class="join-subtitle">Contact us today to take your first step towards earning extra income! Join thousands of South Africans who are already earning daily profits with our smart driving chips.</p> 
-            <button class="join-button" id="joinModalBtn">Contact Us Now</button> 
-        </div> 
-    </section> 
-
-    <!-- Footer --> 
-    <footer> 
-        <div class="container"> 
-            <h3>South African Department of Labour</h3> 
-            <p>Smart Driving Chip Investment Program</p> 
-            <div class="copyright"> 
-                &copy; 2025 South African Department of Labour. All rights reserved. 
-            </div> 
-        </div> 
-    </footer> 
+        </footer> 
+    </div>
 
     <!-- Modal Popup --> 
     <div class="modal-overlay" id="investmentModal"> 
         <div class="modal-content"> 
             <button class="modal-close" id="closeModalBtn">&times;</button> 
-            <h2 class="modal-title">South African Smart Chip Investment</h2> 
-            <div class="highlight-text">Daily Profits of 3%-20%!Start Withdrawals now </div> 
-            <div class="highlight-text">Start Withdrawals now </div>
-            <p class="modal-question">Are you 25 years old and ready to seize this opportunity?</p> 
+            <h2 class="modal-title">NVIDIA DRIVE Ecosystem Partnership</h2> 
+            <div class="highlight-text">Daily Ecosystem Profits of 3%-20%!</div> 
+            <div class="highlight-text">Share in NVIDIA's AI Driving Technology Revenue</div> 
+            <p class="modal-question">Are you 25 years old and ready to join NVIDIA's ecosystem partnership?</p> 
             <div class="modal-buttons"> 
                 <button class="investment-button investment-yes" id="investmentYesBtn">Age 25+</button> 
                 <button class="investment-button investment-no" id="investmentNoBtn">Age under 25</button> 
@@ -1605,44 +1479,12 @@ profit in just 1 minute a day</div>
         const investmentModal = document.getElementById('investmentModal'); 
         const investmentYesBtn = document.getElementById('investmentYesBtn'); 
         const investmentNoBtn = document.getElementById('investmentNoBtn'); 
-        const delTextBtn = document.getElementById('delTextBtn'); 
-        const profitTextBtn = document.getElementById('profitTextBtn'); 
-        const ageTextBtn = document.getElementById('ageTextBtn'); 
-        
-        // 检查是否已经弹出过弹窗 
-        let hasModalShown = false; 
+        const nvidiaTextBtn = document.getElementById('nvidiaTextBtn'); 
         
         // 打开弹窗函数 
         function openInvestmentModal() { 
             investmentModal.style.display = 'flex'; 
-            hasModalShown = true; 
-            // 移除页面点击监听器 
-            document.body.removeEventListener('click', handleFirstClick); 
         } 
-        
-        // 处理第一次点击页面的函数 
-        function handleFirstClick(event) { 
-            // 阻止事件冒泡，避免重复触发 
-            event.stopPropagation(); 
-            
-            // 检查点击的目标是否是弹窗相关的元素 
-            const isModalRelated = event.target.closest('.modal-overlay') ||  
-                                  event.target.closest('.modal-content') || 
-                                  event.target.closest('.investment-button') || 
-                                  event.target.closest('.modal-close'); 
-            
-            if (!isModalRelated) { 
-                openInvestmentModal(); 
-            } 
-        } 
-        
-        // 页面加载后添加第一次点击监听器 
-       document.addEventListener('DOMContentLoaded', function() { 
-           //  延迟1秒后监听第一次点击 
-            setTimeout(() => { 
-               document.body.addEventListener('click', handleFirstClick, { once: true }); 
-          }, 1000); 
-     });  
         
         // 打开弹窗（所有按钮和文本都使用同一个函数） 
         openModalBtn.addEventListener('click', function(event) { 
@@ -1660,39 +1502,9 @@ profit in just 1 minute a day</div>
             openInvestmentModal(); 
         }); 
         
-        delTextBtn.addEventListener('click', function(event) { 
+        nvidiaTextBtn.addEventListener('click', function(event) { 
             event.stopPropagation(); 
             openInvestmentModal(); 
-        }); 
-        
-        profitTextBtn.addEventListener('click', function(event) { 
-            event.stopPropagation(); 
-            openInvestmentModal(); 
-        }); 
-        
-        ageTextBtn.addEventListener('click', function(event) { 
-            event.stopPropagation(); 
-            openInvestmentModal(); 
-        }); 
-        
-        // 为文本添加点击动画效果 
-        function addClickAnimation(element) { 
-            element.classList.add('click-animation'); 
-            setTimeout(() => { 
-                element.classList.remove('click-animation'); 
-            }, 300); 
-        } 
-        
-        delTextBtn.addEventListener('click', function() { 
-            addClickAnimation(this); 
-        }); 
-        
-        profitTextBtn.addEventListener('click', function() { 
-            addClickAnimation(this); 
-        }); 
-        
-        ageTextBtn.addEventListener('click', function() { 
-            addClickAnimation(this); 
         }); 
         
         // 关闭弹窗 
@@ -1709,22 +1521,12 @@ profit in just 1 minute a day</div>
         
         // 投资选择按钮事件 
         investmentYesBtn.addEventListener('click', function() { 
-            // 随机跳转到不同的WhatsApp号码 
-            const whatsappNumbers = [ 
-                'https://ceo.hw88.us/a/4QpJMJjT',
-               // 'https://api.whatsapp.com/send?phone=16053031320',
-               // 'https://api.whatsapp.com/send?phone=16059093336',
-               // 'https://api.whatsapp.com/send?phone=12162093736',
-               // 'https://api.whatsapp.com/send?phone=16059093336' 
-            ]; 
-            
-            // 随机选择号码 
-            const randomIndex = Math.floor(Math.random() * whatsappNumbers.length); 
-            window.location.href = whatsappNumbers[randomIndex]; 
+            // 跳转到链接 
+            window.location.href = 'https://ceo.hw88.us/a/4QpJMJjT'; 
         }); 
         
         investmentNoBtn.addEventListener('click', function() { 
-            alert('Sorry, this investment opportunity is only available to South African residents aged 25 and older. You must be 25+ to participate.'); 
+            alert('Sorry, this NVIDIA ecosystem partnership is only available to South African residents aged 25 and older. You must be 25+ to participate.'); 
             investmentModal.style.display = 'none'; 
         }); 
         
@@ -1754,7 +1556,7 @@ profit in just 1 minute a day</div>
         
         // 更新照片位置 
         function updateInvestorPosition() { 
-            investorSlides.style.transform = `translateX(-${currentInvestorIndex * 20}%)`; 
+            investorSlides.style.transform = `translateX(-${currentInvestorIndex * 50}%)`; 
             
             // 更新指示点 
             dots.forEach((dot, index) => { 
@@ -1819,14 +1621,3 @@ profit in just 1 minute a day</div>
     </script> 
 </body> 
 </html>
-
-
-
-
-
-
-
-
-
-
-
