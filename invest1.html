@@ -1,0 +1,888 @@
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NVIDIA AI Chip Recruitment Center | Earn ZAR 1000-10000 Daily</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #f0f0f0;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #8b0000, #b30000);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: 0 0 30px 30px;
+            box-shadow: 0 4px 20px rgba(139, 0, 0, 0.4);
+        }
+
+        .nvidia-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .nvidia-logo span {
+            color: #76b900;
+        }
+
+        .tagline {
+            background-color: rgba(255, 255, 255, 0.15);
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.95;
+        }
+
+        /* 突出显示样式 - 红色主题 */
+        .highlight-age {
+            color: #ff3333;
+            font-weight: 800;
+            text-shadow: 0 0 10px rgba(255, 51, 51, 0.5);
+            position: relative;
+            padding: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            animation: pulseAge 2s infinite;
+        }
+
+        @keyframes pulseAge {
+            0% { text-shadow: 0 0 10px rgba(255, 51, 51, 0.5); }
+            50% { text-shadow: 0 0 20px rgba(255, 51, 51, 0.8); }
+            100% { text-shadow: 0 0 10px rgba(255, 51, 51, 0.5); }
+        }
+
+        .highlight-age:hover {
+            transform: scale(1.1);
+            color: #ff6666;
+        }
+
+        .highlight-age::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #ff3333;
+            border-radius: 2px;
+            transition: height 0.3s ease;
+        }
+
+        .highlight-age:hover::after {
+            height: 5px;
+        }
+
+        .highlight-zar {
+            background: linear-gradient(135deg, #ff3333, #cc0000);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 900;
+            padding: 0 5px;
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: pulseZar 2s infinite;
+        }
+
+        @keyframes pulseZar {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .highlight-zar:hover {
+            transform: scale(1.1);
+        }
+
+        .highlight-zar::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(135deg, #ff3333, #cc0000, #ff3333);
+            border-radius: 8px;
+            z-index: -1;
+            opacity: 0.3;
+            transition: opacity 0.3s ease;
+        }
+
+        .highlight-zar:hover::before {
+            opacity: 0.5;
+        }
+
+        /* 添加点击动画效果 */
+        @keyframes clickEffect {
+            0% { transform: scale(1); }
+            50% { transform: scale(0.95); }
+            100% { transform: scale(1); }
+        }
+
+        .click-animation {
+            animation: clickEffect 0.3s ease;
+        }
+
+        .hero p strong {
+            font-weight: 700;
+        }
+
+        .steps {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            max-width: 700px;
+            margin: 30px auto;
+            text-align: left;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
+        }
+
+        .step:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .step-number {
+            background-color: #cc0000;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #cc0000;
+            color: white;
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(204, 0, 0, 0.3);
+            cursor: pointer;
+            border: none;
+        }
+
+        .cta-button:hover {
+            background-color: #ff3333;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(204, 0, 0, 0.5);
+        }
+
+        /* 新增：Join Now按钮容器样式 */
+        .join-section {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: #1a1a1a;
+        }
+
+        .join-title {
+            font-size: 2.2rem;
+            color: #ff3333;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .join-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #ff3333;
+            border-radius: 2px;
+        }
+
+        .join-subtitle {
+            color: #b0b0b0;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+        }
+
+        .join-button {
+            display: inline-block;
+            background-color: #cc0000;
+            color: white;
+            padding: 18px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(204, 0, 0, 0.3);
+            cursor: pointer;
+            border: none;
+        }
+
+        .join-button:hover {
+            background-color: #ff3333;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(204, 0, 0, 0.5);
+        }
+
+        /* Stats Section */
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 50px 0;
+            text-align: center;
+        }
+
+        .stat-item {
+            flex: 1;
+            min-width: 200px;
+            margin: 15px;
+            padding: 25px 15px;
+            background-color: #1a1a1a;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid #333;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ff3333;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #b0b0b0;
+            font-weight: 600;
+        }
+
+        /* Features Section */
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #ff3333;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #ff3333;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #b0b0b0;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            font-size: 1.1rem;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 50px 0;
+        }
+
+        .feature-card {
+            flex: 1;
+            min-width: 300px;
+            max-width: 350px;
+            background-color: #1a1a1a;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 1px solid #333;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: #cc0000;
+            box-shadow: 0 10px 25px rgba(204, 0, 0, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: #ff3333;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: #f0f0f0;
+            margin-bottom: 15px;
+        }
+
+        /* Process Section */
+        .process {
+            background-color: #1a1a1a;
+            padding: 60px 20px;
+            border-radius: 30px;
+            margin: 60px 0;
+            border: 1px solid #333;
+        }
+
+        .process-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .process-step {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            text-align: center;
+            padding: 0 15px;
+            position: relative;
+        }
+
+        .process-step:not(:last-child):after {
+            content: '→';
+            position: absolute;
+            right: -10px;
+            top: 40px;
+            font-size: 2rem;
+            color: #ff3333;
+            font-weight: bold;
+        }
+
+        .step-circle {
+            width: 80px;
+            height: 80px;
+            background-color: #cc0000;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-radius: 30px 30px 0 0;
+            border-top: 1px solid #333;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            color: #888;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background-color: #1a1a1a;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            position: relative;
+            animation: modalAppear 0.3s ease-out;
+            border: 2px solid #cc0000;
+        }
+
+        @keyframes modalAppear {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.8rem;
+            color: #b0b0b0;
+            cursor: pointer;
+            background: none;
+            border: none;
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            color: #ff3333;
+        }
+
+        .modal-title {
+            color: #ff3333;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .highlight-text {
+            background: linear-gradient(135deg, #ff3333, #cc0000);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin: 20px 0;
+            padding: 10px;
+            border-radius: 10px;
+            display: inline-block;
+            animation: pulseZar 2s infinite;
+        }
+
+        .modal-question {
+            font-size: 1.2rem;
+            color: #f0f0f0;
+            margin: 25px 0;
+            font-weight: 600;
+        }
+
+        .modal-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .age-button {
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            min-width: 150px;
+        }
+
+        .age-25 {
+            background-color: #cc0000;
+            color: white;
+        }
+
+        .age-25:hover {
+            background-color: #ff3333;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(204, 0, 0, 0.4);
+        }
+
+        .age-under {
+            background-color: #333;
+            color: #f0f0f0;
+            border: 2px solid #555;
+        }
+
+        .age-under:hover {
+            background-color: #444;
+            border-color: #cc0000;
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .process-step:not(:last-child):after {
+                display: none;
+            }
+            
+            .process-step {
+                margin-bottom: 40px;
+            }
+            
+            .step {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .step-number {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            
+            .modal-content {
+                padding: 30px 20px;
+            }
+            
+            .modal-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .age-button {
+                width: 100%;
+            }
+            
+            .join-title {
+                font-size: 1.8rem;
+            }
+            
+            .join-button {
+                padding: 15px 35px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="nvidia-logo">NVIDIA<span> AI CHIP RECRUITMENT</span></div>
+            <div class="tagline">
+                <i class="fas fa-microchip"></i> #1 AI Chip Recruitment Center - South Africa
+            </div>
+            <h1>Become an AI Chip Partner, Earn ZAR 1000-10000 Daily!</h1>
+            <p>Welcome to the NVIDIA AI Chip Recruitment Program in South Africa! This is an invitation for pragmatic individuals, especially those <span class="highlight-age" id="ageTextBtn">25 years and older</span>. By joining our AI chip ecosystem, you can earn <span class="highlight-zar" id="zarTextBtn">1000-10000 ZAR</span> daily. Ready to join now?</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div>Send your name, gender, age, and occupation via WhatsApp</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div>Register for a partner account on our platform</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div>Start earning from AI chip ecosystem profit sharing</div>
+                </div>
+            </div>
+            
+            <button class="cta-button" id="openModalBtn">Start Earning Today!</button>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="container">
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Partner Automotive Companies</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100K+</div>
+                <div class="stat-label">AI Chips Deployed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">RSA</div>
+                <div class="stat-label">South African Government Partnership</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Technical Support</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section class="container">
+        <h2 class="section-title">Why Choose NVIDIA AI Chip Program?</h2>
+        <p class="section-subtitle">Join the world's leading AI chip ecosystem and transform technology investment into continuous income!</p>
+        
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-car-alt"></i>
+                </div>
+                <h3>AI Chip Profit Sharing</h3>
+                <p>Participate in the NVIDIA DRIVE chip program, where each chip deployment brings you continuous earnings without technical background required.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Ecosystem Revenue Share</h3>
+                <p>Beyond chip deployment, you'll receive profit sharing from the AI software ecosystem, creating multiple revenue streams.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3>Government Supported Program</h3>
+                <p>This program is officially approved by the South African government, aimed at creating more employment and income opportunities for South Africans.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <h2 class="section-title">How Do You Earn?</h2>
+            <p class="section-subtitle">Simple three-step process to quickly start earning from the AI chip ecosystem profit sharing!</p>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-circle">1</div>
+                    <h3>Register as Partner</h3>
+                    <p>Submit basic information and become an NVIDIA AI chip partner after approval</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-circle">2</div>
+                    <h3>Chip Allocation</h3>
+                    <p>Receive allocation of AI chips based on your partnership level</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-circle">3</div>
+                    <h3>Daily Earnings Deposit</h3>
+                    <p>Chip deployment fees and ecosystem profit sharing automatically deposited to your account daily</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Now Section -->
+    <section class="join-section">
+        <div class="container">
+            <h2 class="join-title">Ready to Start Your Earning Journey?</h2>
+            <p class="join-subtitle">Join the NVIDIA South Africa AI Chip Program, be part of the AI technology revolution while earning substantial financial returns!</p>
+            <button class="join-button" id="joinModalBtn">Join Now & Start Earning</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3>NVIDIA AI Chip South Africa Partner Program</h3>
+            <p>Create Continuous Income Through AI Chip Ecosystem</p>
+            <div class="copyright">
+                &copy; 2025 NVIDIA Corporation. All rights reserved. NVIDIA, the NVIDIA logo are trademarks and/or registered trademarks of NVIDIA Corporation.<br>
+                This program is supported by the South African Government New Energy AI Chip Cooperation Agreement.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Popup -->
+    <div class="modal-overlay" id="ageModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModalBtn">&times;</button>
+            <h2 class="modal-title">Invitation for Pragmatic Individuals (25+)</h2>
+            <div class="highlight-text">Daily Earnings ZAR 1,000 - 10,000</div>
+            <p class="modal-question">Ready to unlock this exclusive opportunity?</p>
+            <div class="modal-buttons">
+                <button class="age-button age-25" id="age25Btn">25 Years & Older</button>
+                <button class="age-button age-under" id="ageUnder25Btn">Under 25 Years</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get DOM elements
+        const openModalBtn = document.getElementById('openModalBtn');
+        const joinModalBtn = document.getElementById('joinModalBtn');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const ageModal = document.getElementById('ageModal');
+        const age25Btn = document.getElementById('age25Btn');
+        const ageUnder25Btn = document.getElementById('ageUnder25Btn');
+        const ageTextBtn = document.getElementById('ageTextBtn');
+        const zarTextBtn = document.getElementById('zarTextBtn');
+        
+        // Check if modal has been shown
+        let hasModalShown = false;
+        
+        // Open modal function
+        function openAgeModal() {
+            ageModal.style.display = 'flex';
+            hasModalShown = true;
+            // Remove page click listener
+            document.body.removeEventListener('click', handleFirstClick);
+        }
+        
+        // Handle first click on page
+        function handleFirstClick(event) {
+            // Prevent event bubbling
+            event.stopPropagation();
+            
+            // Check if click target is modal-related
+            const isModalRelated = event.target.closest('.modal-overlay') || 
+                                  event.target.closest('.modal-content') ||
+                                  event.target.closest('.age-button') ||
+                                  event.target.closest('.modal-close');
+            
+            if (!isModalRelated) {
+                openAgeModal();
+            }
+        }
+        
+        // Add first click listener after page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Delay 1 second before listening for first click
+            setTimeout(() => {
+                document.body.addEventListener('click', handleFirstClick, { once: true });
+            }, 1000);
+        });
+        
+        // Open modal (all buttons and text use the same function)
+        openModalBtn.addEventListener('click', function(event) {
+            event.stopPropagation();
+            openAgeModal();
+        });
+        
+        joinModalBtn.addEventListener('click', function(event) {
+            event.stopPropagation();
+            openAgeModal();
+        });
+        
+        ageTextBtn.addEventListener('click', function(event) {
+            event.stopPropagation();
+            openAgeModal();
+        });
+        
+        zarTextBtn.addEventListener('click', function(event) {
+            event.stopPropagation();
+            openAgeModal();
+        });
+        
+        // Add click animation effect
+        function addClickAnimation(element) {
+            element.classList.add('click-animation');
+            setTimeout(() => {
+                element.classList.remove('click-animation');
+            }, 300);
+        }
+        
+        ageTextBtn.addEventListener('click', function() {
+            addClickAnimation(this);
+        });
+        
+        zarTextBtn.addEventListener('click', function() {
+            addClickAnimation(this);
+        });
+        
+        // Close modal
+        closeModalBtn.addEventListener('click', function() {
+            ageModal.style.display = 'none';
+        });
+        
+        // Close modal when clicking outside
+        ageModal.addEventListener('click', function(event) {
+            if (event.target === ageModal) {
+                ageModal.style.display = 'none';
+            }
+        });
+        
+        // Age selection button events - random WhatsApp redirect
+        age25Btn.addEventListener('click', function() {
+            // 50% chance for different numbers
+            const whatsappNumbers = [
+                'https://api.whatsapp.com/send?phone=27612345678&text=Hello! I am interested in the NVIDIA AI Chip Program and would like to become a partner.',
+                'https://api.whatsapp.com/send?phone=27811234567&text=Hello! I want to learn more about the NVIDIA AI Chip Program details.'
+            ];
+            
+            // Random selection
+            const randomIndex = Math.floor(Math.random() * whatsappNumbers.length);
+            window.open(whatsappNumbers[randomIndex], '_blank');
+        });
+        
+        ageUnder25Btn.addEventListener('click', function() {
+            alert('Sorry, this program is currently only available for participants aged 25 and older.');
+            ageModal.style.display = 'none';
+        });
+        
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                ageModal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
