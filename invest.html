@@ -733,30 +733,6 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
             flex-shrink: 0; 
         } 
 
-        .opportunity-button { 
-            display: block; 
-            background: linear-gradient(135deg, #003B5C, #00B07B); 
-            color: white; 
-            padding: 18px 50px; 
-            border-radius: 50px; 
-            text-decoration: none; 
-            font-weight: bold; 
-            font-size: 1.2rem; 
-            margin: 40px auto 20px; 
-            transition: all 0.3s ease; 
-            box-shadow: 0 4px 15px rgba(0, 59, 92, 0.4); 
-            cursor: pointer; 
-            border: none; 
-            text-align: center; 
-            max-width: 300px; 
-        } 
-
-        .opportunity-button:hover { 
-            background: linear-gradient(135deg, #00B07B, #003B5C); 
-            transform: translateY(-3px); 
-            box-shadow: 0 6px 25px rgba(0, 59, 92, 0.6); 
-        } 
-
         /* Features Section */ 
         .section-title { 
             text-align: center; 
@@ -1033,7 +1009,75 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
             transition: all 0.3s ease; 
             min-width: 150px; 
         } 
+/* Opportunity Button Styles - 修复版本 */
+.opportunity-button {
+    display: block;
+    background: linear-gradient(135deg, #003B5C, #00B07B);
+    color: white;
+    padding: 18px 50px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 40px auto 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 59, 92, 0.4);
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    max-width: 300px;
+    width: auto;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
 
+.opportunity-button:hover {
+    background: linear-gradient(135deg, #00B07B, #003B5C);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(0, 59, 92, 0.6);
+}
+
+.opportunity-button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 12px rgba(0, 59, 92, 0.5);
+}
+
+/* 添加悬浮效果 */
+.opportunity-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.7s ease;
+    z-index: -1;
+}
+
+.opportunity-button:hover::before {
+    left: 100%;
+}
+
+/* 响应式设计调整 */
+@media (max-width: 768px) {
+    .opportunity-button {
+        padding: 16px 40px;
+        font-size: 1.1rem;
+        max-width: 280px;
+        margin: 35px auto 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .opportunity-button {
+        padding: 14px 35px;
+        font-size: 1rem;
+        max-width: 250px;
+        margin: 30px auto 10px;
+    }
+}
         .investment-yes { 
             background: linear-gradient(135deg, #00B07B, #003B5C); 
             color: white; 
@@ -1207,7 +1251,7 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
                     <i class="fas fa-shield-alt"></i> NVIDIA DRIVE Official Partnership Program 
                 </div> 
                 <h1>Rent NVIDIA DRIVE Chips & Earn 3%-20% Daily from Ecosystem Profits</h1> 
-                <p><span class="highlight-nvidia" id="nvidiaTextBtn">NVIDIA Corporation</span> has partnered with the South African Government to create new income opportunities. When consumers purchase vehicles with NVIDIA DRIVE systems, they pay fixed fees and software ecosystem fees. We now offer <span class="highlight-drive">NVIDIA DRIVE chip rental services</span> to individuals and institutions in South Africa, sharing a portion of the ecosystem profits with participants!</p>
+                <p><span class="highlight-nvidia" id="nvidiaTextBtn">NVIDIA Corporation</span> has partnered with the South African Government to create new income opportunities. When consumers purchase vehicles with NVIDIA DRIVE systems, they pay fixed fees and software ecosystem fees. We now offer <span class="highlight-drive">NVIDIA DRIVE chip rental services</span> to individuals and institutions in South Africa, sharing a portion of the ecosystem profits with participants!</p> 
                 <div class="steps"> 
                     <div class="step"> 
                         <div class="step-number">1</div> 
@@ -1266,9 +1310,9 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
                 </div> 
                 
                 <div class="opportunity-subtitle">How It Works:</div> 
-                <p style="text-align: center;">When consumers purchase vehicles with NVIDIA DRIVE systems, they pay:<br>
-                <strong>1. Fixed hardware fees</strong><br>
-                <strong>2. Software ecosystem subscription fees</strong><br>
+                <p style="text-align: center;">When consumers purchase vehicles with NVIDIA DRIVE systems, they pay:<br> 
+                <strong>1. Fixed hardware fees</strong><br> 
+                <strong>2. Software ecosystem subscription fees</strong><br> 
                 We share a portion of these ecosystem fees with our rental partners in South Africa.</p> 
                 
                 <div class="requirements"> 
@@ -1472,6 +1516,37 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
             <div class="container"> 
                 <h3>NVIDIA Corporation</h3> 
                 <p>DRIVE Autonomous Vehicle Ecosystem - South Africa Partnership Program</p> 
+                
+                <!-- 点击统计 -->
+                <div class="click-statistics" id="clickStatistics" style="
+                    margin: 20px 0;
+                    padding: 15px;
+                    background: rgba(255, 255, 255, 0.1);
+                    border-radius: 10px;
+                    text-align: center;
+                    font-size: 0.9rem;
+                ">
+                    <div style="
+                        color: #76B900;
+                        font-weight: 600;
+                        margin-bottom: 5px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 8px;
+                    ">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Program Participation Statistics</span>
+                    </div>
+                    <div style="color: rgba(255, 255, 255, 0.9);">
+                        Today: <span id="todayCount" style="color: #76B900; font-weight: bold;">0</span> South Africans (25+) have joined
+                    </div>
+                    <div style="color: rgba(255, 255, 255, 0.9); font-size: 0.85rem; margin-top: 5px;">
+                        <i class="fas fa-user-check"></i>
+                        Total qualified participants: <span id="totalCount" style="color: #00B07B; font-weight: bold;">0</span>
+                    </div>
+                </div>
+                
                 <div class="copyright"> 
                     &copy; 2025 NVIDIA Corporation. All rights reserved. NVIDIA, the NVIDIA logo, and NVIDIA DRIVE are trademarks and/or registered trademarks of NVIDIA Corporation.<br>
                     Official partnership with the Government of South Africa.
@@ -1562,6 +1637,9 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
             
             // 更新计数器
             clickCounter++;
+            
+            // 更新统计数据
+            updateClickStatistics();
             
             // 跳转到链接 
             window.location.href = redirectLink; 
@@ -1660,7 +1738,61 @@ src="https://www.facebook.com/tr?id=2527743234396589&ev=PageView&noscript=1"
         
         // 初始化投资者照片墙 
         initInvestorWall(); 
+
+        // 统计功能
+        function updateClickStatistics() {
+            // 获取今天的日期作为键
+            const today = new Date().toDateString();
+            
+            // 从 localStorage 获取数据
+            let stats = JSON.parse(localStorage.getItem('nvidiaClickStats') || '{"total":0,"daily":{}}');
+            
+            // 更新总计数
+            stats.total += 1;
+            
+            // 更新今日计数
+            if (!stats.daily[today]) {
+                stats.daily[today] = 0;
+            }
+            stats.daily[today] += 1;
+            
+            // 保存到 localStorage
+            localStorage.setItem('nvidiaClickStats', JSON.stringify(stats));
+            
+            // 更新显示
+            displayStatistics();
+        }
+
+        function displayStatistics() {
+            const today = new Date().toDateString();
+            const stats = JSON.parse(localStorage.getItem('nvidiaClickStats') || '{"total":0,"daily":{}}');
+            
+            // 获取今日计数
+            const todayCount = stats.daily[today] || 0;
+            
+            // 更新页面显示
+            document.getElementById('todayCount').textContent = todayCount.toLocaleString();
+            document.getElementById('totalCount').textContent = stats.total.toLocaleString();
+        }
+
+        // 页面加载时显示统计数据
+        window.addEventListener('load', function() {
+            displayStatistics();
+            
+            // 添加动画效果
+            const statsElement = document.getElementById('clickStatistics');
+            if (statsElement) {
+                statsElement.style.transition = 'all 0.5s ease';
+                statsElement.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px)';
+                    this.style.boxShadow = '0 5px 15px rgba(118, 185, 0, 0.3)';
+                });
+                statsElement.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'none';
+                });
+            }
+        });
     </script> 
 </body> 
 </html>
-
