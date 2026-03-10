@@ -42,7 +42,7 @@
       overflow: hidden;
     }
 
-    /* ===== 写真カルーセル (フォトウォール風 / japanフォルダ対応) ===== */
+    /* ===== 写真カルーセル (フォトウォール風) ===== */
     .carousel-container {
       width: 100%;
       background: #fff3f1;
@@ -98,7 +98,7 @@
       border: 3px solid white;
     }
 
-    /* 画像表示エリア - japanフォルダの画像を使用 */
+    /* 画像表示エリア */
     .swiper-slide img {
       width: 100%;
       height: 280px;
@@ -107,7 +107,7 @@
       background: #efdbdf;
     }
 
-    /* フォールバック用プレースホルダ (画像がない場合のみ表示) */
+    /* フォールバック用プレースホルダ */
     .slide-placeholder {
       width: 100%;
       height: 280px;
@@ -176,6 +176,36 @@
       color: #5e3849;
       border: 1px solid #ffd2da;
       font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* 新しく追加した小さなボタン（バッジ内に配置） */
+    .badge .add-icon-btn {
+      background: #ff86ac;
+      border: none;
+      color: white;
+      font-size: 0.9rem;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 2px 6px #d46f91;
+      margin-left: 4px;
+    }
+    .badge .add-icon-btn i {
+      font-size: 0.9rem;
+      color: white;
+      margin: 0;
+    }
+    .badge .add-icon-btn:hover {
+      background: #ff6793;
+      transform: scale(1.05);
     }
 
     .location-age {
@@ -382,28 +412,9 @@
       cursor: pointer;
     }
 
+    /* LINEリンクは表示させず、直接遷移するため非表示のままでも良いが、保険として隠す */
     .line-box {
       display: none;
-      margin: 1rem 2.5rem 2rem 2.5rem;
-      background: #ebf9f0;
-      border-radius: 60px;
-      padding: 1.2rem;
-      border: 3px solid #06c755;
-    }
-    .line-box a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.8rem;
-      background: #06c755;
-      color: white;
-      padding: 0.8rem 2.5rem;
-      border-radius: 60px;
-      font-size: 1.4rem;
-      font-weight: 600;
-      text-decoration: none;
-    }
-    .line-box a:hover {
-      background: #04a84a;
     }
     footer {
       margin-top: 1rem;
@@ -417,7 +428,11 @@
     <div class="profile-header">
       <div class="name-area">
         <h1>奈奈 <span style="font-size:1.3rem; font-weight:400; margin-left:0.5rem;">(Nana)</span></h1>
-        <span class="badge"><i class="fas fa-heart"></i> 独身・交際相手募集中</span>
+        <!-- 元のバッジに追加で小さな友達追加ボタンを内包（クリックで同じモーダル） -->
+        <span class="badge">
+          <i class="fas fa-heart"></i> 独身・交際相手募集中
+          <button class="add-icon-btn" id="badgeAddBtn"><i class="fas fa-user-plus"></i></button>
+        </span>
       </div>
       <div class="location-age">
         <span><i class="fas fa-map-marker-alt"></i> 東京・大田区</span>
@@ -425,7 +440,7 @@
       </div>
     </div>
 
-    <!-- 写真壁 カルーセル (フォトウォール風) / japanフォルダの画像を使用 -->
+    <!-- 写真壁 カルーセル -->
     <div class="carousel-container">
       <div class="carousel-title">
         <i class="fas fa-camera-retro"></i>
@@ -434,7 +449,7 @@
       <!-- Swiper -->
       <div class="swiper mySwiper">
         <div class="swiper-wrapper">
-          <!-- スライド1：1.jpg 〜 6.jpg を想定。存在しない場合はプレースホルダ表示（JSで制御） -->
+          <!-- スライド1～6：画像があれば表示、なければプレースホルダ -->
           <div class="swiper-slide">
             <img src="1.jpg" alt="大田区の隠れ家カフェ" onerror="this.onerror=null;this.style.display='none'; this.parentNode.classList.add('fallback-active');">
             <div class="slide-placeholder" style="display: none;">
@@ -495,7 +510,7 @@
       <span class="tag"><i class="fas fa-paw"></i> 動物好き</span>
     </div>
 
-    <!-- 二段組：日常とお仕事（食品輸出入） -->
+    <!-- 二段組 -->
     <div class="content-grid">
       <div class="section">
         <div class="section-title"><i class="fas fa-sun"></i> 日常生活</div>
@@ -519,24 +534,19 @@
 
     <!-- 募集メッセージ -->
     <div class="message-bubble">
-      <i class="fas fa-quote-left"></i> 新しい出会いを探しています<br>共通の趣味や価値観を持つ仲間を募集します <i class="fas fa-quote-right"></i>
+      <i class="fas fa-quote-left"></i> 35歳以上の男性と出会いたいと考えています。私と同じような興味や価値観を共有していただければ幸いです。<i class="fas fa-quote-right"></i>
       <div style="margin-top:0.8rem; font-size:1rem; color:#6b4f5b;"><i class="fas fa-sparkles"></i> まずは友達追加から、気軽にどうぞ</div>
     </div>
 
-    <!-- 友達追加ボタン -->
+    <!-- 友達追加ボタン (大) -->
     <div class="friend-area">
       <button class="btn-friend" id="addFriendBtn">
         <i class="fas fa-user-plus"></i> 友達を追加する
       </button>
     </div>
 
-    <!-- LINEリンク表示エリア（年齢確認後） -->
-    <div id="lineLinkBox" class="line-box" style="justify-content:center; display:none;">
-      <a href="https://line.me/ti/p/~nana_friend" target="_blank">
-        <i class="fab fa-line"></i> LINEでつながる
-      </a>
-      <p style="margin-top:0.5rem; color:#215a40;">ID: @nana_friend 友達追加お待ちしてます</p>
-    </div>
+    <!-- LINEリンクは非表示（直接遷移するため要素を残す必要はないが念のためコメントアウト） -->
+    <!-- <div id="lineLinkBox" ...> は削除。直接遷移するので不要 -->
   </div>
 
   <!-- 年齢確認モーダル -->
@@ -560,25 +570,16 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
     (function() {
-      // 画像エラーハンドリング: 画像が読み込めない場合はプレースホルダを表示し、画像を隠す
+      // 画像エラーハンドリング
       document.querySelectorAll('.swiper-slide img').forEach(img => {
         img.addEventListener('error', function() {
-          // 画像を非表示
           this.style.display = 'none';
-          // 同じスライド内の .slide-placeholder を表示
           const placeholder = this.parentNode.querySelector('.slide-placeholder');
-          if (placeholder) {
-            placeholder.style.display = 'flex'; // もともと display: none を flex に変更
-          }
+          if (placeholder) placeholder.style.display = 'flex';
         });
-        // 画像が既にキャッシュにあって正しく読み込めた場合、プレースホルダは非表示のまま。何もしない
-        // もし画像が正常でもプレースホルダが誤って表示されるのを防ぐため、ロード成功時にも一応制御
         img.addEventListener('load', function() {
-          // 画像が表示されたらプレースホルダを確実に非表示
           const placeholder = this.parentNode.querySelector('.slide-placeholder');
-          if (placeholder) {
-            placeholder.style.display = 'none';
-          }
+          if (placeholder) placeholder.style.display = 'none';
         });
       });
 
@@ -587,49 +588,53 @@
         slidesPerView: 1,
         spaceBetween: 20,
         loop: true,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-        breakpoints: {
-          500: { slidesPerView: 2 },
-          900: { slidesPerView: 3 },
-        }
+        pagination: { el: '.swiper-pagination', clickable: true },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        breakpoints: { 500: { slidesPerView: 2 }, 900: { slidesPerView: 3 } }
       });
 
-      // 友達追加モーダル制御
-      const addBtn = document.getElementById('addFriendBtn');
+      // モーダル要素
       const overlay = document.getElementById('ageOverlay');
       const closeModal = document.getElementById('closeModal');
       const ageYes = document.getElementById('ageYes');
       const ageNo = document.getElementById('ageNo');
-      const lineBox = document.getElementById('lineLinkBox');
 
-      addBtn.addEventListener('click', () => {
+      // ２つのボタン：大きい友達追加ボタンと、バッジ内の小さいボタン
+      const addBtn = document.getElementById('addFriendBtn');
+      const badgeAddBtn = document.getElementById('badgeAddBtn');
+
+      // LINEのリンク先（固定）
+      const LINE_URL = 'https://line.me/ti/p/~nana_friend';
+
+      // モーダルを開く関数
+      function openModal() {
         overlay.style.display = 'flex';
-      });
+      }
 
-      const closeOverlay = () => { overlay.style.display = 'none'; };
+      // モーダルを閉じる関数
+      function closeOverlay() {
+        overlay.style.display = 'none';
+      }
+
+      // イベント設定
+      addBtn.addEventListener('click', openModal);
+      badgeAddBtn.addEventListener('click', openModal);
+
       closeModal.addEventListener('click', closeOverlay);
       overlay.addEventListener('click', (e) => { if(e.target === overlay) closeOverlay(); });
 
+      // 「はい」でLINEへ直接ジャンプ（修正後の動作）
       ageYes.addEventListener('click', () => {
-        lineBox.style.display = 'block';
-        closeOverlay();
-        lineBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        window.location.href = LINE_URL;  // 直接遷移
+        closeOverlay(); // 念のためモーダルを閉じる
       });
 
+      // 「いいえ」の動作
       ageNo.addEventListener('click', () => {
         closeOverlay();
-        lineBox.style.display = 'none';
         alert("またのご縁がありますように🌸");
       });
 
-      lineBox.style.display = 'none';
     })();
   </script>
 </body>
