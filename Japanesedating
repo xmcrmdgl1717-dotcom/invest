@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>まい｜新しい出会い・趣味の仲間募集</title>
+  <!-- 柔らかい印象のフォントとアイコン -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #fff8f0 0%, #fdeff2 100%);
+      font-family: 'Noto Sans JP', 'Quicksand', sans-serif;
+      color: #2e2e2e;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    /* メインカード */
+    .profile-card {
+      max-width: 1000px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 48px 48px 40px 40px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 4px 18px 0 rgba(210, 130, 150, 0.2);
+      overflow: hidden;
+      border: 1px solid rgba(255, 245, 240, 0.7);
+    }
+
+    /* ヘッダーイメージ — 日常感あふれるカフェの一枚 (画像はないので背景で表現) */
+    .hero {
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 L0,100 Z" fill="%23fbe9e7"/><circle cx="18" cy="28" r="6" fill="%23ffe0b2" opacity="0.5"/><circle cx="82" cy="45" r="12" fill="%23ffe0f0" opacity="0.4"/><circle cx="45" cy="15" r="8" fill="%23ffe0e8" opacity="0.5"/><circle cx="70" cy="78" r="14" fill="%23ffd9d9" opacity="0.3"/><path d="M24 60 Q40 50 55 62 Q70 74 85 60" stroke="%23ffccbc" stroke-width="2" fill="none" opacity="0.6"/><path d="M15 80 Q30 70 48 85 Q65 97 80 80" stroke="%23ffccd9" stroke-width="2.5" fill="none" opacity="0.5"/></svg>');
+      background-size: cover;
+      background-position: center 30%;
+      height: 240px;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      padding: 1.5rem 2rem;
+    }
+
+    /* プロフィール写真部分 */
+    .avatar-section {
+      display: flex;
+      align-items: flex-end;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .avatar-frame {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: #fff5f2;
+      border: 4px solid white;
+      box-shadow: 0 10px 20px -5px rgba(190, 120, 130, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      background: linear-gradient(145deg, #ffece5, #ffdad9);
+      color: #a65e7a;
+      margin-bottom: -1.8rem; /* カードと重ねてナチュラルに */
+    }
+
+    .name-badge {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 0.6rem 1.8rem 0.6rem 1.8rem;
+      border-radius: 60px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      border: 1px solid rgba(255,255,255,0.6);
+      margin-bottom: -1rem;
+    }
+
+    .name-badge h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: #3d2b36;
+      line-height: 1.2;
+      font-family: 'Quicksand', 'Noto Sans JP', sans-serif;
+    }
+
+    .name-badge .sub {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: #7e5a68;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .sub i {
+      font-size: 0.8rem;
+      color: #c08294;
+    }
+
+    /* メインコンテンツ */
+    .content {
+      padding: 2.8rem 2.5rem 2.5rem 2.5rem;
+    }
+
+    /* タグ・キーワード */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .tag {
+      background: #f7e9ed;
+      color: #5e3e4a;
+      padding: 0.35rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      border: 1px solid #ffdbdd;
+    }
+
+    .tag i {
+      margin-right: 0.3rem;
+      font-size: 0.8rem;
+      color: #b85c7c;
+    }
+
+    /* グリッド：日常生活とお仕事 */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 2rem 0 2.5rem 0;
+    }
+
+    @media (max-width: 680px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+      }
+      .content {
+        padding: 2rem 1.5rem;
+      }
+      .hero {
+        height: 180px;
+      }
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #492f3a;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid #ffd9e0;
+      padding-bottom: 0.4rem;
+    }
+
+    .section-title i {
+      color: #c96b8b;
+      font-size: 1.3rem;
+      width: 1.8rem;
+    }
+
+    .daily-item, .work-item {
+      background: rgba(255, 250, 247, 0.6);
+      border-radius: 28px;
+      padding: 1.3rem 1.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid #fff0ec;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 5px 12px rgba(160, 100, 120, 0.05);
+      transition: transform 0.2s ease;
+    }
+
+    .daily-item:hover, .work-item:hover {
+      transform: translateY(-2px);
+      background: #fffcf9;
+    }
+
+    .daily-item i, .work-item i {
+      color: #c96b8b;
+      width: 1.8rem;
+      font-size: 1.2rem;
+    }
+
+    .item-header {
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+      color: #3f2b33;
+      margin-bottom: 0.4rem;
+      font-size: 1.1rem;
+    }
+
+    .item-desc {
+      color: #56424b;
+      font-size: 0.95rem;
+      margin-left: 1.9rem;
+    }
+
+    .item-desc span {
+      background: #ffeef2;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      margin-right: 0.3rem;
+    }
+
+    /* 募集文（画像のメッセージを活かす） */
+    .recruit-message {
+      background: #fef3f5;
+      border-radius: 40px;
+      padding: 1.8rem 2.2rem;
+      margin: 2rem 0 1.8rem 0;
+      border-left: 8px solid #feb6c9;
+      font-style: normal;
+      box-shadow: 0 10px 15px -12px #e5b3c2;
+    }
+
+    .recruit-message p {
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: #35242c;
+      line-height: 1.8;
+    }
+
+    .recruit-message p i {
+      color: #b75a7a;
+      margin: 0 0.2rem;
+    }
+
+    .recruit-message .small-note {
+      font-size: 0.95rem;
+      color: #876b76;
+      margin-top: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* 友達追加ボタン */
+    .friend-button-area {
+      text-align: center;
+      margin: 2rem 0 0.5rem 0;
+    }
+
+    .btn-add-friend {
+      background: #ff8aac;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 600;
+      padding: 1rem 3rem;
+      border-radius: 80px;
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      box-shadow: 0 15px 25px -8px #ed9eb3;
+      cursor: pointer;
+      transition: 0.2s;
+      border: 2px solid #ffdae4;
+      font-family: 'Quicksand', 'Noto Sans JP', sans-serif;
+      letter-spacing: 0.03em;
+    }
+
+    .btn-add-friend i {
+      font-size: 1.8rem;
+    }
+
+    .btn-add-friend:hover {
+      background: #ff759b;
+      transform: scale(1.02);
+      box-shadow: 0 18px 30px -6px #e06b90;
+    }
+
+    /* 年齢確認モーダル（オーバーレイ） */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(5px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .modal {
+      background: #fffafc;
+      max-width: 380px;
+      width: 90%;
+      padding: 2.2rem 1.8rem 1.8rem;
+      border-radius: 60px 60px 40px 40px;
+      text-align: center;
+      box-shadow: 0 30px 50px #b2809066;
+      border: 2px solid white;
+      animation: pop 0.25s ease;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.9); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .modal h3 {
+      font-size: 1.9rem;
+      font-weight: 600;
+      color: #4a2f3b;
+      margin-bottom: 0.5rem;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    .modal p {
+      margin: 1.2rem 0 1.8rem;
+      font-size: 1.2rem;
+      color: #634e58;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .modal-btn {
+      border: none;
+      background: #ffe3ea;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #4d2f3c;
+      cursor: pointer;
+      transition: 0.15s;
+      border: 1px solid #ffccd9;
+      flex: 1;
+    }
+
+    .modal-btn.yes {
+      background: #ff8aac;
+      color: white;
+      border: none;
+    }
+
+    .modal-btn.yes:hover {
+      background: #e86f93;
+    }
+
+    .modal-btn.no:hover {
+      background: #fbcbd8;
+    }
+
+    .close-icon {
+      text-align: right;
+      margin-bottom: 0.5rem;
+      font-size: 1.4rem;
+      color: #af8393;
+      cursor: pointer;
+    }
+
+    /* LINEリンク (はい→表示) */
+    .line-link-box {
+      display: none;
+      margin-top: 1.8rem;
+      padding: 1.2rem;
+      background: #eaf6f0;
+      border-radius: 60px;
+      border: 2px solid #06c755;
+      text-align: center;
+    }
+
+    .line-link-box a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: #06c755;
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-size: 1.3rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s;
+      border: 2px solid #b3f0cf;
+    }
+
+    .line-link-box a i {
+      font-size: 1.8rem;
+    }
+
+    .line-link-box a:hover {
+      background: #05a84b;
+    }
+
+    footer {
+      margin-top: 1rem;
+      color: #b5909c;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-card">
+    <!-- ヘッダー / 日常の温かみのあるイメージ -->
+    <div class="hero">
+      <div class="avatar-section">
+        <div class="avatar-frame">
+          <i class="fas fa-coffee"></i>
+        </div>
+        <div class="name-badge">
+          <h1>まい <span style="font-size:1rem; font-weight:400; color:#8e6b78;">(Mai)</span></h1>
+          <div class="sub"><i class="fas fa-map-pin"></i> 東京・世田谷 <i class="fas fa-cat" style="margin-left:0.8rem;"></i> 休日はカフェ巡り</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <!-- 趣味・価値観タグ -->
+      <div class="tags">
+        <span class="tag"><i class="fas fa-heart"></i> ヨガ</span>
+        <span class="tag"><i class="fas fa-book"></i> ミステリー小説</span>
+        <span class="tag"><i class="fas fa-hiking"></i> 登山</span>
+        <span class="tag"><i class="fas fa-film"></i> 映画鑑賞</span>
+        <span class="tag"><i class="fas fa-seedling"></i> 持続可能な暮らし</span>
+        <span class="tag"><i class="fas fa-palette"></i> 美術館</span>
+      </div>
+
+      <!-- 2カラム: 日常生活 / お仕事について (金融) -->
+      <div class="grid-2">
+        <!-- 左: 日常生活 -->
+        <div>
+          <div class="section-title"><i class="fas fa-sun"></i> 日常の風景</div>
+          <div class="daily-item">
+            <div class="item-header"><i class="fas fa-mug-hot"></i> 朝のルーティン</div>
+            <div class="item-desc">6:30 ヨガ <span>毎日</span> → 自家製スムージー。週末は必ず新しいカフェを開拓。<br>写真はよく撮るほう。</div>
+          </div>
+          <div class="daily-item">
+            <div class="item-header"><i class="fas fa-dog"></i> 一緒に暮らす愛犬</div>
+            <div class="item-desc">トイプードルの「モカ」(2歳)。夕方の散歩が日課。犬好きな方、ぜひ話しましょう！</div>
+          </div>
+          <div class="daily-item">
+            <div class="item-header"><i class="fas fa-hands"></i> 休日の過ごし方</div>
+            <div class="item-desc">登山 (最近は高尾山・奥多摩)、 料理教室 (月2回)、 友人とピクニック。</div>
+          </div>
+        </div>
+
+        <!-- 右: お仕事・金融 -->
+        <div>
+          <div class="section-title"><i class="fas fa-briefcase"></i> 働く私・金融</div>
+          <div class="work-item">
+            <div class="item-header"><i class="fas fa-chart-line"></i> 資産運用アドバイザー</div>
+            <div class="item-desc">都内の外資系金融機関で働いて6年目。主に個人向け資産運用・相続相談。FP資格保有。</div>
+          </div>
+          <div class="work-item">
+            <div class="item-header"><i class="fas fa-coins"></i> 仕事への想い</div>
+            <div class="item-desc">「お金の不安をなくし、人生を豊かにするサポート」がモットー。堅苦しくない相談を心がけています。</div>
+          </div>
+          <div class="work-item">
+            <div class="item-header"><i class="fas fa-smile"></i> 休憩時間</div>
+            <div class="item-desc">オフィス近くの小さな公園でおにぎりランチ。同僚と株談義よりカフェの話で盛り上がる。</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 募集メッセージ（画像の内容を反映） -->
+      <div class="recruit-message">
+        <p><i class="fas fa-quote-left"></i> 新しい出会いを探しています。<br>共通の趣味や価値観を持つ仲間を募集します <i class="fas fa-quote-right"></i></p>
+        <div class="small-note"><i class="fas fa-sparkles"></i> まずは気軽に友達登録から！ 年齢確認があります。</div>
+      </div>
+
+      <!-- 友達追加ボタン -->
+      <div class="friend-button-area">
+        <button class="btn-add-friend" id="addFriendBtn">
+          <i class="fas fa-user-plus"></i> 友達を追加する
+        </button>
+      </div>
+
+      <!-- LINEリンク表示エリア (Yesで出現) -->
+      <div id="lineLinkContainer" class="line-link-box">
+        <a href="https://line.me/ti/p/~mai_friendship" target="_blank">
+          <i class="fab fa-line"></i> LINEで連絡する
+        </a>
+        <p style="font-size:0.9rem; margin-top:0.5rem; color:#2d5e4b;">@mai_friendship から友達追加してください</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 年齢確認オーバーレイ モーダル -->
+  <div id="ageOverlay" class="overlay">
+    <div class="modal">
+      <div class="close-icon" id="closeModalBtn"><i class="fas fa-times-circle"></i></div>
+      <h3>年齢確認</h3>
+      <p>あなたは35歳以上ですか？</p>
+      <div class="modal-actions">
+        <button class="modal-btn yes" id="ageYes">はい</button>
+        <button class="modal-btn no" id="ageNo">いいえ</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    © まい ｜ 新しい出会いを探すマッチングコミュニティ
+  </footer>
+
+  <script>
+    (function() {
+      const addFriendBtn = document.getElementById('addFriendBtn');
+      const ageOverlay = document.getElementById('ageOverlay');
+      const closeModalBtn = document.getElementById('closeModalBtn');
+      const ageYes = document.getElementById('ageYes');
+      const ageNo = document.getElementById('ageNo');
+      const lineContainer = document.getElementById('lineLinkContainer');
+
+      // 「友達を追加する」ボタンでモーダル表示
+      addFriendBtn.addEventListener('click', function() {
+        ageOverlay.style.display = 'flex';
+      });
+
+      // モーダルを閉じる機能 (×ボタン)
+      closeModalBtn.addEventListener('click', function() {
+        ageOverlay.style.display = 'none';
+      });
+
+      // 背景クリックでも閉じる（オーバーレイ）
+      ageOverlay.addEventListener('click', function(e) {
+        if (e.target === ageOverlay) {
+          ageOverlay.style.display = 'none';
+        }
+      });
+
+      // 「はい」→LINE表示・モーダル閉じる
+      ageYes.addEventListener('click', function() {
+        lineContainer.style.display = 'block';
+        ageOverlay.style.display = 'none';
+        // 少しだけ視覚的に祝福
+        lineContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+
+      // 「いいえ」→何も表示せず、ひっそりとモーダルを閉じる（何もしない）
+      ageNo.addEventListener('click', function() {
+        ageOverlay.style.display = 'none';
+        // もし今LINEが表示されていたら、念のため隠す（いいえの場合は表示しない）
+        lineContainer.style.display = 'none';
+        // オプションでそっとメッセージを出してもいいが、今回はシンプルに
+        alert('またのご利用をお待ちしています。'); // 軽いポップ（なくても良い）
+      });
+
+      // 初期状態ではLINEリンクは非表示（年齢確認「はい」でのみ表示）
+      lineContainer.style.display = 'none';
+    })();
+  </script>
+</body>
+</html>
