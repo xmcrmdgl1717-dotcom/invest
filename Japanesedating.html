@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>まい｜新しい出会い・趣味の仲間募集</title>
-  <!-- 柔らかい印象のフォントとアイコン -->
+  <title>奈奈 (なな) | 新しい出会い・写真でつながる</title>
+  <!-- フォントとアイコン -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Swiper 写真カルーセル用 (軽量でモダン) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <style>
     * {
       margin: 0;
@@ -17,503 +19,541 @@
     }
 
     body {
-      background: linear-gradient(145deg, #fff8f0 0%, #fdeff2 100%);
+      background: linear-gradient(165deg, #faf0f5 0%, #fef7f2 100%);
       font-family: 'Noto Sans JP', 'Quicksand', sans-serif;
-      color: #2e2e2e;
-      line-height: 1.6;
+      color: #2d2d2d;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 2rem 1rem;
+      padding: 2rem 1.5rem;
     }
 
     /* メインカード */
     .profile-card {
-      max-width: 1000px;
+      max-width: 1100px;
       width: 100%;
       background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-radius: 48px 48px 40px 40px;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 4px 18px 0 rgba(210, 130, 150, 0.2);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 56px 56px 48px 48px;
+      box-shadow: 0 30px 60px -15px rgba(160, 100, 130, 0.25);
+      border: 1px solid rgba(255, 240, 235, 0.6);
       overflow: hidden;
-      border: 1px solid rgba(255, 245, 240, 0.7);
     }
 
-    /* ヘッダーイメージ — 日常感あふれるカフェの一枚 (画像はないので背景で表現) */
-    .hero {
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 L0,100 Z" fill="%23fbe9e7"/><circle cx="18" cy="28" r="6" fill="%23ffe0b2" opacity="0.5"/><circle cx="82" cy="45" r="12" fill="%23ffe0f0" opacity="0.4"/><circle cx="45" cy="15" r="8" fill="%23ffe0e8" opacity="0.5"/><circle cx="70" cy="78" r="14" fill="%23ffd9d9" opacity="0.3"/><path d="M24 60 Q40 50 55 62 Q70 74 85 60" stroke="%23ffccbc" stroke-width="2" fill="none" opacity="0.6"/><path d="M15 80 Q30 70 48 85 Q65 97 80 80" stroke="%23ffccd9" stroke-width="2.5" fill="none" opacity="0.5"/></svg>');
-      background-size: cover;
-      background-position: center 30%;
-      height: 240px;
-      position: relative;
+    /* ===== 写真カルーセル (フォトウォール風) ===== */
+    .carousel-container {
+      width: 100%;
+      background: #fff3f1; /* ソフトな背景 */
+      padding: 2rem 2rem 1.5rem 2rem;
+      border-bottom: 2px solid #ffe7e9;
+    }
+
+    .carousel-title {
       display: flex;
-      align-items: flex-end;
-      justify-content: flex-start;
-      padding: 1.5rem 2rem;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1.2rem;
     }
 
-    /* プロフィール写真部分 */
-    .avatar-section {
-      display: flex;
-      align-items: flex-end;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-    }
-
-    .avatar-frame {
-      width: 110px;
-      height: 110px;
+    .carousel-title i {
+      font-size: 1.8rem;
+      color: #c46487;
+      background: #fff0f3;
+      padding: 0.5rem;
       border-radius: 50%;
-      background: #fff5f2;
-      border: 4px solid white;
-      box-shadow: 0 10px 20px -5px rgba(190, 120, 130, 0.3);
+    }
+
+    .carousel-title h2 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #392e38;
+      letter-spacing: 0.02em;
+    }
+
+    .carousel-title span {
+      background: #ffdae4;
+      padding: 0.2rem 1rem;
+      border-radius: 60px;
+      font-size: 0.9rem;
+      margin-left: 1rem;
+      color: #592f41;
+    }
+
+    /* swiper カスタマイズ */
+    .swiper {
+      width: 100%;
+      height: auto;
+      border-radius: 40px;
+      margin: 0 auto;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      background: #ffeff2;
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: 0 12px 24px -8px rgba(140, 80, 100, 0.2);
+      transition: transform 0.2s;
+      border: 3px solid white;
+    }
+
+    .swiper-slide img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+      background: #efdbdf;
+    }
+
+    /* 画像の代替表示 (実際の画像がないのでアイコンで楽しい壁に) */
+    .slide-placeholder {
+      width: 100%;
+      height: 280px;
+      background: #fadfe8;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      font-size: 3.5rem;
-      background: linear-gradient(145deg, #ffece5, #ffdad9);
-      color: #a65e7a;
-      margin-bottom: -1.8rem; /* カードと重ねてナチュラルに */
+      color: #a45f7a;
+      font-size: 3rem;
+      gap: 0.5rem;
     }
-
-    .name-badge {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      padding: 0.6rem 1.8rem 0.6rem 1.8rem;
+    .slide-placeholder p {
+      font-size: 1rem;
+      background: rgba(255,255,240,0.6);
+      padding: 0.3rem 1.5rem;
       border-radius: 60px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      border: 1px solid rgba(255,255,255,0.6);
-      margin-bottom: -1rem;
+      color: #734b5c;
     }
 
-    .name-badge h1 {
-      font-size: 2.2rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      color: #3d2b36;
-      line-height: 1.2;
-      font-family: 'Quicksand', 'Noto Sans JP', sans-serif;
+    .swiper-pagination-bullet-active {
+      background: #c46487 !important;
     }
 
-    .name-badge .sub {
-      font-size: 0.95rem;
-      font-weight: 400;
-      color: #7e5a68;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
+    .swiper-button-next, .swiper-button-prev {
+      color: #a04c6e;
+      background: rgba(255,255,255,0.7);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      backdrop-filter: blur(4px);
+      border: 2px solid white;
+    }
+    .swiper-button-next:after, .swiper-button-prev:after {
+      font-size: 1.2rem;
+      font-weight: bold;
     }
 
-    .sub i {
-      font-size: 0.8rem;
-      color: #c08294;
-    }
-
-    /* メインコンテンツ */
-    .content {
-      padding: 2.8rem 2.5rem 2.5rem 2.5rem;
-    }
-
-    /* タグ・キーワード */
-    .tags {
+    /* プロフィールヘッダー */
+    .profile-header {
+      padding: 1.8rem 2.5rem 0.8rem 2.5rem;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem 1rem;
-      margin-bottom: 2.2rem;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    .tag {
-      background: #f7e9ed;
-      color: #5e3e4a;
-      padding: 0.35rem 1.2rem;
-      border-radius: 40px;
-      font-size: 0.85rem;
+    .name-area {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .name-area h1 {
+      font-size: 2.8rem;
+      font-weight: 650;
+      color: #30202a;
+      line-height: 1.1;
+    }
+
+    .badge {
+      background: #ffecf0;
+      padding: 0.4rem 1.4rem;
+      border-radius: 60px;
+      font-size: 1.1rem;
+      color: #5e3849;
+      border: 1px solid #ffd2da;
       font-weight: 500;
-      letter-spacing: 0.03em;
-      border: 1px solid #ffdbdd;
     }
 
-    .tag i {
+    .location-age {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 1.1rem;
+      background: #fcf0f3;
+      padding: 0.4rem 1.8rem;
+      border-radius: 60px;
+    }
+
+    .location-age i {
       margin-right: 0.3rem;
-      font-size: 0.8rem;
-      color: #b85c7c;
+      color: #c46487;
     }
 
-    /* グリッド：日常生活とお仕事 */
-    .grid-2 {
+    /* タグ */
+    .tags {
+      padding: 0.8rem 2.5rem 1rem 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.8rem;
+    }
+    .tag {
+      background: white;
+      border: 1px solid #fecfd9;
+      color: #623e4d;
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      box-shadow: 0 2px 4px #fad1dc;
+    }
+    .tag i {
+      color: #d96b90;
+      margin-right: 0.3rem;
+    }
+
+    /* グリッド */
+    .content-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin: 2rem 0 2.5rem 0;
+      gap: 1.8rem;
+      padding: 1rem 2.5rem 2rem 2.5rem;
     }
 
-    @media (max-width: 680px) {
-      .grid-2 {
+    @media (max-width: 700px) {
+      .content-grid {
         grid-template-columns: 1fr;
-        gap: 1.8rem;
       }
-      .content {
-        padding: 2rem 1.5rem;
+      .profile-header {
+        flex-direction: column;
+        align-items: start;
+        gap: 0.8rem;
       }
-      .hero {
-        height: 180px;
-      }
+    }
+
+    .section {
+      background: rgba(255, 250, 250, 0.5);
+      backdrop-filter: blur(4px);
+      border-radius: 32px;
+      padding: 1.5rem 1.6rem;
+      border: 1px solid #ffe7ec;
     }
 
     .section-title {
       font-size: 1.3rem;
       font-weight: 600;
-      color: #492f3a;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      margin-bottom: 1.5rem;
-      border-bottom: 2px solid #ffd9e0;
-      padding-bottom: 0.4rem;
-    }
-
-    .section-title i {
-      color: #c96b8b;
-      font-size: 1.3rem;
-      width: 1.8rem;
-    }
-
-    .daily-item, .work-item {
-      background: rgba(255, 250, 247, 0.6);
-      border-radius: 28px;
-      padding: 1.3rem 1.5rem;
-      margin-bottom: 1rem;
-      border: 1px solid #fff0ec;
-      backdrop-filter: blur(4px);
-      box-shadow: 0 5px 12px rgba(160, 100, 120, 0.05);
-      transition: transform 0.2s ease;
-    }
-
-    .daily-item:hover, .work-item:hover {
-      transform: translateY(-2px);
-      background: #fffcf9;
-    }
-
-    .daily-item i, .work-item i {
-      color: #c96b8b;
-      width: 1.8rem;
-      font-size: 1.2rem;
-    }
-
-    .item-header {
-      display: flex;
-      align-items: center;
-      font-weight: 600;
-      color: #3f2b33;
-      margin-bottom: 0.4rem;
-      font-size: 1.1rem;
-    }
-
-    .item-desc {
-      color: #56424b;
-      font-size: 0.95rem;
-      margin-left: 1.9rem;
-    }
-
-    .item-desc span {
-      background: #ffeef2;
-      padding: 0.2rem 0.6rem;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      margin-right: 0.3rem;
-    }
-
-    /* 募集文（画像のメッセージを活かす） */
-    .recruit-message {
-      background: #fef3f5;
-      border-radius: 40px;
-      padding: 1.8rem 2.2rem;
-      margin: 2rem 0 1.8rem 0;
-      border-left: 8px solid #feb6c9;
-      font-style: normal;
-      box-shadow: 0 10px 15px -12px #e5b3c2;
-    }
-
-    .recruit-message p {
-      font-size: 1.3rem;
-      font-weight: 400;
-      color: #35242c;
-      line-height: 1.8;
-    }
-
-    .recruit-message p i {
-      color: #b75a7a;
-      margin: 0 0.2rem;
-    }
-
-    .recruit-message .small-note {
-      font-size: 0.95rem;
-      color: #876b76;
-      margin-top: 0.8rem;
+      color: #3d2b35;
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      border-bottom: 2px dashed #ffc9d4;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.2rem;
     }
 
-    /* 友達追加ボタン */
-    .friend-button-area {
+    .section-title i {
+      color: #c85e83;
+      font-size: 1.4rem;
+    }
+
+    .item-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .item {
+      display: flex;
+      gap: 0.8rem;
+    }
+    .item i {
+      color: #c96b8b;
+      font-size: 1.2rem;
+      width: 1.8rem;
+      padding-top: 0.2rem;
+    }
+    .item p {
+      font-size: 0.98rem;
+      color: #402e37;
+    }
+    .item strong {
+      color: #2d1f26;
+      font-weight: 600;
+    }
+
+    /* メッセージエリア */
+    .message-bubble {
+      background: #feecf0;
+      margin: 0.2rem 2.5rem 1.5rem 2.5rem;
+      padding: 1.8rem 2.5rem;
+      border-radius: 80px 80px 40px 40px;
+      border-left: 8px solid #faa6c0;
+      font-size: 1.3rem;
+      color: #38242e;
+      font-weight: 400;
+      box-shadow: 0 5px 15px #fccfdb;
+    }
+    .message-bubble i {
+      color: #d45e86;
+      margin: 0 0.3rem;
+    }
+
+    /* ボタン */
+    .friend-area {
       text-align: center;
-      margin: 2rem 0 0.5rem 0;
+      padding: 0 2.5rem 2.5rem 2.5rem;
     }
-
-    .btn-add-friend {
-      background: #ff8aac;
+    .btn-friend {
+      background: #ff86ac;
       border: none;
       color: white;
-      font-size: 1.5rem;
+      font-size: 1.7rem;
       font-weight: 600;
-      padding: 1rem 3rem;
+      padding: 1rem 3.5rem;
       border-radius: 80px;
       display: inline-flex;
       align-items: center;
-      gap: 1rem;
-      box-shadow: 0 15px 25px -8px #ed9eb3;
+      gap: 1.2rem;
+      box-shadow: 0 20px 30px -8px #d46f91;
       cursor: pointer;
       transition: 0.2s;
-      border: 2px solid #ffdae4;
-      font-family: 'Quicksand', 'Noto Sans JP', sans-serif;
-      letter-spacing: 0.03em;
+      border: 3px solid #ffe1ea;
     }
-
-    .btn-add-friend i {
-      font-size: 1.8rem;
+    .btn-friend i {
+      font-size: 2rem;
     }
-
-    .btn-add-friend:hover {
-      background: #ff759b;
+    .btn-friend:hover {
+      background: #ff6793;
       transform: scale(1.02);
-      box-shadow: 0 18px 30px -6px #e06b90;
     }
 
-    /* 年齢確認モーダル（オーバーレイ） */
+    /* モーダル */
     .overlay {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.3);
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(40,20,30,0.3);
       backdrop-filter: blur(5px);
       display: none;
       align-items: center;
       justify-content: center;
       z-index: 1000;
     }
-
     .modal {
-      background: #fffafc;
+      background: #fffafe;
       max-width: 380px;
       width: 90%;
-      padding: 2.2rem 1.8rem 1.8rem;
-      border-radius: 60px 60px 40px 40px;
+      padding: 2.2rem 2rem;
+      border-radius: 70px 70px 50px 50px;
       text-align: center;
-      box-shadow: 0 30px 50px #b2809066;
-      border: 2px solid white;
-      animation: pop 0.25s ease;
+      border: 3px solid white;
+      box-shadow: 0 35px 50px #a57287;
     }
-
-    @keyframes pop {
-      0% { transform: scale(0.9); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-
     .modal h3 {
-      font-size: 1.9rem;
-      font-weight: 600;
-      color: #4a2f3b;
-      margin-bottom: 0.5rem;
-      font-family: 'Quicksand', sans-serif;
+      font-size: 2rem;
+      color: #392731;
     }
-
     .modal p {
-      margin: 1.2rem 0 1.8rem;
-      font-size: 1.2rem;
-      color: #634e58;
+      margin: 1.5rem 0 2rem;
+      font-size: 1.3rem;
     }
-
     .modal-actions {
       display: flex;
       gap: 1rem;
-      justify-content: center;
     }
-
     .modal-btn {
-      border: none;
-      background: #ffe3ea;
-      padding: 0.8rem 2rem;
-      border-radius: 50px;
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #4d2f3c;
-      cursor: pointer;
-      transition: 0.15s;
-      border: 1px solid #ffccd9;
       flex: 1;
-    }
-
-    .modal-btn.yes {
-      background: #ff8aac;
-      color: white;
       border: none;
-    }
-
-    .modal-btn.yes:hover {
-      background: #e86f93;
-    }
-
-    .modal-btn.no:hover {
-      background: #fbcbd8;
-    }
-
-    .close-icon {
-      text-align: right;
-      margin-bottom: 0.5rem;
-      font-size: 1.4rem;
-      color: #af8393;
-      cursor: pointer;
-    }
-
-    /* LINEリンク (はい→表示) */
-    .line-link-box {
-      display: none;
-      margin-top: 1.8rem;
-      padding: 1.2rem;
-      background: #eaf6f0;
-      border-radius: 60px;
-      border: 2px solid #06c755;
-      text-align: center;
-    }
-
-    .line-link-box a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: #06c755;
-      color: white;
-      padding: 0.8rem 2rem;
+      background: #fad7e2;
+      padding: 0.9rem;
       border-radius: 50px;
       font-size: 1.3rem;
       font-weight: 600;
-      text-decoration: none;
-      transition: 0.2s;
-      border: 2px solid #b3f0cf;
+      color: #402934;
+      cursor: pointer;
+      border: 1px solid #ffc1cf;
     }
-
-    .line-link-box a i {
+    .modal-btn.yes {
+      background: #ff86ac;
+      color: white;
+    }
+    .modal-btn.yes:hover { background: #f06d95; }
+    .modal-btn.no:hover { background: #fec6d4; }
+    .close-icon {
+      text-align: right;
       font-size: 1.8rem;
+      color: #b48a99;
+      cursor: pointer;
     }
 
-    .line-link-box a:hover {
-      background: #05a84b;
+    /* LINEリンク */
+    .line-box {
+      display: none;
+      margin: 1rem 2.5rem 2rem 2.5rem;
+      background: #ebf9f0;
+      border-radius: 60px;
+      padding: 1.2rem;
+      border: 3px solid #06c755;
     }
-
+    .line-box a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: #06c755;
+      color: white;
+      padding: 0.8rem 2.5rem;
+      border-radius: 60px;
+      font-size: 1.4rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .line-box a:hover {
+      background: #04a84a;
+    }
     footer {
       margin-top: 1rem;
-      color: #b5909c;
-      font-size: 0.8rem;
+      color: #ad8695;
     }
   </style>
 </head>
 <body>
   <div class="profile-card">
-    <!-- ヘッダー / 日常の温かみのあるイメージ -->
-    <div class="hero">
-      <div class="avatar-section">
-        <div class="avatar-frame">
-          <i class="fas fa-coffee"></i>
+
+    <!-- 写真壁 カルーセル (フォトウォール風) -->
+    <div class="carousel-container">
+      <div class="carousel-title">
+        <i class="fas fa-camera-retro"></i>
+        <h2>Photo Gallery <span>日常のひとコマ</span></h2>
+      </div>
+      <!-- Swiper -->
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <!-- スライド1 カフェ -->
+          <div class="swiper-slide">
+            <div class="slide-placeholder">
+              <i class="fas fa-mug-hot"></i>
+              <p>大田区の隠れ家カフェ</p>
+            </div>
+          </div>
+          <!-- スライド2 公園・散歩 -->
+          <div class="swiper-slide">
+            <div class="slide-placeholder">
+              <i class="fas fa-tree"></i>
+              <p>洗足池公園 夕方</p>
+            </div>
+          </div>
+          <!-- スライド3 料理 -->
+          <div class="swiper-slide">
+            <div class="slide-placeholder">
+              <i class="fas fa-utensils"></i>
+              <p>手作りの和食ごはん</p>
+            </div>
+          </div>
+          <!-- スライド4 趣味の写真 -->
+          <div class="swiper-slide">
+            <div class="slide-placeholder">
+              <i class="fas fa-camera"></i>
+              <p>休日カメラ散歩</p>
+            </div>
+          </div>
+          <!-- スライド5 おしゃれカフェ -->
+          <div class="swiper-slide">
+            <div class="slide-placeholder">
+              <i class="fas fa-coffee"></i>
+              <p>雑誌みたいなカフェ</p>
+            </div>
+          </div>
+          <!-- スライド6 軽い運動 -->
+          <div class="swiper-slide">
+            <div class="slide-placeholder">
+              <i class="fas fa-person-walking"></i>
+              <p>多摩川ウォーキング</p>
+            </div>
+          </div>
         </div>
-        <div class="name-badge">
-          <h1>まい <span style="font-size:1rem; font-weight:400; color:#8e6b78;">(Mai)</span></h1>
-          <div class="sub"><i class="fas fa-map-pin"></i> 東京・世田谷 <i class="fas fa-cat" style="margin-left:0.8rem;"></i> 休日はカフェ巡り</div>
+        <!-- ナビとページネーション -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+
+    <!-- プロフィール基本情報 (奈奈 / 大田区 / 37歳・单身) -->
+    <div class="profile-header">
+      <div class="name-area">
+        <h1>奈奈 <span style="font-size:1.3rem; font-weight:400; margin-left:0.5rem;">(Nana)</span></h1>
+        <span class="badge"><i class="fas fa-heart"></i> 独身・交際相手募集中</span>
+      </div>
+      <div class="location-age">
+        <span><i class="fas fa-map-marker-alt"></i> 東京・大田区</span>
+        <span><i class="fas fa-cake-candles"></i> 37歳</span>
+      </div>
+    </div>
+
+    <!-- タグ（趣味・価値観） -->
+    <div class="tags">
+      <span class="tag"><i class="fas fa-camera"></i> 写真</span>
+      <span class="tag"><i class="fas fa-hiking"></i> ハイキング</span>
+      <span class="tag"><i class="fas fa-seedling"></i> 多肉植物</span>
+      <span class="tag"><i class="fas fa-film"></i> 邦画</span>
+      <span class="tag"><i class="fas fa-book"></i> エッセイ</span>
+      <span class="tag"><i class="fas fa-paw"></i> 動物好き</span>
+    </div>
+
+    <!-- 二段組：日常とお仕事（金融） -->
+    <div class="content-grid">
+      <!-- 左：日常 -->
+      <div class="section">
+        <div class="section-title"><i class="fas fa-sun"></i> 日常生活</div>
+        <div class="item-list">
+          <div class="item"><i class="fas fa-clock"></i><p><strong>朝活</strong> 6:30 起床、近所の公園でラジオ体操＆写真撮影</p></div>
+          <div class="item"><i class="fas fa-dog"></i><p><strong>ペット</strong> 実家で猫2匹（ときどき預かり中）動物ボランティアにも興味あり</p></div>
+          <div class="item"><i class="fas fa-utensils"></i><p><strong>料理</strong> 週3回は自炊。最近は発酵食品をつくるのにハマってます</p></div>
+          <div class="item"><i class="fas fa-spa"></i><p><strong>リラックス</strong> 銭湯・サウナ巡り。大田区は良い銭湯が多い</p></div>
+        </div>
+      </div>
+      <!-- 右：金融業 -->
+      <div class="section">
+        <div class="section-title"><i class="fas fa-briefcase"></i> 仕事 (金融)</div>
+        <div class="item-list">
+          <div class="item"><i class="fas fa-building"></i><p><strong>職種</strong> 都内信用金庫 融資課 係長。中小企業のサポート担当7年目</p></div>
+          <div class="item"><i class="fas fa-chart-pie"></i><p><strong>資格</strong> ファイナンシャルプランナー2級、宅建士</p></div>
+          <div class="item"><i class="fas fa-hand-holding-heart"></i><p><strong>やりがい</strong> お客様の夢を融資で後押し。堅苦しくない相談を心がけてます</p></div>
+          <div class="item"><i class="fas fa-users"></i><p><strong>職場の雰囲気</strong> アットホームな支店。休日は同僚とランチも</p></div>
         </div>
       </div>
     </div>
 
-    <div class="content">
-      <!-- 趣味・価値観タグ -->
-      <div class="tags">
-        <span class="tag"><i class="fas fa-heart"></i> ヨガ</span>
-        <span class="tag"><i class="fas fa-book"></i> ミステリー小説</span>
-        <span class="tag"><i class="fas fa-hiking"></i> 登山</span>
-        <span class="tag"><i class="fas fa-film"></i> 映画鑑賞</span>
-        <span class="tag"><i class="fas fa-seedling"></i> 持続可能な暮らし</span>
-        <span class="tag"><i class="fas fa-palette"></i> 美術館</span>
-      </div>
+    <!-- 募集メッセージ (画像の内容を反映) -->
+    <div class="message-bubble">
+      <i class="fas fa-quote-left"></i> 新しい出会いを探しています<br>共通の趣味や価値観を持つ仲間を募集します <i class="fas fa-quote-right"></i>
+      <div style="margin-top:0.8rem; font-size:1rem; color:#6b4f5b;"><i class="fas fa-sparkles"></i> まずは友達追加から、気軽にどうぞ</div>
+    </div>
 
-      <!-- 2カラム: 日常生活 / お仕事について (金融) -->
-      <div class="grid-2">
-        <!-- 左: 日常生活 -->
-        <div>
-          <div class="section-title"><i class="fas fa-sun"></i> 日常の風景</div>
-          <div class="daily-item">
-            <div class="item-header"><i class="fas fa-mug-hot"></i> 朝のルーティン</div>
-            <div class="item-desc">6:30 ヨガ <span>毎日</span> → 自家製スムージー。週末は必ず新しいカフェを開拓。<br>写真はよく撮るほう。</div>
-          </div>
-          <div class="daily-item">
-            <div class="item-header"><i class="fas fa-dog"></i> 一緒に暮らす愛犬</div>
-            <div class="item-desc">トイプードルの「モカ」(2歳)。夕方の散歩が日課。犬好きな方、ぜひ話しましょう！</div>
-          </div>
-          <div class="daily-item">
-            <div class="item-header"><i class="fas fa-hands"></i> 休日の過ごし方</div>
-            <div class="item-desc">登山 (最近は高尾山・奥多摩)、 料理教室 (月2回)、 友人とピクニック。</div>
-          </div>
-        </div>
+    <!-- 友達追加ボタン -->
+    <div class="friend-area">
+      <button class="btn-friend" id="addFriendBtn">
+        <i class="fas fa-user-plus"></i> 友達を追加する
+      </button>
+    </div>
 
-        <!-- 右: お仕事・金融 -->
-        <div>
-          <div class="section-title"><i class="fas fa-briefcase"></i> 働く私・金融</div>
-          <div class="work-item">
-            <div class="item-header"><i class="fas fa-chart-line"></i> 資産運用アドバイザー</div>
-            <div class="item-desc">都内の外資系金融機関で働いて6年目。主に個人向け資産運用・相続相談。FP資格保有。</div>
-          </div>
-          <div class="work-item">
-            <div class="item-header"><i class="fas fa-coins"></i> 仕事への想い</div>
-            <div class="item-desc">「お金の不安をなくし、人生を豊かにするサポート」がモットー。堅苦しくない相談を心がけています。</div>
-          </div>
-          <div class="work-item">
-            <div class="item-header"><i class="fas fa-smile"></i> 休憩時間</div>
-            <div class="item-desc">オフィス近くの小さな公園でおにぎりランチ。同僚と株談義よりカフェの話で盛り上がる。</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 募集メッセージ（画像の内容を反映） -->
-      <div class="recruit-message">
-        <p><i class="fas fa-quote-left"></i> 新しい出会いを探しています。<br>共通の趣味や価値観を持つ仲間を募集します <i class="fas fa-quote-right"></i></p>
-        <div class="small-note"><i class="fas fa-sparkles"></i> まずは気軽に友達登録から！ 年齢確認があります。</div>
-      </div>
-
-      <!-- 友達追加ボタン -->
-      <div class="friend-button-area">
-        <button class="btn-add-friend" id="addFriendBtn">
-          <i class="fas fa-user-plus"></i> 友達を追加する
-        </button>
-      </div>
-
-      <!-- LINEリンク表示エリア (Yesで出現) -->
-      <div id="lineLinkContainer" class="line-link-box">
-        <a href="https://line.me/ti/p/~mai_friendship" target="_blank">
-          <i class="fab fa-line"></i> LINEで連絡する
-        </a>
-        <p style="font-size:0.9rem; margin-top:0.5rem; color:#2d5e4b;">@mai_friendship から友達追加してください</p>
-      </div>
+    <!-- LINEリンク表示エリア（年齢確認後） -->
+    <div id="lineLinkBox" class="line-box" style="justify-content:center; display:none;">
+      <a href="https://line.me/ti/p/~nana_friend" target="_blank">
+        <i class="fab fa-line"></i> LINEでつながる
+      </a>
+      <p style="margin-top:0.5rem; color:#215a40;">ID: @nana_friend 友達追加お待ちしてます</p>
     </div>
   </div>
 
-  <!-- 年齢確認オーバーレイ モーダル -->
+  <!-- 年齢確認モーダル (35歳以上？) 37歳の奈奈さんだが、本人確認のため表示 -->
   <div id="ageOverlay" class="overlay">
     <div class="modal">
-      <div class="close-icon" id="closeModalBtn"><i class="fas fa-times-circle"></i></div>
-      <h3>年齢確認</h3>
+      <div class="close-icon" id="closeModal"><i class="fas fa-times-circle"></i></div>
+      <h3>📷 年齢確認</h3>
       <p>あなたは35歳以上ですか？</p>
       <div class="modal-actions">
         <button class="modal-btn yes" id="ageYes">はい</button>
@@ -523,54 +563,65 @@
   </div>
 
   <footer>
-    © まい ｜ 新しい出会いを探すマッチングコミュニティ
+    © 奈奈 (Nana) ｜ 大田区・37歳 新しい出会いを探すフォトアルバム
   </footer>
 
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
     (function() {
-      const addFriendBtn = document.getElementById('addFriendBtn');
-      const ageOverlay = document.getElementById('ageOverlay');
-      const closeModalBtn = document.getElementById('closeModalBtn');
-      const ageYes = document.getElementById('ageYes');
-      const ageNo = document.getElementById('ageNo');
-      const lineContainer = document.getElementById('lineLinkContainer');
-
-      // 「友達を追加する」ボタンでモーダル表示
-      addFriendBtn.addEventListener('click', function() {
-        ageOverlay.style.display = 'flex';
-      });
-
-      // モーダルを閉じる機能 (×ボタン)
-      closeModalBtn.addEventListener('click', function() {
-        ageOverlay.style.display = 'none';
-      });
-
-      // 背景クリックでも閉じる（オーバーレイ）
-      ageOverlay.addEventListener('click', function(e) {
-        if (e.target === ageOverlay) {
-          ageOverlay.style.display = 'none';
+      // スワイパー初期化
+      const swiper = new Swiper('.mySwiper', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+          500: { slidesPerView: 2 },
+          900: { slidesPerView: 3 },
         }
       });
 
-      // 「はい」→LINE表示・モーダル閉じる
-      ageYes.addEventListener('click', function() {
-        lineContainer.style.display = 'block';
-        ageOverlay.style.display = 'none';
-        // 少しだけ視覚的に祝福
-        lineContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // 友達追加モーダル制御
+      const addBtn = document.getElementById('addFriendBtn');
+      const overlay = document.getElementById('ageOverlay');
+      const closeModal = document.getElementById('closeModal');
+      const ageYes = document.getElementById('ageYes');
+      const ageNo = document.getElementById('ageNo');
+      const lineBox = document.getElementById('lineLinkBox');
+
+      addBtn.addEventListener('click', () => {
+        overlay.style.display = 'flex';
       });
 
-      // 「いいえ」→何も表示せず、ひっそりとモーダルを閉じる（何もしない）
-      ageNo.addEventListener('click', function() {
-        ageOverlay.style.display = 'none';
-        // もし今LINEが表示されていたら、念のため隠す（いいえの場合は表示しない）
-        lineContainer.style.display = 'none';
-        // オプションでそっとメッセージを出してもいいが、今回はシンプルに
-        alert('またのご利用をお待ちしています。'); // 軽いポップ（なくても良い）
+      const closeOverlay = () => { overlay.style.display = 'none'; };
+      closeModal.addEventListener('click', closeOverlay);
+      overlay.addEventListener('click', (e) => { if(e.target === overlay) closeOverlay(); });
+
+      // はい → LINE表示
+      ageYes.addEventListener('click', () => {
+        lineBox.style.display = 'block';  // LINEリンク表示
+        closeOverlay();
+        // スムーズスクロールでLINE部分へ
+        lineBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
       });
 
-      // 初期状態ではLINEリンクは非表示（年齢確認「はい」でのみ表示）
-      lineContainer.style.display = 'none';
+      // いいえ → 何も表示しない + 閉じる
+      ageNo.addEventListener('click', () => {
+        closeOverlay();
+        lineBox.style.display = 'none';   // 念のため非表示
+        alert("またのご縁がありますように🌸"); // そっとメッセージ
+      });
+
+      // 初期非表示
+      lineBox.style.display = 'none';
     })();
   </script>
 </body>
