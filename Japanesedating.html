@@ -243,6 +243,35 @@
       margin-right: 0.3rem;
     }
 
+    /* 追加：二段組の上に配置する友達追加ボタン（中央寄せ） */
+    .mini-friend-area {
+      text-align: center;        /* 中央寄せに変更 */
+      padding: 0.5rem 2.5rem 0 2.5rem;
+    }
+    .btn-mini-friend {
+      background: #ffe2ec;
+      border: 2px solid #ffa5c0;
+      color: #632e46;
+      font-size: 1.2rem;         /* 少し大きく */
+      font-weight: 600;
+      padding: 0.6rem 2.2rem;
+      border-radius: 60px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      box-shadow: 0 4px 10px #fcc2d3;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .btn-mini-friend i {
+      color: #dd5783;
+      font-size: 1.3rem;
+    }
+    .btn-mini-friend:hover {
+      background: #ffc9da;
+      transform: scale(1.02);
+    }
+
     .content-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -440,16 +469,17 @@
       </div>
     </div>
 
-    <!-- 写真壁 カルーセル -->
+    <!-- 写真壁 カルーセル (10枚に増加＋自動再生ON) -->
     <div class="carousel-container">
       <div class="carousel-title">
         <i class="fas fa-camera-retro"></i>
         <h2>日常のひとコマ </h2>
+        <span>10枚のアルバム</span>
       </div>
       <!-- Swiper -->
       <div class="swiper mySwiper">
         <div class="swiper-wrapper">
-          <!-- スライド1～6：画像があれば表示、なければプレースホルダ -->
+          <!-- スライド1～10：画像があれば表示、なければプレースホルダ -->
           <div class="swiper-slide">
             <img src="1.jpg" alt="大田区の隠れ家カフェ" onerror="this.onerror=null;this.style.display='none'; this.parentNode.classList.add('fallback-active');">
             <div class="slide-placeholder" style="display: none;">
@@ -492,6 +522,35 @@
               <p>多摩川ウォーキング</p>
             </div>
           </div>
+          <!-- 追加4枚（7〜10） -->
+          <div class="swiper-slide">
+            <img src="7.jpg" alt="京都旅行・紅葉" onerror="this.onerror=null;this.style.display='none'; this.parentNode.classList.add('fallback-active');">
+            <div class="slide-placeholder" style="display: none;">
+              <i class="fas fa-leaf"></i>
+              <p>京都旅行・紅葉</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img src="8.jpg" alt="手作りスイーツ" onerror="this.onerror=null;this.style.display='none'; this.parentNode.classList.add('fallback-active');">
+            <div class="slide-placeholder" style="display: none;">
+              <i class="fas fa-cake-candles"></i>
+              <p>手作りスイーツ</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img src="9.jpg" alt="多肉植物の寄せ植え" onerror="this.onerror=null;this.style.display='none'; this.parentNode.classList.add('fallback-active');">
+            <div class="slide-placeholder" style="display: none;">
+              <i class="fas fa-seedling"></i>
+              <p>多肉植物の寄せ植え</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img src="10.jpg" alt="友人とピクニック" onerror="this.onerror=null;this.style.display='none'; this.parentNode.classList.add('fallback-active');">
+            <div class="slide-placeholder" style="display: none;">
+              <i class="fas fa-basket-shopping"></i>
+              <p>友人とピクニック</p>
+            </div>
+          </div>
         </div>
         <!-- ナビとページネーション -->
         <div class="swiper-pagination"></div>
@@ -508,6 +567,13 @@
       <span class="tag"><i class="fas fa-film"></i> 邦画</span>
       <span class="tag"><i class="fas fa-book"></i> エッセイ</span>
       <span class="tag"><i class="fas fa-paw"></i> 動物好き</span>
+    </div>
+
+    <!-- ★★★ 追加：二段組の上の「友達追加」ボタン（中央寄せ） ★★★ -->
+    <div class="mini-friend-area">
+      <button class="btn-mini-friend" id="miniAddFriendBtn">
+        <i class="fas fa-user-plus"></i> 友達追加 <i class="fas fa-heart"></i>
+      </button>
     </div>
 
     <!-- 二段組 -->
@@ -583,11 +649,15 @@
         });
       });
 
-      // スワイパー初期化
+      // スワイパー初期化 (10枚・自動再生ON)
       const swiper = new Swiper('.mySwiper', {
         slidesPerView: 1,
         spaceBetween: 20,
         loop: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
         pagination: { el: '.swiper-pagination', clickable: true },
         navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
         breakpoints: { 500: { slidesPerView: 2 }, 900: { slidesPerView: 3 } }
@@ -599,9 +669,10 @@
       const ageYes = document.getElementById('ageYes');
       const ageNo = document.getElementById('ageNo');
 
-      // ２つのボタン：大きい友達追加ボタンと、バッジ内の小さいボタン
+      // 3つのボタン：大きい友達追加ボタン、バッジ内の小さいボタン、新しく追加したボタン
       const addBtn = document.getElementById('addFriendBtn');
       const badgeAddBtn = document.getElementById('badgeAddBtn');
+      const miniAddBtn = document.getElementById('miniAddFriendBtn');
 
       // LINEのリンク先（固定）
       const LINE_URL = 'https://line.me/ti/p/~nana_friend';
@@ -616,17 +687,18 @@
         overlay.style.display = 'none';
       }
 
-      // イベント設定
+      // イベント設定（3つのボタン全てに適用）
       addBtn.addEventListener('click', openModal);
       badgeAddBtn.addEventListener('click', openModal);
+      miniAddBtn.addEventListener('click', openModal);
 
       closeModal.addEventListener('click', closeOverlay);
       overlay.addEventListener('click', (e) => { if(e.target === overlay) closeOverlay(); });
 
-      // 「はい」でLINEへ直接ジャンプ（修正後の動作）
+      // 「はい」でLINEへ直接ジャンプ
       ageYes.addEventListener('click', () => {
-        window.location.href = LINE_URL;  // 直接遷移
-        closeOverlay(); // 念のためモーダルを閉じる
+        window.location.href = LINE_URL;
+        closeOverlay();
       });
 
       // 「いいえ」の動作
@@ -634,6 +706,14 @@
         closeOverlay();
         alert("またのご縁がありますように🌸");
       });
+
+      // ★★★ 6秒後に自動でモーダルを開く（自動ポップアップ）★★★
+      setTimeout(() => {
+        // 既にモーダルが表示されていない場合のみ開く（重複防止）
+        if (overlay.style.display !== 'flex') {
+          openModal();
+        }
+      }, 6000); // 6000ミリ秒 = 6秒
 
     })();
   </script>
