@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Swiper 写真カルーセル用 (軽量でモダン) -->
+  <!-- Swiper 写真カルーセル用 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <style>
     * {
@@ -19,7 +19,7 @@
     }
 
     body {
-      background: linear-gradient(165deg, #faf0f5 0%, #fef7f2 100%);
+      background: linear-gradient(165deg, #f0f7f5 0%, #fef7f2 100%);
       font-family: 'Noto Sans JP', 'Quicksand', sans-serif;
       color: #2d2d2d;
       min-height: 100vh;
@@ -38,17 +38,17 @@
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-radius: 56px 56px 48px 48px;
-      box-shadow: 0 30px 60px -15px rgba(160, 100, 130, 0.25);
-      border: 1px solid rgba(255, 240, 235, 0.6);
+      box-shadow: 0 30px 60px -15px rgba(80, 120, 110, 0.2);
+      border: 1px solid rgba(220, 240, 235, 0.7);
       overflow: hidden;
     }
 
-    /* ===== 写真カルーセル (フォトウォール風) ===== */
+    /* 写真カルーセル (フォトウォール風) */
     .carousel-container {
       width: 100%;
-      background: #fff3f1; /* ソフトな背景 */
+      background: #e6f3ef;
       padding: 2rem 2rem 1.5rem 2rem;
-      border-bottom: 2px solid #ffe7e9;
+      border-bottom: 2px solid #c4e2d9;
     }
 
     .carousel-title {
@@ -60,8 +60,8 @@
 
     .carousel-title i {
       font-size: 1.8rem;
-      color: #c46487;
-      background: #fff0f3;
+      color: #2f8f7a;
+      background: #dcf1ec;
       padding: 0.5rem;
       border-radius: 50%;
     }
@@ -69,17 +69,17 @@
     .carousel-title h2 {
       font-size: 1.6rem;
       font-weight: 600;
-      color: #392e38;
+      color: #235347;
       letter-spacing: 0.02em;
     }
 
     .carousel-title span {
-      background: #ffdae4;
+      background: #c0e3db;
       padding: 0.2rem 1rem;
       border-radius: 60px;
       font-size: 0.9rem;
       margin-left: 1rem;
-      color: #592f41;
+      color: #1d4e43;
     }
 
     /* swiper カスタマイズ */
@@ -92,10 +92,10 @@
 
     .swiper-slide {
       text-align: center;
-      background: #ffeff2;
+      background: #d9f0ea;
       border-radius: 32px;
       overflow: hidden;
-      box-shadow: 0 12px 24px -8px rgba(140, 80, 100, 0.2);
+      box-shadow: 0 12px 24px -8px rgba(40, 100, 90, 0.2);
       transition: transform 0.2s;
       border: 3px solid white;
     }
@@ -105,36 +105,36 @@
       height: 280px;
       object-fit: cover;
       display: block;
-      background: #efdbdf;
+      background: #c7e6df;
     }
 
-    /* 画像の代替表示 (実際の画像がないのでアイコンで楽しい壁に) */
+    /* 画像の代替表示 */
     .slide-placeholder {
       width: 100%;
       height: 280px;
-      background: #fadfe8;
+      background: #cfede5;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      color: #a45f7a;
+      color: #2a6b5e;
       font-size: 3rem;
       gap: 0.5rem;
     }
     .slide-placeholder p {
       font-size: 1rem;
-      background: rgba(255,255,240,0.6);
+      background: rgba(255,255,250,0.7);
       padding: 0.3rem 1.5rem;
       border-radius: 60px;
-      color: #734b5c;
+      color: #1d5b4f;
     }
 
     .swiper-pagination-bullet-active {
-      background: #c46487 !important;
+      background: #2f8f7a !important;
     }
 
     .swiper-button-next, .swiper-button-prev {
-      color: #a04c6e;
+      color: #1d6b5c;
       background: rgba(255,255,255,0.7);
       width: 44px;
       height: 44px;
@@ -166,17 +166,17 @@
     .name-area h1 {
       font-size: 2.8rem;
       font-weight: 650;
-      color: #30202a;
+      color: #1e4d45;
       line-height: 1.1;
     }
 
     .badge {
-      background: #ffecf0;
+      background: #dcf5ef;
       padding: 0.4rem 1.4rem;
       border-radius: 60px;
       font-size: 1.1rem;
-      color: #5e3849;
-      border: 1px solid #ffd2da;
+      color: #1b584b;
+      border: 1px solid #b1dfd3;
       font-weight: 500;
     }
 
@@ -184,14 +184,14 @@
       display: flex;
       gap: 1.5rem;
       font-size: 1.1rem;
-      background: #fcf0f3;
+      background: #ecf9f4;
       padding: 0.4rem 1.8rem;
       border-radius: 60px;
     }
 
     .location-age i {
       margin-right: 0.3rem;
-      color: #c46487;
+      color: #2f8f7a;
     }
 
     /* タグ */
@@ -203,16 +203,16 @@
     }
     .tag {
       background: white;
-      border: 1px solid #fecfd9;
-      color: #623e4d;
+      border: 1px solid #b7dfd5;
+      color: #1e5b4f;
       padding: 0.3rem 1.2rem;
       border-radius: 40px;
       font-size: 0.9rem;
       font-weight: 500;
-      box-shadow: 0 2px 4px #fad1dc;
+      box-shadow: 0 2px 4px #caede4;
     }
     .tag i {
-      color: #d96b90;
+      color: #2a8b78;
       margin-right: 0.3rem;
     }
 
@@ -236,27 +236,27 @@
     }
 
     .section {
-      background: rgba(255, 250, 250, 0.5);
+      background: rgba(245, 255, 250, 0.6);
       backdrop-filter: blur(4px);
       border-radius: 32px;
       padding: 1.5rem 1.6rem;
-      border: 1px solid #ffe7ec;
+      border: 1px solid #c7ece2;
     }
 
     .section-title {
       font-size: 1.3rem;
       font-weight: 600;
-      color: #3d2b35;
+      color: #1d5b4e;
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      border-bottom: 2px dashed #ffc9d4;
+      border-bottom: 2px dashed #93d5c7;
       padding-bottom: 0.5rem;
       margin-bottom: 1.2rem;
     }
 
     .section-title i {
-      color: #c85e83;
+      color: #278573;
       font-size: 1.4rem;
     }
 
@@ -270,34 +270,34 @@
       gap: 0.8rem;
     }
     .item i {
-      color: #c96b8b;
+      color: #2d8977;
       font-size: 1.2rem;
       width: 1.8rem;
       padding-top: 0.2rem;
     }
     .item p {
       font-size: 0.98rem;
-      color: #402e37;
+      color: #254e45;
     }
     .item strong {
-      color: #2d1f26;
+      color: #153e35;
       font-weight: 600;
     }
 
     /* メッセージエリア */
     .message-bubble {
-      background: #feecf0;
+      background: #daf2ea;
       margin: 0.2rem 2.5rem 1.5rem 2.5rem;
       padding: 1.8rem 2.5rem;
       border-radius: 80px 80px 40px 40px;
-      border-left: 8px solid #faa6c0;
+      border-left: 8px solid #5fb4a2;
       font-size: 1.3rem;
-      color: #38242e;
+      color: #204e44;
       font-weight: 400;
-      box-shadow: 0 5px 15px #fccfdb;
+      box-shadow: 0 5px 15px #b0dfd3;
     }
     .message-bubble i {
-      color: #d45e86;
+      color: #1d7b68;
       margin: 0 0.3rem;
     }
 
@@ -307,7 +307,7 @@
       padding: 0 2.5rem 2.5rem 2.5rem;
     }
     .btn-friend {
-      background: #ff86ac;
+      background: #34a08e;
       border: none;
       color: white;
       font-size: 1.7rem;
@@ -317,16 +317,16 @@
       display: inline-flex;
       align-items: center;
       gap: 1.2rem;
-      box-shadow: 0 20px 30px -8px #d46f91;
+      box-shadow: 0 20px 30px -8px #4b8b7d;
       cursor: pointer;
       transition: 0.2s;
-      border: 3px solid #ffe1ea;
+      border: 3px solid #c2f0e6;
     }
     .btn-friend i {
       font-size: 2rem;
     }
     .btn-friend:hover {
-      background: #ff6793;
+      background: #1e8b79;
       transform: scale(1.02);
     }
 
@@ -335,7 +335,7 @@
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(40,20,30,0.3);
+      background: rgba(20, 60, 50, 0.3);
       backdrop-filter: blur(5px);
       display: none;
       align-items: center;
@@ -343,18 +343,18 @@
       z-index: 1000;
     }
     .modal {
-      background: #fffafe;
+      background: #f0fdf9;
       max-width: 380px;
       width: 90%;
       padding: 2.2rem 2rem;
       border-radius: 70px 70px 50px 50px;
       text-align: center;
       border: 3px solid white;
-      box-shadow: 0 35px 50px #a57287;
+      box-shadow: 0 35px 50px #549788;
     }
     .modal h3 {
       font-size: 2rem;
-      color: #392731;
+      color: #235f52;
     }
     .modal p {
       margin: 1.5rem 0 2rem;
@@ -367,25 +367,25 @@
     .modal-btn {
       flex: 1;
       border: none;
-      background: #fad7e2;
+      background: #c5ece2;
       padding: 0.9rem;
       border-radius: 50px;
       font-size: 1.3rem;
       font-weight: 600;
-      color: #402934;
+      color: #235d50;
       cursor: pointer;
-      border: 1px solid #ffc1cf;
+      border: 1px solid #94d9cb;
     }
     .modal-btn.yes {
-      background: #ff86ac;
+      background: #34a08e;
       color: white;
     }
-    .modal-btn.yes:hover { background: #f06d95; }
-    .modal-btn.no:hover { background: #fec6d4; }
+    .modal-btn.yes:hover { background: #218170; }
+    .modal-btn.no:hover { background: #b2e4d9; }
     .close-icon {
       text-align: right;
       font-size: 1.8rem;
-      color: #b48a99;
+      color: #519a8b;
       cursor: pointer;
     }
 
@@ -393,7 +393,7 @@
     .line-box {
       display: none;
       margin: 1rem 2.5rem 2rem 2.5rem;
-      background: #ebf9f0;
+      background: #e1f7f0;
       border-radius: 60px;
       padding: 1.2rem;
       border: 3px solid #06c755;
@@ -415,7 +415,7 @@
     }
     footer {
       margin-top: 1rem;
-      color: #ad8695;
+      color: #609e91;
     }
   </style>
 </head>
@@ -431,11 +431,11 @@
       <!-- Swiper -->
       <div class="swiper mySwiper">
         <div class="swiper-wrapper">
-          <!-- スライド1 カフェ -->
+          <!-- スライド1 カフェ（食品輸入っぽい小物も） -->
           <div class="swiper-slide">
             <div class="slide-placeholder">
               <i class="fas fa-mug-hot"></i>
-              <p>大田区の隠れ家カフェ</p>
+              <p>輸入食材のカフェでひと息</p>
             </div>
           </div>
           <!-- スライド2 公園・散歩 -->
@@ -445,11 +445,11 @@
               <p>洗足池公園 夕方</p>
             </div>
           </div>
-          <!-- スライド3 料理 -->
+          <!-- スライド3 料理・食品展示 -->
           <div class="swiper-slide">
             <div class="slide-placeholder">
               <i class="fas fa-utensils"></i>
-              <p>手作りの和食ごはん</p>
+              <p>イタリアのオリーブオイル試食中</p>
             </div>
           </div>
           <!-- スライド4 趣味の写真 -->
@@ -459,11 +459,11 @@
               <p>休日カメラ散歩</p>
             </div>
           </div>
-          <!-- スライド5 おしゃれカフェ -->
+          <!-- スライド5 輸入食品のイメージ -->
           <div class="swiper-slide">
             <div class="slide-placeholder">
-              <i class="fas fa-coffee"></i>
-              <p>雑誌みたいなカフェ</p>
+              <i class="fas fa-globe"></i>
+              <p>フランス食品見本市にて</p>
             </div>
           </div>
           <!-- スライド6 軽い運動 -->
@@ -493,17 +493,17 @@
       </div>
     </div>
 
-    <!-- タグ（趣味・価値観） -->
+    <!-- タグ（趣味・価値観） 食品関連のタグ追加 -->
     <div class="tags">
       <span class="tag"><i class="fas fa-camera"></i> 写真</span>
+      <span class="tag"><i class="fas fa-egg"></i> 食品輸入</span>
+      <span class="tag"><i class="fas fa-wine-bottle"></i> ワイン</span>
+      <span class="tag"><i class="fas fa-seedling"></i> オーガニック</span>
       <span class="tag"><i class="fas fa-hiking"></i> ハイキング</span>
-      <span class="tag"><i class="fas fa-seedling"></i> 多肉植物</span>
-      <span class="tag"><i class="fas fa-film"></i> 邦画</span>
-      <span class="tag"><i class="fas fa-book"></i> エッセイ</span>
       <span class="tag"><i class="fas fa-paw"></i> 動物好き</span>
     </div>
 
-    <!-- 二段組：日常とお仕事（金融） -->
+    <!-- 二段組：日常とお仕事（食品輸出入） -->
     <div class="content-grid">
       <!-- 左：日常 -->
       <div class="section">
@@ -515,14 +515,14 @@
           <div class="item"><i class="fas fa-spa"></i><p><strong>リラックス</strong> 銭湯・サウナ巡り。大田区は良い銭湯が多い</p></div>
         </div>
       </div>
-      <!-- 右：金融業 -->
+      <!-- 右：食品輸出入業 -->
       <div class="section">
-        <div class="section-title"><i class="fas fa-briefcase"></i> 仕事 (金融)</div>
+        <div class="section-title"><i class="fas fa-briefcase"></i> 仕事 (食品輸出入)</div>
         <div class="item-list">
-          <div class="item"><i class="fas fa-building"></i><p><strong>職種</strong> 都内信用金庫 融資課 係長。中小企業のサポート担当7年目</p></div>
-          <div class="item"><i class="fas fa-chart-pie"></i><p><strong>資格</strong> ファイナンシャルプランナー2級、宅建士</p></div>
-          <div class="item"><i class="fas fa-hand-holding-heart"></i><p><strong>やりがい</strong> お客様の夢を融資で後押し。堅苦しくない相談を心がけてます</p></div>
-          <div class="item"><i class="fas fa-users"></i><p><strong>職場の雰囲気</strong> アットホームな支店。休日は同僚とランチも</p></div>
+          <div class="item"><i class="fas fa-ship"></i><p><strong>業界</strong> 食品専門商社 輸入部 バイヤー。主にヨーロッパ・アジアの食品を仕入れ</p></div>
+          <div class="item"><i class="fas fa-wine-bottle"></i><p><strong>担当商品</strong> オリーブオイル、チーズ、ワイン、調味料など。海外展示会へ年2回訪問</p></div>
+          <div class="item"><i class="fas fa-handshake"></i><p><strong>やりがい</strong> 日本の食卓に新しい美味しさを届けること。現地生産者との交流も楽しい</p></div>
+          <div class="item"><i class="fas fa-store"></i><p><strong>オフの楽しみ</strong> 仕入れた食材で社内試食会。輸入食品の魅力を発信中</p></div>
         </div>
       </div>
     </div>
@@ -530,7 +530,7 @@
     <!-- 募集メッセージ (画像の内容を反映) -->
     <div class="message-bubble">
       <i class="fas fa-quote-left"></i> 新しい出会いを探しています<br>共通の趣味や価値観を持つ仲間を募集します <i class="fas fa-quote-right"></i>
-      <div style="margin-top:0.8rem; font-size:1rem; color:#6b4f5b;"><i class="fas fa-sparkles"></i> まずは友達追加から、気軽にどうぞ</div>
+      <div style="margin-top:0.8rem; font-size:1rem; color:#3b6d61;"><i class="fas fa-sparkles"></i> まずは友達追加から、気軽にどうぞ</div>
     </div>
 
     <!-- 友達追加ボタン -->
@@ -542,14 +542,14 @@
 
     <!-- LINEリンク表示エリア（年齢確認後） -->
     <div id="lineLinkBox" class="line-box" style="justify-content:center; display:none;">
-      <a href="https://line.me/ti/p/~nana_friend" target="_blank">
+      <a href="https://line.me/ti/p/~nana_foodfriend" target="_blank">
         <i class="fab fa-line"></i> LINEでつながる
       </a>
-      <p style="margin-top:0.5rem; color:#215a40;">ID: @nana_friend 友達追加お待ちしてます</p>
+      <p style="margin-top:0.5rem; color:#1e6e5c;">ID: @nana_foodfriend 友達追加お待ちしてます</p>
     </div>
   </div>
 
-  <!-- 年齢確認モーダル (35歳以上？) 37歳の奈奈さんだが、本人確認のため表示 -->
+  <!-- 年齢確認モーダル (35歳以上？) -->
   <div id="ageOverlay" class="overlay">
     <div class="modal">
       <div class="close-icon" id="closeModal"><i class="fas fa-times-circle"></i></div>
@@ -563,7 +563,7 @@
   </div>
 
   <footer>
-    © 奈奈 (Nana) ｜ 大田区・37歳 新しい出会いを探すフォトアルバム
+    © 奈奈 (Nana) ｜ 大田区・37歳 食品輸入の仕事｜新しい出会いを探すフォトアルバム
   </footer>
 
   <!-- Swiper JS -->
@@ -607,20 +607,18 @@
 
       // はい → LINE表示
       ageYes.addEventListener('click', () => {
-        lineBox.style.display = 'block';  // LINEリンク表示
+        lineBox.style.display = 'block';
         closeOverlay();
-        // スムーズスクロールでLINE部分へ
         lineBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
       });
 
       // いいえ → 何も表示しない + 閉じる
       ageNo.addEventListener('click', () => {
         closeOverlay();
-        lineBox.style.display = 'none';   // 念のため非表示
-        alert("またのご縁がありますように🌸"); // そっとメッセージ
+        lineBox.style.display = 'none';
+        alert("またのご縁がありますように🌸");
       });
 
-      // 初期非表示
       lineBox.style.display = 'none';
     })();
   </script>
