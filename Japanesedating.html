@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Swiper 写真カルーセル用 (軽量でモダン) -->
+  <!-- Swiper 写真カルーセル用 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <style>
     * {
@@ -30,7 +30,6 @@
       padding: 2rem 1.5rem;
     }
 
-    /* メインカード */
     .profile-card {
       max-width: 1100px;
       width: 100%;
@@ -43,10 +42,10 @@
       overflow: hidden;
     }
 
-    /* ===== 写真カルーセル (フォトウォール風) ===== */
+    /* ===== 写真カルーセル (フォトウォール風 / japanフォルダ対応) ===== */
     .carousel-container {
       width: 100%;
-      background: #fff3f1; /* ソフトな背景 */
+      background: #fff3f1;
       padding: 2rem 2rem 1.5rem 2rem;
       border-bottom: 2px solid #ffe7e9;
     }
@@ -82,7 +81,6 @@
       color: #592f41;
     }
 
-    /* swiper カスタマイズ */
     .swiper {
       width: 100%;
       height: auto;
@@ -100,6 +98,7 @@
       border: 3px solid white;
     }
 
+    /* 画像表示エリア - japanフォルダの画像を使用 */
     .swiper-slide img {
       width: 100%;
       height: 280px;
@@ -108,7 +107,7 @@
       background: #efdbdf;
     }
 
-    /* 画像の代替表示 (実際の画像がないのでアイコンで楽しい壁に) */
+    /* フォールバック用プレースホルダ (画像がない場合のみ表示) */
     .slide-placeholder {
       width: 100%;
       height: 280px;
@@ -147,7 +146,6 @@
       font-weight: bold;
     }
 
-    /* プロフィールヘッダー */
     .profile-header {
       padding: 1.8rem 2.5rem 0.8rem 2.5rem;
       display: flex;
@@ -194,7 +192,6 @@
       color: #c46487;
     }
 
-    /* タグ */
     .tags {
       padding: 0.8rem 2.5rem 1rem 2.5rem;
       display: flex;
@@ -216,7 +213,6 @@
       margin-right: 0.3rem;
     }
 
-    /* グリッド */
     .content-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -284,7 +280,6 @@
       font-weight: 600;
     }
 
-    /* メッセージエリア */
     .message-bubble {
       background: #feecf0;
       margin: 0.2rem 2.5rem 1.5rem 2.5rem;
@@ -301,7 +296,6 @@
       margin: 0 0.3rem;
     }
 
-    /* ボタン */
     .friend-area {
       text-align: center;
       padding: 0 2.5rem 2.5rem 2.5rem;
@@ -330,7 +324,6 @@
       transform: scale(1.02);
     }
 
-    /* モーダル */
     .overlay {
       position: fixed;
       top: 0; left: 0;
@@ -389,7 +382,6 @@
       cursor: pointer;
     }
 
-    /* LINEリンク */
     .line-box {
       display: none;
       margin: 1rem 2.5rem 2rem 2.5rem;
@@ -422,9 +414,6 @@
 <body>
   <div class="profile-card">
 
-    
-
-    <!-- プロフィール基本情報 (奈奈 / 大田区 / 37歳・单身) -->
     <div class="profile-header">
       <div class="name-area">
         <h1>奈奈 <span style="font-size:1.3rem; font-weight:400; margin-left:0.5rem;">(Nana)</span></h1>
@@ -436,53 +425,54 @@
       </div>
     </div>
 
-<!-- 写真壁 カルーセル (フォトウォール風) -->
+    <!-- 写真壁 カルーセル (フォトウォール風) / japanフォルダの画像を使用 -->
     <div class="carousel-container">
       <div class="carousel-title">
         <i class="fas fa-camera-retro"></i>
-        <h2><span>日常のひとコマ</span></h2>
+        <h2>日常のひとコマ </h2>
       </div>
       <!-- Swiper -->
       <div class="swiper mySwiper">
         <div class="swiper-wrapper">
-          <!-- スライド1 カフェ -->
+          <!-- スライド1：1.jpg 〜 6.jpg を想定。存在しない場合はプレースホルダ表示（JSで制御） -->
           <div class="swiper-slide">
-            <div class="slide-placeholder">
+            <img src="1.jpg" alt="大田区の隠れ家カフェ" onerror="this.onerror=null;this.style.display='none'; this.parentNode.classList.add('fallback-active');">
+            <div class="slide-placeholder" style="display: none;">
               <i class="fas fa-mug-hot"></i>
               <p>大田区の隠れ家カフェ</p>
             </div>
           </div>
-          <!-- スライド2 公園・散歩 -->
           <div class="swiper-slide">
-            <div class="slide-placeholder">
+            <img src="2.jpg" alt="洗足池公園 夕方" onerror="this.onerror=null;this.style.display='none'; this.parentNode.classList.add('fallback-active');">
+            <div class="slide-placeholder" style="display: none;">
               <i class="fas fa-tree"></i>
               <p>洗足池公園 夕方</p>
             </div>
           </div>
-          <!-- スライド3 料理 -->
           <div class="swiper-slide">
-            <div class="slide-placeholder">
+            <img src="3.jpg" alt="手作りの和食ごはん" onerror="this.onerror=null;this.style.display='none'; this.parentNode.classList.add('fallback-active');">
+            <div class="slide-placeholder" style="display: none;">
               <i class="fas fa-utensils"></i>
               <p>手作りの和食ごはん</p>
             </div>
           </div>
-          <!-- スライド4 趣味の写真 -->
           <div class="swiper-slide">
-            <div class="slide-placeholder">
+            <img src="4.jpg" alt="休日カメラ散歩" onerror="this.onerror=null;this.style.display='none'; this.parentNode.classList.add('fallback-active');">
+            <div class="slide-placeholder" style="display: none;">
               <i class="fas fa-camera"></i>
               <p>休日カメラ散歩</p>
             </div>
           </div>
-          <!-- スライド5 おしゃれカフェ -->
           <div class="swiper-slide">
-            <div class="slide-placeholder">
+            <img src="5.jpg" alt="雑誌みたいなカフェ" onerror="this.onerror=null;this.style.display='none'; this.parentNode.classList.add('fallback-active');">
+            <div class="slide-placeholder" style="display: none;">
               <i class="fas fa-coffee"></i>
               <p>雑誌みたいなカフェ</p>
             </div>
           </div>
-          <!-- スライド6 軽い運動 -->
           <div class="swiper-slide">
-            <div class="slide-placeholder">
+            <img src="6.jpg" alt="多摩川ウォーキング" onerror="this.onerror=null;this.style.display='none'; this.parentNode.classList.add('fallback-active');">
+            <div class="slide-placeholder" style="display: none;">
               <i class="fas fa-person-walking"></i>
               <p>多摩川ウォーキング</p>
             </div>
@@ -494,6 +484,7 @@
         <div class="swiper-button-prev"></div>
       </div>
     </div>
+
     <!-- タグ（趣味・価値観） -->
     <div class="tags">
       <span class="tag"><i class="fas fa-camera"></i> 写真</span>
@@ -504,9 +495,8 @@
       <span class="tag"><i class="fas fa-paw"></i> 動物好き</span>
     </div>
 
-    <!-- 二段組：日常とお仕事（金融） -->
+    <!-- 二段組：日常とお仕事（食品輸出入） -->
     <div class="content-grid">
-      <!-- 左：日常 -->
       <div class="section">
         <div class="section-title"><i class="fas fa-sun"></i> 日常生活</div>
         <div class="item-list">
@@ -516,7 +506,6 @@
           <div class="item"><i class="fas fa-spa"></i><p><strong>リラックス</strong> 銭湯・サウナ巡り。大田区は良い銭湯が多い</p></div>
         </div>
       </div>
-      <!-- 右：仕事 -->
       <div class="section">
         <div class="section-title"><i class="fas fa-briefcase"></i>仕事 (食品輸出入)</div>
         <div class="item-list">
@@ -528,7 +517,7 @@
       </div>
     </div>
 
-    <!-- 募集メッセージ (画像の内容を反映) -->
+    <!-- 募集メッセージ -->
     <div class="message-bubble">
       <i class="fas fa-quote-left"></i> 新しい出会いを探しています<br>共通の趣味や価値観を持つ仲間を募集します <i class="fas fa-quote-right"></i>
       <div style="margin-top:0.8rem; font-size:1rem; color:#6b4f5b;"><i class="fas fa-sparkles"></i> まずは友達追加から、気軽にどうぞ</div>
@@ -550,7 +539,7 @@
     </div>
   </div>
 
-  <!-- 年齢確認モーダル (35歳以上？) 37歳の奈奈さんだが、本人確認のため表示 -->
+  <!-- 年齢確認モーダル -->
   <div id="ageOverlay" class="overlay">
     <div class="modal">
       <div class="close-icon" id="closeModal"><i class="fas fa-times-circle"></i></div>
@@ -564,13 +553,35 @@
   </div>
 
   <footer>
-    © 奈奈 (Nana) ｜ 大田区・37歳 新しい出会いを探すフォトアルバム
+    © 奈奈 (Nana) ｜ 大田区・37歳 新しい出会いを探すフォトアルバム 
   </footer>
 
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
     (function() {
+      // 画像エラーハンドリング: 画像が読み込めない場合はプレースホルダを表示し、画像を隠す
+      document.querySelectorAll('.swiper-slide img').forEach(img => {
+        img.addEventListener('error', function() {
+          // 画像を非表示
+          this.style.display = 'none';
+          // 同じスライド内の .slide-placeholder を表示
+          const placeholder = this.parentNode.querySelector('.slide-placeholder');
+          if (placeholder) {
+            placeholder.style.display = 'flex'; // もともと display: none を flex に変更
+          }
+        });
+        // 画像が既にキャッシュにあって正しく読み込めた場合、プレースホルダは非表示のまま。何もしない
+        // もし画像が正常でもプレースホルダが誤って表示されるのを防ぐため、ロード成功時にも一応制御
+        img.addEventListener('load', function() {
+          // 画像が表示されたらプレースホルダを確実に非表示
+          const placeholder = this.parentNode.querySelector('.slide-placeholder');
+          if (placeholder) {
+            placeholder.style.display = 'none';
+          }
+        });
+      });
+
       // スワイパー初期化
       const swiper = new Swiper('.mySwiper', {
         slidesPerView: 1,
@@ -606,22 +617,18 @@
       closeModal.addEventListener('click', closeOverlay);
       overlay.addEventListener('click', (e) => { if(e.target === overlay) closeOverlay(); });
 
-      // はい → LINE表示
       ageYes.addEventListener('click', () => {
-        lineBox.style.display = 'block';  // LINEリンク表示
+        lineBox.style.display = 'block';
         closeOverlay();
-        // スムーズスクロールでLINE部分へ
         lineBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
       });
 
-      // いいえ → 何も表示しない + 閉じる
       ageNo.addEventListener('click', () => {
         closeOverlay();
-        lineBox.style.display = 'none';   // 念のため非表示
-        alert("またのご縁がありますように🌸"); // そっとメッセージ
+        lineBox.style.display = 'none';
+        alert("またのご縁がありますように🌸");
       });
 
-      // 初期非表示
       lineBox.style.display = 'none';
     })();
   </script>
