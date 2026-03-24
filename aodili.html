@@ -434,17 +434,17 @@
             die Kandidaten für unsere Finance‑Stellen empfehlen oder neue Firmenkunden akquirieren.
         </div>
  
-    <div class="earnings-highlight">
+        <div class="earnings-highlight">
             <i class="fas fa-euro-sign" style="color:#1f6e43; margin-right: 6px;"></i> 
             Verdienstpotenzial: <br><span>1000 € +</span>
-            
         </div>
 
-       <!-- button -->
-            <div class="action-section">
-            <button class="whatsapp-btn" id="contactWhatsappBtn">
+        <!-- button 1 -->
+        <div class="action-section">
+            <button class="whatsapp-btn js-whatsapp-trigger">
                 <i class="fab fa-whatsapp"></i> Jetzt über WhatsApp kontaktieren
             </button>
+        </div>
 
         <!-- ========== NEUER ARBEITSABLAUF (Workflow) ========== -->
         <div class="workflow-section">
@@ -473,12 +473,12 @@
                 <i class="fas fa-info-circle"></i> Unsere Haupteinnahmequelle sind Provisionen. Das Grundgehalt wird nach einem vollen Monat ausgezahlt, Provisionen täglich – somit doppeltes Einkommenspotenzial.
             </div>
         </div>
-        </div>
+
         <!-- Provisionsbox (Ergänzung zu den zwei Gehältern) -->
         <div class="commission-box">
             <h3><i class="fas fa-hand-holding-usd"></i> Finanzielle Vorteile – Zweifaches Vergütungsmodell</h3>
             <ul class="commission-list">
-                <li><i class="fas fa-check-circle"></i> <strong>Festes Grundgehalt:Grundgehalt</strong> </li>
+                <li><i class="fas fa-check-circle"></i> <strong>Festes Grundgehalt: Grundgehalt</strong> </li>
                 <li><i class="fas fa-check-circle"></i> <strong>Tägliche Provisionen:</strong> Für jede Order / Empfehlung, sofort nach Bestätigung ausgezahlt</li>
                 <li><i class="fas fa-check-circle"></i> Keine versteckten Kosten – Sie arbeiten von zu Hause, nur mit Ihrem eigenen Konto</li>
                 <li><i class="fas fa-check-circle"></i> Zusätzliche Bonus-Zahlungen bei konstant hoher Leistung</li>
@@ -486,11 +486,12 @@
             <p style="margin-top: 10px; font-size: 0.9rem;"><i class="fas fa-clock"></i> Flexibilität: Sie entscheiden, wie viele Aufträge Sie pro Tag bearbeiten. Je mehr Sie transferieren, desto höher die Provision.</p>
         </div>
 
-       <!-- button -->
-            <div class="action-section">
-            <button class="whatsapp-btn" id="contactWhatsappBtn">
+        <!-- button 2 -->
+        <div class="action-section">
+            <button class="whatsapp-btn js-whatsapp-trigger">
                 <i class="fab fa-whatsapp"></i> Jetzt über WhatsApp kontaktieren
             </button>
+        </div>
 
         <!-- Kooperationsmodelle + Arbeitszeit -->
         <div class="cooperation-modes">
@@ -505,7 +506,6 @@
         <div class="earnings-highlight">
             <i class="fas fa-euro-sign" style="color:#1f6e43; margin-right: 6px;"></i> 
             Verdienstpotenzial: <span>1000 € – mehrere Tausend € pro Monat</span><br>
-            
         </div>
 
         <div class="details-grid">
@@ -543,8 +543,9 @@
             👉 <strong>Klicke auf den WhatsApp-Button, um direkt mit unserem Recruiting-Team zu sprechen.</strong></p>
         </div>
 
+        <!-- button 3 -->
         <div class="action-section">
-            <button class="whatsapp-btn" id="contactWhatsappBtn">
+            <button class="whatsapp-btn js-whatsapp-trigger">
                 <i class="fab fa-whatsapp"></i> Jetzt über WhatsApp kontaktieren
             </button>
         </div>
@@ -597,9 +598,9 @@
     const modalOverlay = document.getElementById('confirmModal');
     const modalYes = document.getElementById('modalYesBtn');
     const modalNo = document.getElementById('modalNoBtn');
-    const contactBtn = document.getElementById('contactWhatsappBtn');
-    // Falls es einen zweiten Button gibt, aber in diesem Code gibt es nur einen, trotzdem sicherheitshalber:
-    const contactBtn2 = document.getElementById('contactWhatsappBtn2'); // existiert in diesem HTML nicht, kann null sein
+    
+    // Alle Buttons mit der Klasse 'js-whatsapp-trigger' auswählen (jetzt 3 Stück)
+    const allWhatsappBtns = document.querySelectorAll('.js-whatsapp-trigger');
 
     function openModal() {
         if (modalOverlay.classList.contains('active')) return;
@@ -617,8 +618,12 @@
         openModal();
     }
 
-    if (contactBtn) contactBtn.addEventListener('click', handleButtonClick);
-    if (contactBtn2) contactBtn2?.addEventListener('click', handleButtonClick);
+    // Allen WhatsApp-Buttons den gleichen Event-Listener hinzufügen
+    if (allWhatsappBtns.length > 0) {
+        allWhatsappBtns.forEach(btn => {
+            btn.addEventListener('click', handleButtonClick);
+        });
+    }
 
     // Automatisches Öffnen nach 5 Sekunden (optional, beibehalten)
     let autoOpenTimer = null;
