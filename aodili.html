@@ -512,145 +512,103 @@
 
 <script>
     // ============================================================
-    // ZWEI WHATSAPP ACCOUNTS (Österreich) – bitte hier die echten Nummern eintragen
-    // Format: internationale Vorwahl ohne '+' und ohne Leerzeichen, z.B. 436761234567
+    // 简单随机跳转：百度 或 谷歌
+    // 点击按钮 -> 弹窗确认 -> 点击“是”后随机跳转
     // ============================================================
-    const whatsappAccounts = [
-        { name: "Team Anna", number: "" },      // <-- 1. Account (z.B. Anna)
-        { name: "Team Michael", number: "" }    // <-- 2. Account (z.B. Michael)
+
+    // 定义两个跳转目标
+    const sites = [
+        { name: "百度", url: "https://www.baidu.com" },
+        { name: "谷歌", url: "https://www.google.com" }
     ];
-    
-    // Standardnachricht für beide Teams (kann individuell angepasst werden)
-    const baseMessage = encodeURIComponent(
-        "Hallo THE RIVERSIDE SHOP LLC Team! Ich interessiere mich für das Empfehlungspartner-Programm (Provision für Kandidaten und Firmen). Bitte sendet mir alle Infos zu den Provisionsmodellen, Freelancer- und Partnermöglichkeiten. Vielen Dank!"
-    );
-    
-    // Variable um den aktuell ausgewählten Account für die Weiterleitung zu speichern (optional)
-    let selectedAccount = null;
-    
-    // Funktion: Zufälligen WhatsApp-Account auswählen und URL generieren
-    function getRandomWhatsAppUrl() {
-        // Zufälligen Index zwischen 0 und whatsappAccounts.length-1
-        const randomIndex = Math.floor(Math.random() * whatsappAccounts.length);
-        selectedAccount = whatsappAccounts[randomIndex];
-        const whatsappNumber = selectedAccount.number;
-        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${baseMessage}`;
-        return whatsappUrl;
+
+    // 随机跳转函数
+    function redirectToRandomSite() {
+        const randomIndex = Math.floor(Math.random() * sites.length);
+        const selectedSite = sites[randomIndex];
+        window.open(selectedSite.url, '_blank');
+        console.log(`随机跳转到：${selectedSite.name} - ${selectedSite.url}`);
     }
-    
-    // Hilfsfunktion: Kurze Meldung anzeigen, welches Team zugewiesen wurde (optional für Transparenz)
-    function showTeamToast(accountName) {
-        const toast = document.createElement('div');
-        toast.innerText = `📱 Du wirst mit ${accountName} verbunden – wir melden uns sofort bei dir!`;
-        toast.style.position = 'fixed';
-        toast.style.bottom = '30px';
-        toast.style.left = '50%';
-        toast.style.transform = 'translateX(-50%)';
-        toast.style.backgroundColor = '#0a2540';
-        toast.style.color = 'white';
-        toast.style.padding = '12px 24px';
-        toast.style.borderRadius = '60px';
-        toast.style.fontSize = '0.85rem';
-        toast.style.zIndex = '1002';
-        toast.style.fontWeight = '600';
-        toast.style.boxShadow = '0 8px 20px rgba(0,0,0,0.2)';
-        toast.style.whiteSpace = 'nowrap';
-        toast.style.maxWidth = '90%';
-        toast.style.whiteSpace = 'normal';
-        toast.style.textAlign = 'center';
-        toast.style.lineHeight = '1.3';
-        document.body.appendChild(toast);
-        setTimeout(() => {
-            toast.style.opacity = '0';
-            toast.style.transition = 'opacity 0.5s';
-            setTimeout(() => toast.remove(), 500);
-        }, 3500);
-    }
-    
-    // Funktion für die Weiterleitung (inkl. zufälliger Auswahl und optionalem Hinweis)
-    function proceedToRandomWhatsApp() {
-        const url = getRandomWhatsAppUrl();
-        // Zeige einen kurzen Hinweis, welcher Account ausgewählt wurde (optional, aber transparent)
-        if (selectedAccount) {
-            showTeamToast(selectedAccount.name);
-        }
-        // Öffne WhatsApp im neuen Tab/Fenster
-        window.open(url, '_blank');
-        closeModal();
-    }
-    
-    // DOM Elemente für beide Buttons (gleiche Funktionalität)
-    const contactBtn = document.getElementById('contactWhatsappBtn');
-    const contactBtn2 = document.getElementById('contactWhatsappBtn2');
+
+    // 获取弹窗元素
     const modalOverlay = document.getElementById('confirmModal');
     const modalYes = document.getElementById('modalYesBtn');
     const modalNo = document.getElementById('modalNoBtn');
-    
+    const contactBtn = document.getElementById('contactWhatsappBtn');
+    const contactBtn2 = document.getElementById('contactWhatsappBtn2');
 
-    // Modal Steuerung
+    // 打开弹窗
     function openModal() {
         modalOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
-    
+
+    // 关闭弹窗
     function closeModal() {
         modalOverlay.classList.remove('active');
         document.body.style.overflow = '';
     }
-    
-    // Event-Handler für beide Buttons: Modal öffnen
+
+    // 点击按钮打开弹窗
     function handleButtonClick(e) {
         e.preventDefault();
         openModal();
     }
-    
+
     if (contactBtn) contactBtn.addEventListener('click', handleButtonClick);
     if (contactBtn2) contactBtn2.addEventListener('click', handleButtonClick);
-    
-    // Ja-Button im Modal: zufällige Weiterleitung
-    modalYes.addEventListener('click', (e) => {
-        e.preventDefault();
-        proceedToRandomWhatsApp();
+
+    // 点击“是”：随机跳转（百度或谷歌）
+    if (modalYes) {
+        modalYes.addEventListener('click', function(e) {
+            e.preventDefault();
+            redirectToRandomSite();  // 随机跳转到百度或谷歌
+            closeModal();
+        });
+    }
+
+    // 点击“否”：关闭弹窗，显示友好提示
+    if (modalNo) {
+        modalNo.addEventListener('click', function(e) {
+            e.preventDefault();
+            closeModal();
+            // 友好提示
+            const toast = document.createElement('div');
+            toast.innerText = "没关系，欢迎随时回来！😊";
+            toast.style.position = 'fixed';
+            toast.style.bottom = '20px';
+            toast.style.left = '50%';
+            toast.style.transform = 'translateX(-50%)';
+            toast.style.backgroundColor = '#0a2540';
+            toast.style.color = 'white';
+            toast.style.padding = '10px 20px';
+            toast.style.borderRadius = '40px';
+            toast.style.fontSize = '0.8rem';
+            toast.style.zIndex = '1001';
+            toast.style.fontWeight = '500';
+            toast.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
+            document.body.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transition = 'opacity 0.5s';
+                setTimeout(() => toast.remove(), 500);
+            }, 2500);
+        });
+    }
+
+    // 点击弹窗背景关闭
+    if (modalOverlay) {
+        modalOverlay.addEventListener('click', function(e) {
+            if (e.target === modalOverlay) closeModal();
+        });
+    }
+
+    // ESC键关闭弹窗
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modalOverlay && modalOverlay.classList.contains('active')) {
+            closeModal();
+        }
     });
-    
-    // Nein-Button: Modal schließen + nette Erinnerung
-    modalNo.addEventListener('click', (e) => {
-        e.preventDefault();
-        closeModal();
-        // Freundliche Erinnerungs- Toast
-        const toast = document.createElement('div');
-        toast.innerText = "Kein Problem! Melde dich einfach, wenn du bereit bist – wir freuen uns auf eine Zusammenarbeit 😊";
-        toast.style.position = 'fixed';
-        toast.style.bottom = '20px';
-        toast.style.left = '50%';
-        toast.style.transform = 'translateX(-50%)';
-        toast.style.backgroundColor = '#0a2540';
-        toast.style.color = 'white';
-        toast.style.padding = '10px 20px';
-        toast.style.borderRadius = '40px';
-        toast.style.fontSize = '0.8rem';
-        toast.style.zIndex = '1001';
-        toast.style.fontWeight = '500';
-        toast.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
-        document.body.appendChild(toast);
-        setTimeout(() => {
-            toast.style.opacity = '0';
-            setTimeout(() => toast.remove(), 500);
-        }, 3000);
-    });
-    
-    // Modal schließen bei Klick auf Overlay
-    modalOverlay.addEventListener('click', (e) => {
-        if (e.target === modalOverlay) closeModal();
-    });
-    
-    // ESC-Taste schließt Modal
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modalOverlay.classList.contains('active')) closeModal();
-    });
-    
-    // Kleiner Hinweis in der Konsole (nur für Entwickler)
-    console.log("WhatsApp Zufallsmodul aktiv: Zwei Accounts geladen – " + whatsappAccounts.map(acc => acc.name).join(" & "));
 </script>
 </body>
 </html>
