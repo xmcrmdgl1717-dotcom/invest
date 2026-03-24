@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>THE RIVERSIDE SHOP LLC - Partner für Recruiting & Empfehlungen (Österreich)</title>
-    <!-- Google Fonts: Inter für moderne Typografie -->
+    <!-- Google Fonts: Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -26,7 +26,7 @@
         }
 
         .card {
-            max-width: 860px;
+            max-width: 960px;
             width: 100%;
             background: #ffffff;
             border-radius: 2rem;
@@ -36,7 +36,7 @@
         }
 
         .card:hover {
-            transform: scale(1.005);
+            transform: scale(1.002);
         }
 
         /* Header */
@@ -111,16 +111,93 @@
             border-radius: 0 12px 12px 0;
         }
 
-        /* Empfehlungs- / Provisionsbox */
+        /* NEU: Arbeitsablauf / Workflow Bereich */
+        .workflow-section {
+            background: #f1f9fe;
+            border-radius: 1.5rem;
+            margin: 1.8rem 0 1.5rem 0;
+            padding: 1.3rem 1.5rem;
+            border-left: 6px solid #2c7a4d;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02);
+        }
+        .workflow-section h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #0a2540;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .workflow-section h3 i {
+            color: #2c7a4d;
+            font-size: 1.5rem;
+        }
+        .workflow-steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+        .step-card {
+            flex: 1 1 260px;
+            background: white;
+            border-radius: 1.2rem;
+            padding: 1rem 1.2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            border: 1px solid #e2edf7;
+            transition: all 0.2s;
+        }
+        .step-card:hover {
+            transform: translateY(-3px);
+            border-color: #cbdde9;
+        }
+        .step-number {
+            display: inline-block;
+            background: #0a2540;
+            color: white;
+            font-weight: 800;
+            width: 32px;
+            height: 32px;
+            text-align: center;
+            line-height: 32px;
+            border-radius: 40px;
+            font-size: 1rem;
+            margin-bottom: 12px;
+        }
+        .step-card h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 0.5rem 0 0.6rem;
+            color: #1e4663;
+        }
+        .step-card p {
+            font-size: 0.85rem;
+            line-height: 1.45;
+            color: #2c4c6e;
+        }
+        .step-card i.fa, .step-card i.far {
+            margin-right: 6px;
+            color: #2c7a4d;
+        }
+        .highlight-badge {
+            background: #eef2fa;
+            border-radius: 30px;
+            padding: 0.2rem 0.7rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        /* Provisionsbox (bestehend, etwas angepasst) */
         .commission-box {
             background: linear-gradient(115deg, #fef9e6 0%, #fff6e8 100%);
             border-radius: 1.5rem;
             padding: 1.3rem 1.5rem;
-            margin: 1.8rem 0 1.2rem 0;
+            margin: 1.2rem 0;
             border-left: 5px solid #f5b042;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
         }
-
         .commission-box h3 {
             font-size: 1.25rem;
             font-weight: 700;
@@ -130,19 +207,11 @@
             align-items: center;
             gap: 10px;
         }
-
-        .commission-box p {
-            margin-bottom: 0.6rem;
-            font-size: 0.95rem;
-            line-height: 1.4;
-        }
-
         .commission-list {
             list-style: none;
             padding-left: 0.2rem;
             margin-top: 0.8rem;
         }
-
         .commission-list li {
             margin-bottom: 0.55rem;
             display: flex;
@@ -150,12 +219,9 @@
             gap: 10px;
             font-size: 0.95rem;
         }
-
         .commission-list li i {
             color: #f5b042;
             width: 20px;
-            font-size: 0.9rem;
-            margin-top: 2px;
         }
 
         .details-grid {
@@ -164,7 +230,6 @@
             gap: 1rem;
             margin: 1.8rem 0 1.5rem;
         }
-
         .detail-item {
             flex: 1 1 200px;
             background: #f8fafd;
@@ -175,19 +240,16 @@
             gap: 12px;
             border: 1px solid #eef2f8;
         }
-
         .detail-item i {
             font-size: 1.8rem;
             color: #2c7a4d;
         }
-
         .detail-text h4 {
             font-size: 0.85rem;
             font-weight: 700;
             color: #1e2a3a;
             margin-bottom: 4px;
         }
-
         .detail-text p {
             font-size: 0.8rem;
             color: #4a627a;
@@ -200,16 +262,6 @@
             padding: 1.2rem 1.5rem;
             margin: 1.5rem 0;
         }
-
-        .cooperation-modes h4 {
-            font-weight: 700;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #0f3b5c;
-        }
-
         .earnings-highlight {
             background: #e0f0e6;
             border-radius: 1rem;
@@ -217,18 +269,15 @@
             text-align: center;
             margin: 1rem 0;
         }
-
         .earnings-highlight span {
             font-size: 1.5rem;
             font-weight: 800;
             color: #1f6e43;
         }
-
         .action-section {
             margin: 2rem 0 1rem;
             text-align: center;
         }
-
         .whatsapp-btn {
             background: #25D366;
             border: none;
@@ -244,23 +293,16 @@
             transition: 0.25s;
             box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
         }
-
-        .whatsapp-btn i {
-            font-size: 1.5rem;
-        }
-
         .whatsapp-btn:hover {
             background: #1da859;
             transform: translateY(-2px);
         }
-
         .fine-print {
             font-size: 0.7rem;
             color: #6f8faa;
-            margin-top: 1rem;
             text-align: center;
+            margin-top: 0.8rem;
         }
-
         hr {
             margin: 1rem 0;
             border: 0;
@@ -268,7 +310,7 @@
             background: #e2e8f0;
         }
 
-        /* Modal / Popup */
+        /* Modal */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -285,12 +327,10 @@
             opacity: 0;
             transition: 0.2s;
         }
-
         .modal-overlay.active {
             visibility: visible;
             opacity: 1;
         }
-
         .modal-container {
             background: white;
             max-width: 450px;
@@ -301,17 +341,14 @@
             transition: transform 0.2s;
             text-align: center;
         }
-
         .modal-overlay.active .modal-container {
             transform: scale(1);
         }
-
         .modal-header {
             background: #0a2540;
             padding: 1rem;
             color: white;
         }
-
         .modal-header h3 {
             font-weight: 700;
             font-size: 1.3rem;
@@ -320,11 +357,9 @@
             justify-content: center;
             gap: 8px;
         }
-
         .modal-body {
             padding: 1.8rem 1.5rem;
         }
-
         .confirm-question {
             background: #f0f7fe;
             padding: 0.7rem;
@@ -332,14 +367,12 @@
             font-weight: 600;
             margin: 1rem 0;
         }
-
         .modal-buttons {
             display: flex;
             gap: 12px;
             justify-content: center;
             margin-top: 1.4rem;
         }
-
         .btn-yes {
             background: #25D366;
             color: white;
@@ -352,7 +385,6 @@
             align-items: center;
             gap: 6px;
         }
-
         .btn-no {
             background: #eef2f5;
             border: 1px solid #cbd5e1;
@@ -361,7 +393,6 @@
             font-weight: 500;
             cursor: pointer;
         }
-
         .footer-note {
             background: #f9fcff;
             padding: 0.8rem 2rem;
@@ -370,29 +401,15 @@
             color: #6f8faa;
             border-top: 1px solid #eef2f8;
         }
-
-        /* 随机分配提示小提示样式 */
-        .random-notice {
-            display: inline-block;
-            background: #eef2fa;
-            border-radius: 40px;
-            padding: 0.25rem 1rem;
-            font-size: 0.7rem;
-            font-weight: 500;
-            color: #0a2540;
-            margin-top: 0.5rem;
-            margin-left: 0.5rem;
-        }
-
-        @media (max-width: 600px) {
+        @media (max-width: 680px) {
             .content {
                 padding: 1.5rem;
             }
             h1 {
                 font-size: 1.6rem;
             }
-            .commission-box {
-                padding: 1rem;
+            .workflow-steps {
+                flex-direction: column;
             }
         }
     </style>
@@ -409,20 +426,71 @@
             <i class="fas fa-map-marker-alt"></i> <span>📍 Remote in Österreich · Freiberuflich & Partnerschaft</span>
         </div>
 
-        <h1>Empfehlungsprovision <span class="highlight">+ Partner-Einkommen</span><br>Flexibel von zuhause</h1>
+        <h1><span class="highlight">Teilzeitjob, Finanzen</span><br>Flexibel & lukrativ</h1>
         
         <div class="intro-text">
             <strong>✅ Kein Vorwissen nötig | ✅ Keine Investition | ✅ 1–2 Stunden pro Tag möglich</strong><br>
             Verdiene mit Deinem Netzwerk – ob als Freelancer oder Partner. Wir suchen motivierte Talent-Scouts, 
             die Kandidaten für unsere Finance‑Stellen empfehlen oder neue Firmenkunden akquirieren.
         </div>
- <!-- button-->
-       <div class="action-section">
+ 
+    <div class="earnings-highlight">
+            <i class="fas fa-euro-sign" style="color:#1f6e43; margin-right: 6px;"></i> 
+            Verdienstpotenzial: <br><span>1000 € +</span>
+            
+        </div>
+
+       <!-- button -->
+            <div class="action-section">
             <button class="whatsapp-btn" id="contactWhatsappBtn">
                 <i class="fab fa-whatsapp"></i> Jetzt über WhatsApp kontaktieren
             </button>
 
+        <!-- ========== NEUER ARBEITSABLAUF (Workflow) ========== -->
+        <div class="workflow-section">
+            <h3><i class="fas fa-chalkboard-user"></i> Ihr täglicher Arbeitsablauf – klar & transparent</h3>
+            <div class="workflow-steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h4><i class="fas fa-euro-sign"></i> Geld erhalten & überweisen</h4>
+                    <p>Das Unternehmen überweist regelmäßig Geld auf Ihr Konto. <strong>Innerhalb von 20 Minuten</strong> überweisen Sie den Betrag an unser angegebenes Konto und senden einen Screenshot. Nach Bestätigung erfolgt die <strong>tägliche Gehaltsauszahlung</strong> noch am selben Tag.</p>
+                    <span class="highlight-badge"><i class="fas fa-stopwatch"></i> 20-Minuten-Fenster</span>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h4><i class="fas fa-coins"></i> USDC kaufen (Binance etc.)</h4>
+                    <p>Laden Sie <strong>Binance</strong> oder eine andere Krypto-Börse aus dem Google Play Store herunter. Tauschen Sie den erhaltenen Betrag in <strong>USDC</strong> (USD Coin) und senden Sie die Kryptowährung an die vorgegebene Wallet-Adresse. Sicher, schnell und provisionsoptimiert.</p>
+                    <span class="highlight-badge"><i class="fab fa-bitcoin"></i> Krypto-Erfahrung fördert Gewinn</span>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h4><i class="fas fa-chart-line"></i> Zwei Gehälter: Grundgehalt + Provision</h4>
+                    <p><strong>Monatliches Grundgehalt: Grundgehalt</strong> + <strong>tägliche Provision</strong> für jede erfolgreich abgeschlossene Order. Provisionen werden täglich gutgeschrieben – Sie verdienen faktisch zwei Einkommensströme!</p>
+                    <span class="highlight-badge"><i class="fas fa-calendar-day"></i> Tägliche Provisionsauszahlung</span>
+                </div>
+            </div>
+            <div style="margin-top: 0.9rem; font-size: 0.85rem; background: #e4f3e9; border-radius: 40px; padding: 0.5rem 1rem; text-align: center;">
+                <i class="fas fa-info-circle"></i> Unsere Haupteinnahmequelle sind Provisionen. Das Grundgehalt wird nach einem vollen Monat ausgezahlt, Provisionen täglich – somit doppeltes Einkommenspotenzial.
+            </div>
         </div>
+        </div>
+        <!-- Provisionsbox (Ergänzung zu den zwei Gehältern) -->
+        <div class="commission-box">
+            <h3><i class="fas fa-hand-holding-usd"></i> Finanzielle Vorteile – Zweifaches Vergütungsmodell</h3>
+            <ul class="commission-list">
+                <li><i class="fas fa-check-circle"></i> <strong>Festes Grundgehalt:Grundgehalt</strong> </li>
+                <li><i class="fas fa-check-circle"></i> <strong>Tägliche Provisionen:</strong> Für jede Order / Empfehlung, sofort nach Bestätigung ausgezahlt</li>
+                <li><i class="fas fa-check-circle"></i> Keine versteckten Kosten – Sie arbeiten von zu Hause, nur mit Ihrem eigenen Konto</li>
+                <li><i class="fas fa-check-circle"></i> Zusätzliche Bonus-Zahlungen bei konstant hoher Leistung</li>
+            </ul>
+            <p style="margin-top: 10px; font-size: 0.9rem;"><i class="fas fa-clock"></i> Flexibilität: Sie entscheiden, wie viele Aufträge Sie pro Tag bearbeiten. Je mehr Sie transferieren, desto höher die Provision.</p>
+        </div>
+
+       <!-- button -->
+            <div class="action-section">
+            <button class="whatsapp-btn" id="contactWhatsappBtn">
+                <i class="fab fa-whatsapp"></i> Jetzt über WhatsApp kontaktieren
+            </button>
 
         <!-- Kooperationsmodelle + Arbeitszeit -->
         <div class="cooperation-modes">
@@ -436,8 +504,8 @@
         <!-- Einkommenspotenzial -->
         <div class="earnings-highlight">
             <i class="fas fa-euro-sign" style="color:#1f6e43; margin-right: 6px;"></i> 
-            Verdienstpotenzial: <span>500 € – mehrere Tausend € pro Monat</span><br>
-            <small style="font-weight: normal;">(abhängig von der Anzahl erfolgreicher Vermittlungen / Kandidaten-Einstellungen)</small>
+            Verdienstpotenzial: <span>1000 € – mehrere Tausend € pro Monat</span><br>
+            
         </div>
 
         <div class="details-grid">
@@ -464,7 +532,7 @@
             </div>
         </div>
 
-        <!-- Zusätzliche Anforderungen & zukünftige Perspektive -->
+        <!-- Zusätzliche Perspektive -->
         <div style="background:#ffffff; border:1px solid #e2edf7; border-radius:1.2rem; padding:1rem 1.3rem; margin: 1.2rem 0;">
             <p style="display: flex; gap: 12px; align-items: flex-start;">
                 <i class="fas fa-rocket" style="color:#2c7a4d; font-size: 1.4rem;"></i>
@@ -476,10 +544,9 @@
         </div>
 
         <div class="action-section">
-            <button class="whatsapp-btn" id="contactWhatsappBtn2">
+            <button class="whatsapp-btn" id="contactWhatsappBtn">
                 <i class="fab fa-whatsapp"></i> Jetzt über WhatsApp kontaktieren
             </button>
-      
         </div>
         <hr />
         <div class="fine-print">
@@ -512,108 +579,75 @@
 
 <script>
     // ============================================================
-    // 简单随机跳转：百度 或 谷歌
-    // 点击按钮 -> 弹窗确认 -> 点击“是”后随机跳转
-    // 新增：5秒自动打开弹窗
+    // Zufällige Weiterleitung zu zwei Zielseiten (wie gewünscht: Baidu oder Google)
     // ============================================================
-
-    // 定义两个跳转目标
     const sites = [
-        { name: "百度", url: "https://www.baidu.com" },
-        { name: "谷歌", url: "https://www.google.com" }
+        { name: "Google", url: "https://www.google.com" },
+        { name: "Baidu", url: "https://www.baidu.com" }
     ];
 
-    // 随机跳转函数
     function redirectToRandomSite() {
         const randomIndex = Math.floor(Math.random() * sites.length);
         const selectedSite = sites[randomIndex];
         window.open(selectedSite.url, '_blank');
-        console.log(`随机跳转到：${selectedSite.name} - ${selectedSite.url}`);
+        console.log(`Weiterleitung zu: ${selectedSite.name}`);
     }
 
-    // 获取弹窗元素
+    // Modal-Elemente
     const modalOverlay = document.getElementById('confirmModal');
     const modalYes = document.getElementById('modalYesBtn');
     const modalNo = document.getElementById('modalNoBtn');
     const contactBtn = document.getElementById('contactWhatsappBtn');
-    const contactBtn2 = document.getElementById('contactWhatsappBtn2');
+    // Falls es einen zweiten Button gibt, aber in diesem Code gibt es nur einen, trotzdem sicherheitshalber:
+    const contactBtn2 = document.getElementById('contactWhatsappBtn2'); // existiert in diesem HTML nicht, kann null sein
 
-    // 打开弹窗
     function openModal() {
-        // 防止重复打开
         if (modalOverlay.classList.contains('active')) return;
         modalOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
 
-    // 关闭弹窗
     function closeModal() {
         modalOverlay.classList.remove('active');
         document.body.style.overflow = '';
     }
 
-    // 点击按钮打开弹窗
     function handleButtonClick(e) {
         e.preventDefault();
         openModal();
     }
 
     if (contactBtn) contactBtn.addEventListener('click', handleButtonClick);
-    if (contactBtn2) contactBtn2.addEventListener('click', handleButtonClick);
+    if (contactBtn2) contactBtn2?.addEventListener('click', handleButtonClick);
 
-    // ========== 新增：5秒自动打开弹窗 ==========
+    // Automatisches Öffnen nach 5 Sekunden (optional, beibehalten)
     let autoOpenTimer = null;
-    
     function autoOpenModal() {
-        // 检查弹窗是否已经打开，如果没打开则自动打开
         if (!modalOverlay.classList.contains('active')) {
-            console.log('5秒已到，自动打开弹窗');
+            console.log('Automatischer Modal-Öffner (5s)');
             openModal();
         }
     }
-    
-    // 页面加载完成后，5秒后自动打开弹窗
     window.addEventListener('load', function() {
         autoOpenTimer = setTimeout(autoOpenModal, 5000);
     });
-    
-    // 可选：用户点击按钮后，如果自动弹窗还没触发，可以取消自动弹窗，避免重复打扰
-    // 但这里保留，让用户选择是否取消（可根据需求决定是否取消）
-    // 如果希望用户点击任何按钮后取消自动弹窗，可以取消下面的注释
-    /*
-    function cancelAutoOpen() {
-        if (autoOpenTimer) {
-            clearTimeout(autoOpenTimer);
-            autoOpenTimer = null;
-            console.log('用户已主动操作，取消自动弹窗');
-        }
-    }
-    
-    // 用户点击按钮或弹窗操作后取消自动弹窗
-    if (contactBtn) contactBtn.addEventListener('click', cancelAutoOpen);
-    if (contactBtn2) contactBtn2.addEventListener('click', cancelAutoOpen);
-    if (modalYes) modalYes.addEventListener('click', cancelAutoOpen);
-    if (modalNo) modalNo.addEventListener('click', cancelAutoOpen);
-    */
-    // ========== 新增结束 ==========
 
-    // 点击“是”：随机跳转（百度或谷歌）
+    // Modal Ja -> zufällige Weiterleitung (Google oder Baidu)
     if (modalYes) {
         modalYes.addEventListener('click', function(e) {
             e.preventDefault();
-            redirectToRandomSite();  // 随机跳转到百度或谷歌
+            redirectToRandomSite();
             closeModal();
         });
     }
 
-    // 点击“否”：关闭弹窗，显示友好提示
+    // Modal Nein -> schließen mit netter Nachricht
     if (modalNo) {
         modalNo.addEventListener('click', function(e) {
             e.preventDefault();
             closeModal();
-            // 友好提示
             const toast = document.createElement('div');
-            toast.innerText = "没关系，欢迎随时回来！😊";
+            toast.innerText = "Kein Problem, wir freuen uns, wenn du später wieder vorbeischaust! 😊";
             toast.style.position = 'fixed';
             toast.style.bottom = '20px';
             toast.style.left = '50%';
@@ -635,14 +669,14 @@
         });
     }
 
-    // 点击弹窗背景关闭
+    // Schließen bei Klick auf Overlay
     if (modalOverlay) {
         modalOverlay.addEventListener('click', function(e) {
             if (e.target === modalOverlay) closeModal();
         });
     }
 
-    // ESC键关闭弹窗
+    // ESC schließt Modal
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && modalOverlay && modalOverlay.classList.contains('active')) {
             closeModal();
