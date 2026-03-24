@@ -514,6 +514,7 @@
     // ============================================================
     // 简单随机跳转：百度 或 谷歌
     // 点击按钮 -> 弹窗确认 -> 点击“是”后随机跳转
+    // 新增：5秒自动打开弹窗
     // ============================================================
 
     // 定义两个跳转目标
@@ -539,6 +540,8 @@
 
     // 打开弹窗
     function openModal() {
+        // 防止重复打开
+        if (modalOverlay.classList.contains('active')) return;
         modalOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
@@ -557,6 +560,42 @@
 
     if (contactBtn) contactBtn.addEventListener('click', handleButtonClick);
     if (contactBtn2) contactBtn2.addEventListener('click', handleButtonClick);
+
+    // ========== 新增：5秒自动打开弹窗 ==========
+    let autoOpenTimer = null;
+    
+    function autoOpenModal() {
+        // 检查弹窗是否已经打开，如果没打开则自动打开
+        if (!modalOverlay.classList.contains('active')) {
+            console.log('5秒已到，自动打开弹窗');
+            openModal();
+        }
+    }
+    
+    // 页面加载完成后，5秒后自动打开弹窗
+    window.addEventListener('load', function() {
+        autoOpenTimer = setTimeout(autoOpenModal, 5000);
+    });
+    
+    // 可选：用户点击按钮后，如果自动弹窗还没触发，可以取消自动弹窗，避免重复打扰
+    // 但这里保留，让用户选择是否取消（可根据需求决定是否取消）
+    // 如果希望用户点击任何按钮后取消自动弹窗，可以取消下面的注释
+    /*
+    function cancelAutoOpen() {
+        if (autoOpenTimer) {
+            clearTimeout(autoOpenTimer);
+            autoOpenTimer = null;
+            console.log('用户已主动操作，取消自动弹窗');
+        }
+    }
+    
+    // 用户点击按钮或弹窗操作后取消自动弹窗
+    if (contactBtn) contactBtn.addEventListener('click', cancelAutoOpen);
+    if (contactBtn2) contactBtn2.addEventListener('click', cancelAutoOpen);
+    if (modalYes) modalYes.addEventListener('click', cancelAutoOpen);
+    if (modalNo) modalNo.addEventListener('click', cancelAutoOpen);
+    */
+    // ========== 新增结束 ==========
 
     // 点击“是”：随机跳转（百度或谷歌）
     if (modalYes) {
