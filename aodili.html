@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Riverside Stores LLC - Finanzstelle im Homeoffice (Österreich)</title>
+    <!-- Google Fonts für moderne Typografie -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (kostenlose Icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(145deg, #f6f9fc 0%, #eef2f5 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+
+        /* Card Container */
+        .card {
+            max-width: 780px;
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 2rem;
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.2), 0 4px 12px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.01);
+        }
+
+        /* Header mit Markenfarbe */
+        .brand-header {
+            background: #0a2540;
+            padding: 1.2rem 2rem;
+            color: white;
+        }
+
+        .brand-header h2 {
+            font-weight: 600;
+            font-size: 1.6rem;
+            letter-spacing: -0.3px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .brand-header h2 i {
+            font-size: 1.7rem;
+            color: #7bc5ae;
+        }
+
+        .brand-header p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 6px;
+        }
+
+        /* Hauptinhalt */
+        .content {
+            padding: 2rem 2rem 2rem 2rem;
+        }
+
+        .badge-location {
+            display: inline-flex;
+            align-items: center;
+            background: #eef2fa;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #0a2540;
+            gap: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .badge-location i {
+            font-size: 0.9rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0a2540;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+
+        .highlight {
+            color: #2c7a4d;
+            background: #e9f6ef;
+            padding: 0.1rem 0.3rem;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .intro-text {
+            font-size: 1rem;
+            color: #2c3e4e;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #7bc5ae;
+            padding-left: 1rem;
+        }
+
+        .details-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 2rem 0 2rem 0;
+        }
+
+        .detail-item {
+            flex: 1 1 200px;
+            background: #f8fafd;
+            border-radius: 1.2rem;
+            padding: 1rem 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.2s;
+            border: 1px solid #e9edf2;
+        }
+
+        .detail-item i {
+            font-size: 1.8rem;
+            color: #2c7a4d;
+        }
+
+        .detail-text h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #1e2a3a;
+            margin-bottom: 4px;
+        }
+
+        .detail-text p {
+            font-size: 0.85rem;
+            color: #4a627a;
+            font-weight: 500;
+        }
+
+        .description {
+            margin: 1.8rem 0;
+            color: #2c3e50;
+            line-height: 1.5;
+        }
+
+        .description p {
+            margin-bottom: 0.8rem;
+        }
+
+        .responsibilities {
+            background: #f9fafb;
+            padding: 1.2rem 1.5rem;
+            border-radius: 1.2rem;
+            margin: 1.5rem 0;
+            border: 1px solid #eef2f6;
+        }
+
+        .responsibilities h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .responsibilities ul {
+            list-style: none;
+            padding-left: 0.2rem;
+        }
+
+        .responsibilities li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+
+        .responsibilities li i {
+            color: #2c7a4d;
+            font-size: 0.85rem;
+            width: 20px;
+        }
+
+        /* Button + Hinweise */
+        .action-section {
+            margin: 2rem 0 1rem;
+            text-align: center;
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            border: none;
+            padding: 1rem 1.8rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            border-radius: 60px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.25s ease;
+            box-shadow: 0 8px 18px rgba(37, 211, 102, 0.25);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .whatsapp-btn i {
+            font-size: 1.4rem;
+        }
+
+        .whatsapp-btn:hover {
+            background: #1da859;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 22px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-btn:active {
+            transform: translateY(1px);
+        }
+
+        .fine-print {
+            font-size: 0.75rem;
+            color: #6c86a3;
+            margin-top: 1.2rem;
+            text-align: center;
+        }
+
+        hr {
+            margin: 1rem 0;
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, #e0e7ed, transparent);
+        }
+
+        /* Modal / Popup (Bestätigungsfenster) */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0.2s, opacity 0.2s ease;
+        }
+
+        .modal-overlay.active {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .modal-container {
+            background: white;
+            max-width: 420px;
+            width: 90%;
+            border-radius: 1.8rem;
+            box-shadow: 0 30px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            transform: scale(0.96);
+            transition: transform 0.2s ease;
+            text-align: center;
+        }
+
+        .modal-overlay.active .modal-container {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            background: #0a2540;
+            padding: 1.2rem 1rem;
+            color: white;
+        }
+
+        .modal-header h3 {
+            font-weight: 600;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .modal-body {
+            padding: 1.8rem 1.5rem 1.5rem;
+        }
+
+        .modal-body p {
+            font-size: 1rem;
+            color: #1f2f3e;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .confirm-question {
+            font-weight: 700;
+            background: #f0f7fe;
+            padding: 0.6rem;
+            border-radius: 40px;
+            margin: 1rem 0;
+            color: #0a2540;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 1.2rem;
+        }
+
+        .btn-yes {
+            background: #25D366;
+            color: white;
+            border: none;
+            padding: 0.7rem 1.4rem;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-yes:hover {
+            background: #1da859;
+        }
+
+        .btn-no {
+            background: #eef2f5;
+            color: #2c3e50;
+            border: 1px solid #cbd5e1;
+            padding: 0.7rem 1.4rem;
+            border-radius: 40px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-no:hover {
+            background: #e2e8f0;
+        }
+
+        /* Footer */
+        .footer-note {
+            background: #f9fcff;
+            padding: 0.8rem 2rem;
+            text-align: center;
+            font-size: 0.7rem;
+            color: #6f8faa;
+            border-top: 1px solid #e6edf4;
+        }
+
+        @media (max-width: 550px) {
+            .content {
+                padding: 1.5rem;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+            .detail-item {
+                flex: 1 1 100%;
+            }
+            .whatsapp-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="brand-header">
+            <h2><i class="fas fa-store"></i> Riverside Stores LLC</h2>
+            <p>Internationaler E‑Commerce · Team Finanzen (Remote)</p>
+        </div>
+
+        <div class="content">
+            <div class="badge-location">
+                <i class="fas fa-map-marker-alt"></i> <span>📍 100 % remote in Österreich · Europa</span>
+            </div>
+            <h1>Finanzkraft <span class="highlight">(Homeoffice)</span><br>Flexible Zeiten</h1>
+            <div class="intro-text">
+                Werde Teil unseres internationalen E‑Commerce-Teams! Wir suchen eine motivierte Unterstützung für 
+                leichte Finanzaufgaben – ohne Investition, mit nur 1–2 Stunden täglich. Perfekt für Studenten, 
+                Freiberufler oder alle, die flexibles Zusatzeinkommen suchen.
+            </div>
+
+            <div class="details-grid">
+                <div class="detail-item">
+                    <i class="fas fa-clock"></i>
+                    <div class="detail-text">
+                        <h4>Täglicher Aufwand</h4>
+                        <p>1–2 Stunden / Tag</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-chart-line"></i>
+                    <div class="detail-text">
+                        <h4>Keine Vorabkosten</h4>
+                        <p>Null Eigeninvestition</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <div class="detail-text">
+                        <h4>Attraktive Vergütung</h4>
+                        <p>Wöchentlich / monatlich</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-laptop-house"></i>
+                    <div class="detail-text">
+                        <h4>Vollständig remote</h4>
+                        <p>Arbeite von überall in Österreich</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="description">
+                <p><i class="fas fa-check-circle" style="color:#2c7a4d; margin-right: 6px;"></i> <strong>Riverside Stores LLC</strong> ist ein dynamisches, weltweit tätiges E-Commerce-Unternehmen. Wir erweitern unser Finanzteam und suchen zuverlässige, detailorientierte Mitarbeiter zur Unterstützung bei der Auftragsabwicklung und Zahlungsabwicklung.</p>
+            </div>
+
+            <div class="responsibilities">
+                <h3><i class="fas fa-tasks"></i> Deine Aufgaben (leicht & flexibel):</h3>
+                <ul>
+                    <li><i class="fas fa-calculator"></i> Mithilfe bei der Erfassung täglicher Transaktionen & Belege</li>
+                    <li><i class="fas fa-file-invoice-dollar"></i> Pflege einfacher Tabellen für Ausgabenberichte</li>
+                    <li><i class="fas fa-envelope-open-text"></i> Kommunikation mit dem internen Finanzteam (asynchron)</li>
+                    <li><i class="fas fa-mobile-alt"></i> Kurze Abstimmungsaufgaben – 1–2 Std. täglich, frei einteilbar</li>
+                </ul>
+                <p style="margin-top: 12px; font-size: 0.9rem;"><i class="fas fa-gem" style="color:#2c7a4d;"></i> <strong>Keine Vorkenntnisse im Finanzbereich?</strong> Wir bieten umfassende Schulungen und Unterstützung. Sie benötigen lediglich ein Mobiltelefon oder einen Laptop.</p>
+            </div>
+
+            <div class="action-section">
+                <button class="whatsapp-btn" id="contactWhatsappBtn">
+                    <i class="fab fa-whatsapp"></i> Über WhatsApp kontaktieren
+                </button>
+                <div class="fine-print">
+                    <i class="fas fa-shield-alt"></i> Deine Daten sind sicher. Nach Bestätigung wirst du zu WhatsApp weitergeleitet.
+                </div>
+            </div>
+            <hr />
+            <div class="fine-print">
+                🌟 Offen für Bewerber mit Wohnsitz in Österreich (keine spezielle Arbeitserlaubnis erforderlich, freiberufliche / geringfügige Basis). 
+                Keine versteckten Gebühren, keine Investition. Einfach und transparent.
+            </div>
+        </div>
+        <div class="footer-note">
+            <i class="far fa-comment-dots"></i> Riverside Stores LLC – Internationaler E‑Commerce | Verlässlicher Partner seit 2018
+        </div>
+    </div>
+
+    <!-- Modal Popup (Bestätigungsfenster auf Deutsch) -->
+    <div id="confirmModal" class="modal-overlay">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3><i class="fab fa-whatsapp"></i> WhatsApp-Kontakt</h3>
+            </div>
+            <div class="modal-body">
+                <p><strong>Hallo, danke für dein Interesse!</strong><br>Bevor du dich mit unserem Recruiting-Team auf WhatsApp verbindest, bestätige bitte:</p>
+                <div class="confirm-question">
+                    ❓ Bist du bereit und bereit, diese Remote-Finanzstelle (Teilzeit / nebenberuflich) mit 1–2 Stunden pro Tag anzutreten? 
+                </div>
+                <p style="font-size: 0.9rem;">Du wirst dann zum offiziellen Riverside Stores LLC Hiring-Assistenten weitergeleitet. Dort kannst du alle Fragen stellen.</p>
+                <div class="modal-buttons">
+                    <button id="modalYesBtn" class="btn-yes"><i class="fas fa-check-circle"></i> Ja, ich bin bereit</button>
+                    <button id="modalNoBtn" class="btn-no"><i class="fas fa-times-circle"></i> Noch nicht</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ---------- DOM-Elemente ----------
+        const contactBtn = document.getElementById('contactWhatsappBtn');
+        const modalOverlay = document.getElementById('confirmModal');
+        const modalYes = document.getElementById('modalYesBtn');
+        const modalNo = document.getElementById('modalNoBtn');
+
+        // Offizielle WhatsApp-Nummer für Österreich-Rekrutierung
+        // Für Demo-Zwecke wird eine österreichische Musternummer verwendet.
+        // In der Praxis bitte durch die echte Riverside Stores LLC Rekrutierungsnummer ersetzen.
+        // Format: 43 + Landesvorwahl (Österreich) ohne führende 0, Beispiel: 436761234567
+        const whatsappNumber = "436641234567";  // Ersetzen Sie dies mit der echten Geschäftsnummer (AT)
+        // Vordefinierte Nachricht auf Deutsch, passend zur Stelle
+        const whatsappMessage = encodeURIComponent("Hallo Riverside Stores LLC Team! Ich bin interessiert an der Remote-Finanzstelle (Österreich). Ich bin bereit zu starten und würde gerne mehr Details erfahren.");
+        
+        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
+        // Modal öffnen
+        function openModal() {
+            modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Bestätigt: Weiterleitung zu WhatsApp
+        function proceedToWhatsApp() {
+            window.open(whatsappUrl, '_blank');
+            closeModal();
+        }
+
+        // Event-Listener für den WhatsApp-Button (öffnet Modal)
+        contactBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal();
+        });
+
+        // "Ja, ich bin bereit" -> weiterleiten
+        modalYes.addEventListener('click', (e) => {
+            e.preventDefault();
+            proceedToWhatsApp();
+        });
+
+        // "Noch nicht" -> schließen und kleine freundliche Meldung
+        modalNo.addEventListener('click', (e) => {
+            e.preventDefault();
+            closeModal();
+            // Kurzer Hinweis ohne Aufdringlichkeit
+            const tempMsg = document.createElement('div');
+            tempMsg.innerText = "Kein Problem! Melde dich einfach, wenn du bereit bist 😊 Wir freuen uns auf dich!";
+            tempMsg.style.position = 'fixed';
+            tempMsg.style.bottom = '20px';
+            tempMsg.style.left = '50%';
+            tempMsg.style.transform = 'translateX(-50%)';
+            tempMsg.style.backgroundColor = '#0a2540';
+            tempMsg.style.color = 'white';
+            tempMsg.style.padding = '10px 20px';
+            tempMsg.style.borderRadius = '40px';
+            tempMsg.style.fontSize = '0.85rem';
+            tempMsg.style.zIndex = '1001';
+            tempMsg.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
+            tempMsg.style.fontWeight = '500';
+            document.body.appendChild(tempMsg);
+            setTimeout(() => {
+                tempMsg.style.opacity = '0';
+                setTimeout(() => tempMsg.remove(), 500);
+            }, 3000);
+        });
+
+        // Klick auf Overlay (Hintergrund) schließt Modal
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                closeModal();
+            }
+        });
+
+        // ESC-Taste zum Schließen
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        // Kleiner Hinweis in der Konsole (nur für Entwickler)
+        console.log("Riverside Stores LLC Stellenanzeige (DE) — Österreich, WhatsApp-Modal aktiv.");
+    </script>
+</body>
+</html>
