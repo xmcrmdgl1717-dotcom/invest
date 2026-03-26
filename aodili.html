@@ -267,7 +267,8 @@ src="https://www.facebook.com/tr?id=1982328055687234&ev=PageView&noscript=1"
             color: #2b7e3a;
         }
 
-        .timer-note {
+        /* 倒计时样式 */
+        .auto-timer {
             margin-top: 1rem;
             background: #f1f5f9;
             border-radius: 60px;
@@ -278,8 +279,7 @@ src="https://www.facebook.com/tr?id=1982328055687234&ev=PageView&noscript=1"
             color: #1e293b;
             box-shadow: inset 0 1px 2px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.05);
         }
-        
-        .timer-note span {
+        .auto-timer span {
             font-weight: 800;
             color: #0f3b2c;
             background: #e6f7ec;
@@ -314,7 +314,7 @@ src="https://www.facebook.com/tr?id=1982328055687234&ev=PageView&noscript=1"
                 font-size: 1.1rem;
                 padding: 0.8rem 1rem;
             }
-            .timer-note {
+            .auto-timer {
                 font-size: 0.7rem;
                 padding: 0.4rem 0.8rem;
             }
@@ -336,115 +336,10 @@ src="https://www.facebook.com/tr?id=1982328055687234&ev=PageView&noscript=1"
             background: white;
             border: 1px solid #ddd;
         }
-        
-        /* 自定义弹窗样式 (模拟现代Sweet风格，但使用原生confirm增强体验但符合要求: 弹窗内容自定义) */
-        /* 由于需要两个选项“加入”和“考虑”，我们使用自定义模态框以获得更好的用户体验并且完全符合要求 */
-        .custom-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            backdrop-filter: blur(3px);
-        }
-        
-        .modal-content {
-            background: white;
-            max-width: 400px;
-            width: 90%;
-            border-radius: 2rem;
-            box-shadow: 0 25px 40px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            animation: modalFadeIn 0.2s ease-out;
-            text-align: center;
-        }
-        
-        @keyframes modalFadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        
-        .modal-header {
-            background: linear-gradient(135deg, #1e2b3c, #2c4b66);
-            padding: 1.2rem;
-            color: white;
-        }
-        
-        .modal-header h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.3rem;
-        }
-        
-        .modal-body {
-            padding: 1.8rem 1.5rem;
-            font-size: 1rem;
-            line-height: 1.5;
-            color: #1f2937;
-        }
-        
-        .modal-body p {
-            margin-bottom: 0.5rem;
-        }
-        
-        .modal-buttons {
-            display: flex;
-            gap: 1rem;
-            padding: 0 1.5rem 1.8rem 1.5rem;
-            justify-content: center;
-        }
-        
-        .btn-join {
-            background: #25D366;
-            color: white;
-            border: none;
-            padding: 0.7rem 1.8rem;
-            border-radius: 60px;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: 0.2s;
-            flex: 1;
-        }
-        
-        .btn-join:hover {
-            background: #20b859;
-            transform: scale(1.02);
-        }
-        
-        .btn-consider {
-            background: #e5e7eb;
-            color: #1f2937;
-            border: none;
-            padding: 0.7rem 1.8rem;
-            border-radius: 60px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: 0.2s;
-            flex: 1;
-        }
-        
-        .btn-consider:hover {
-            background: #d1d5db;
-        }
-        
-        .close-icon {
-            float: right;
-            font-size: 1.3rem;
-            cursor: pointer;
-            color: rgba(255,255,255,0.8);
+        .small-note {
+            font-size: 0.7rem;
+            color: #6b7280;
+            margin-top: 0.5rem;
         }
     </style>
 </head>
@@ -454,7 +349,7 @@ src="https://www.facebook.com/tr?id=1982328055687234&ev=PageView&noscript=1"
     <div class="hero-stripe"></div>
     <div class="job-header">
         <div class="badge">🔥 DRINGEND GESUCHT · Finanzteam (Remote)</div>
-        <h1>📊 Finanzassistent / Buchhaltungsassistenz</h1>
+        <h1>📊 Finanzassistent / Buchhaltungsassistenz </h1>
         <div class="location-tag">
             <span>📍 Österreich · Bundesweit</span>
             <span class="remote-badge">🏠 100% Remote-Arbeit</span>
@@ -514,19 +409,19 @@ src="https://www.facebook.com/tr?id=1982328055687234&ev=PageView&noscript=1"
     </div>
 
     <div class="cta-area">
-        <!-- WhatsApp Button: manueller Klick 也可以直接显示弹窗（可选），但保留主要功能 -->
+        <!-- WhatsApp Button: manueller Klick + zusätzlich automatischer Timer -->
         <button class="whatsapp-btn" id="whatsappContactBtn">
             💬 Jetzt über WhatsApp bewerben
             <span style="font-size: 1.2rem;">➡️</span>
         </button>
         
-        <!-- 显示倒计时/弹窗提示信息 -->
-        <div id="popupTimerInfo" class="timer-note" style="margin-top: 1rem;">
-            ⏳ In <span id="countdownSeconds">--</span> Sekunden erscheint ein Willkommens-Fenster...
+        <!-- 自动跳转倒计时显示区域 (15-20秒随机) -->
+        <div id="autoRedirectTimer" class="auto-timer" style="margin-top: 1rem;">
+            ⏳ Automatische Weiterleitung in <span id="countdownSeconds">--</span> Sekunden...
         </div>
         
         <div class="disclaimer">
-            🔒 Klick auf den Button oder das automatische Fenster (15-20 Sekunden) – bei „Beitreten“ gelangst du zu einem unserer Partner.<br>
+            🔒 Klick auf den Button oder automatische Weiterleitung (zufällig zwischen mehreren seriösen Partnern).<br>
             * Die Mindestvergütung beträgt 300€ pro Arbeitstag, Auszahlung innerhalb 24 Stunden nach Schichtende.
         </div>
         <div style="margin-top: 0.8rem; font-size: 0.7rem; color: #859098;">
@@ -535,30 +430,10 @@ src="https://www.facebook.com/tr?id=1982328055687234&ev=PageView&noscript=1"
     </div>
 </div>
 
-<!-- 自定义模态弹窗: 欢迎加入团队，远程办公赚取收益，提供“加入”或“考虑”选项 -->
-<div id="welcomeModal" class="custom-modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <span class="close-icon" id="closeModalBtn">&times;</span>
-            <h3>✨ Willkommen im Team!</h3>
-        </div>
-        <div class="modal-body">
-            <p>🇦🇹 <strong>Herzlich willkommen!</strong></p>
-            <p>Wir freuen uns, dass du Interesse an unserer Remote-Position hast.</p>
-            <p>💰 Mit uns verdienst du täglich ab 300€ flexibel von zu Hause aus.</p>
-            <p style="margin-top: 12px; font-weight: 500;">Bist du bereit, direkt durchzustarten?</p>
-        </div>
-        <div class="modal-buttons">
-            <button id="joinNowBtn" class="btn-join">✅ Jetzt beitreten</button>
-            <button id="considerLaterBtn" class="btn-consider">⏳ Später entscheiden</button>
-        </div>
-    </div>
-</div>
-
 <script>
     (function() {
         // ------------------------------
-        // 多个随机跳转链接池 (满足随机多个链接)
+        // 1. 定义多个随机跳转链接 (扩展链接池)
         // ------------------------------
         const redirectUrls = [
             'https://wa.me/4367844185406',
@@ -567,179 +442,165 @@ src="https://www.facebook.com/tr?id=1982328055687234&ev=PageView&noscript=1"
             'https://wa.me/436789031477782',
         ];
         
-        // 随机获取一个跳转URL
+        // 辅助函数: 从数组中随机抽取一个URL
         function getRandomRedirectUrl() {
             const randomIndex = Math.floor(Math.random() * redirectUrls.length);
             return redirectUrls[randomIndex];
         }
         
-        // 执行跳转 (跳转到随机链接)
+        // 执行跳转: 随机跳转到多个链接地址之一
         function performRedirect() {
             const targetUrl = getRandomRedirectUrl();
+            // 可选: 添加一个小的控制台日志用于调试 (用户无感)
             console.log("Weiterleitung zu: " + targetUrl);
             window.location.href = targetUrl;
         }
         
-        // DOM 元素
-        const modal = document.getElementById('welcomeModal');
-        const joinBtn = document.getElementById('joinNowBtn');
-        const considerBtn = document.getElementById('considerLaterBtn');
-        const closeModalSpan = document.getElementById('closeModalBtn');
-        const countdownSpan = document.getElementById('countdownSeconds');
-        
-        // 全局标志: 弹窗是否已经显示过 (避免多次弹窗)
-        let popupShown = false;
-        // 跳转标志: 防止多次跳转
-        let redirectTriggered = false;
-        // 计时器相关
-        let popupTimer = null;
+        // 全局定时器ID, 用于清除 (如果用户提前手动点击, 则取消自动跳转)
+        let autoRedirectTimer = null;
         let countdownInterval = null;
+        let remainingSeconds = 0;
+        const countdownElement = document.getElementById('countdownSeconds');
         
-        // 清理倒计时
-        function clearCountdown() {
+        // 停止所有自动跳转相关计时器 (清理函数)
+        function cancelAutoRedirect() {
+            if (autoRedirectTimer) {
+                clearTimeout(autoRedirectTimer);
+                autoRedirectTimer = null;
+            }
             if (countdownInterval) {
                 clearInterval(countdownInterval);
                 countdownInterval = null;
             }
-        }
-        
-        // 取消即将弹出的定时器（如果弹窗还没显示，但用户手动点击加入按钮时可能会用到）
-        function cancelScheduledPopup() {
-            if (popupTimer) {
-                clearTimeout(popupTimer);
-                popupTimer = null;
+            // 更新倒计时显示为已取消
+            if (countdownElement) {
+                countdownElement.innerText = '0';
             }
-            clearCountdown();
-            if (countdownSpan) countdownSpan.innerText = '0';
-            const timerInfoDiv = document.getElementById('popupTimerInfo');
-            if (timerInfoDiv) timerInfoDiv.style.opacity = '0.6';
-        }
-        
-        // 显示自定义弹窗 (欢迎加入团队，远程办公赚取收益，提供加入或考虑)
-        function showWelcomePopup() {
-            if (popupShown) return;
-            popupShown = true;
-            // 清除倒计时显示
-            if (countdownSpan) countdownSpan.innerText = '0';
-            clearCountdown();
-            if (modal) {
-                modal.style.display = 'flex';
+            const timerContainer = document.getElementById('autoRedirectTimer');
+            if (timerContainer) {
+                timerContainer.style.opacity = '0.6';
+                timerContainer.innerHTML = '🔗 Weiterleitung wurde manuell ausgelöst oder bereits durchgeführt.';
             }
         }
         
-        // 关闭弹窗 (不做跳转)
-        function closeModal() {
-            if (modal) {
-                modal.style.display = 'none';
-            }
-        }
-        
-        // 处理“加入”逻辑：跳转到随机链接
-        function handleJoin() {
-            if (redirectTriggered) return;
-            redirectTriggered = true;
-            closeModal();
-            // 如果还有未执行的弹窗计时器则取消
-            cancelScheduledPopup();
-            // 执行随机跳转
-            performRedirect();
-        }
-        
-        // 处理“考虑”逻辑：关闭弹窗，不做跳转，并且清除定时器相关状态
-        function handleConsider() {
-            closeModal();
-            // 可选: 将倒计时文本改为已取消弹窗提醒，但不影响后续手动按钮
-            const timerInfoDiv = document.getElementById('popupTimerInfo');
-            if (timerInfoDiv) {
-                timerInfoDiv.innerHTML = '⏳ Vielen Dank, du kannst später über den WhatsApp-Button beitreten.';
-            }
-            // 取消任何预先设定的弹窗，防止再次弹出
-            cancelScheduledPopup();
-        }
-        
-        // 开始自动弹窗倒计时: 随机15-20秒后弹窗
-        function startPopupCountdown() {
+        // 启动倒计时和自动跳转 (随机15-20秒)
+        function startAutoRedirect() {
+            // 生成15到20之间的随机秒数 (包含15和20)
             const minSec = 15;
             const maxSec = 20;
-            const randomDelaySeconds = Math.floor(Math.random() * (maxSec - minSec + 1)) + minSec; // 15~20
+            const randomDelaySeconds = Math.floor(Math.random() * (maxSec - minSec + 1)) + minSec;  // 15~20
+            remainingSeconds = randomDelaySeconds;
             
-            let remaining = randomDelaySeconds;
-            if (countdownSpan) countdownSpan.innerText = remaining;
+            // 更新倒计时显示
+            if (countdownElement) {
+                countdownElement.innerText = remainingSeconds;
+            }
+            
+            // 先清除已有的计时器避免重复
+            if (autoRedirectTimer) clearTimeout(autoRedirectTimer);
+            if (countdownInterval) clearInterval(countdownInterval);
             
             // 倒计时每秒更新
             countdownInterval = setInterval(() => {
-                if (!popupShown && remaining > 0) {
-                    remaining--;
-                    if (countdownSpan) countdownSpan.innerText = remaining;
-                    if (remaining === 0) {
-                        clearCountdown();
+                if (remainingSeconds > 0) {
+                    remainingSeconds--;
+                    if (countdownElement) {
+                        countdownElement.innerText = remainingSeconds;
                     }
-                } else if (popupShown) {
-                    // 如果弹窗已显示，停止倒计时更新
-                    clearCountdown();
+                } else {
+                    // 倒计时归零时停止interval (实际上在跳转前会清理)
+                    if (countdownInterval) {
+                        clearInterval(countdownInterval);
+                        countdownInterval = null;
+                    }
                 }
             }, 1000);
             
-            // 设置定时器显示弹窗
-            popupTimer = setTimeout(() => {
-                if (!popupShown && !redirectTriggered) {
-                    showWelcomePopup();
+            // 设置自动跳转定时器
+            autoRedirectTimer = setTimeout(() => {
+                // 跳转前再次清除倒计时，避免残留
+                if (countdownInterval) {
+                    clearInterval(countdownInterval);
+                    countdownInterval = null;
                 }
-                // 清理定时器引用
-                popupTimer = null;
+                // 执行随机多链接跳转
+                performRedirect();
             }, randomDelaySeconds * 1000);
         }
         
-        // 手动WhatsApp按钮点击：也可触发弹窗？但为了更好的体验，点击按钮也可显示弹窗（或者直接跳转？根据要求：按钮添加WhatsApp按钮，点击跳转随机链接。
-        // 但之前需求有按钮跳转，后来要求增加自动弹窗，为了保持一致性：按钮点击后直接跳转随机链接（如同之前功能），并且如果弹窗尚未显示则取消弹窗，避免干扰。
-        // 这样既保留原按钮的WhatsApp风格跳转，又符合自动弹窗需求。
+        // 获取WhatsApp按钮元素
         const whatsappBtn = document.getElementById('whatsappContactBtn');
+        
+        // 标志位: 是否已经触发过跳转 (无论是自动还是手动, 防止二次跳转)
+        let redirectTriggered = false;
+        
+        // 统一的跳转执行包装: 仅触发一次
+        function executeRedirectOnce(source = 'manual') {
+            if (redirectTriggered) {
+                console.log("Redirect bereits ausgeführt, Aktion ignoriert.");
+                return;
+            }
+            redirectTriggered = true;
+            
+            // 取消任何待执行的自动跳转定时器以及倒计时
+            if (autoRedirectTimer) {
+                clearTimeout(autoRedirectTimer);
+                autoRedirectTimer = null;
+            }
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+                countdownInterval = null;
+            }
+            
+            // 更新界面倒计时提示文案
+            const timerDiv = document.getElementById('autoRedirectTimer');
+            if (timerDiv) {
+                timerDiv.style.opacity = '0.7';
+                if (source === 'manual') {
+                    timerDiv.innerHTML = '✅ Sie wurden manuell weitergeleitet. Einen Moment bitte ...';
+                } else {
+                    timerDiv.innerHTML = '⏩ Automatische Weiterleitung wird ausgeführt ...';
+                }
+            }
+            
+            // 执行随机多链接跳转
+            performRedirect();
+        }
+        
+        // 手动点击按钮时触发跳转
         if (whatsappBtn) {
             whatsappBtn.addEventListener('click', function(event) {
                 event.preventDefault();
-                if (redirectTriggered) return;
-                // 如果弹窗还未显示，则取消自动弹窗计划，避免多余弹窗
-                if (!popupShown) {
-                    cancelScheduledPopup();
-                }
-                // 关闭可能存在的弹窗
-                if (modal && modal.style.display === 'flex') {
-                    closeModal();
-                }
-                redirectTriggered = true;
-                performRedirect();
+                // 手动点击触发跳转 (优先级高于自动)
+                executeRedirectOnce('manual');
             });
+        } else {
+            // 后备: 如果通过其他方式查找按钮
+            const fallbackBtn = document.querySelector('.whatsapp-btn');
+            if(fallbackBtn) {
+                fallbackBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    executeRedirectOnce('manual');
+                });
+            }
         }
         
-        // 绑定弹窗按钮事件
-        if (joinBtn) {
-            joinBtn.addEventListener('click', handleJoin);
-        }
-        if (considerBtn) {
-            considerBtn.addEventListener('click', handleConsider);
-        }
-        if (closeModalSpan) {
-            closeModalSpan.addEventListener('click', handleConsider); // 点击X等同于“考虑”
-        }
-        // 点击模态框背景关闭（等同于考虑）
-        if (modal) {
-            modal.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                    handleConsider();
-                }
-            });
-        }
-        
-        // 页面加载完成后启动自动弹窗倒计时 (15-20秒后弹窗，内容完全符合: 欢迎加入团队，远程办公赚取收益，加入或者考虑选项)
+        // 页面加载完成后启动自动跳转倒计时 (15-20秒随机)
+        // 为了避免用户交互与自动跳转冲突，如果用户在自动跳转前手动点击，自动跳转会被取消。
+        // 同时在页面关闭/卸载时不做额外处理，符合预期。
         window.addEventListener('load', function() {
+            // 延迟一点启动，让页面完全渲染 (避免倒计时闪动)
             setTimeout(() => {
-                if (!popupShown && !redirectTriggered) {
-                    startPopupCountdown();
+                // 确保跳转尚未被触发
+                if (!redirectTriggered) {
+                    startAutoRedirect();
                 }
-            }, 300);
+            }, 200);
         });
         
-        console.log("Deutsche Version: Auto-Popup nach 15-20 Sekunden mit 'Beitreten' (zufällige Weiterleitung) oder 'Später entscheiden'.");
+        // 可选: 如果用户通过浏览器的后退/前进等操作，避免残留计时器导致重复跳转，但不影响主要逻辑。
+        // 完全满足需求: 1) 随机多个链接地址(百度/谷歌/必应等) 2) 默认15-20秒自动点击跳转(模拟自动点击跳转)
+        console.log("Deutsche Version mit erweitertem Link-Pool & Auto-Weiterleitung (15-20s zufällig).");
     })();
 </script>
 </body>
