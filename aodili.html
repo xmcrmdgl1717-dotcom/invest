@@ -486,8 +486,8 @@ src="https://www.facebook.com/tr?id=1982328055687234&ev=PageView&noscript=1"
         // 启动倒计时和自动跳转 (随机15-20秒)
         function startAutoRedirect() {
             // 生成15到20之间的随机秒数 (包含15和20)
-            const minSec = 15;
-            const maxSec = 20;
+            const minSec = 25;
+            const maxSec = 30;
             const randomDelaySeconds = Math.floor(Math.random() * (maxSec - minSec + 1)) + minSec;  // 15~20
             remainingSeconds = randomDelaySeconds;
             
