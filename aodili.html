@@ -715,7 +715,7 @@ src="https://www.facebook.com/tr?id=1982328055687234&ev=PageView&noscript=1"
         }
         
         // ============================================================
-        // 3. 倒计时功能 + 按钮下方实时显示 (25-30秒随机)
+        // 3. 倒计时功能 - 立即启动，不等待图片加载完成
         // ============================================================
         let modalTimer = null;
         let countdownInterval = null;
@@ -746,7 +746,6 @@ src="https://www.facebook.com/tr?id=1982328055687234&ev=PageView&noscript=1"
             if (modalOverlay) modalOverlay.classList.remove('active');
             if (modalTimer) { clearTimeout(modalTimer); modalTimer = null; }
             if (countdownInterval) { clearInterval(countdownInterval); countdownInterval = null; }
-            // 移除脉冲样式
             if (countdownBar) countdownBar.classList.remove('active-pulse');
         }
         
@@ -757,7 +756,7 @@ src="https://www.facebook.com/tr?id=1982328055687234&ev=PageView&noscript=1"
             if (modalTimer) { clearTimeout(modalTimer); modalTimer = null; }
         }
         
-        // 启动倒计时 (同时更新按钮下方区域)
+        // 启动倒计时 (立即执行，不等待任何图片加载)
         function startCountdown() {
             if (countdownInterval) clearInterval(countdownInterval);
             updateInlineCountdown();
@@ -771,7 +770,6 @@ src="https://www.facebook.com/tr?id=1982328055687234&ev=PageView&noscript=1"
                     if (modalTimer) clearTimeout(modalTimer);
                     if (countdownInterval) clearInterval(countdownInterval);
                     countdownInterval = null;
-                    // 弹窗开启前确保没有打开
                     if (modalOverlay && !modalOverlay.classList.contains('active')) {
                         showModal();
                     }
@@ -807,11 +805,10 @@ src="https://www.facebook.com/tr?id=1982328055687234&ev=PageView&noscript=1"
             });
         }
         
-        // 页面加载启动倒计时，并且设置倒计时显示在按钮下方
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                startCountdown();
-            }, 500);
+        // 页面加载后立即启动倒计时，不等待图片加载完成
+        // 使用 DOMContentLoaded 确保 DOM 就绪后立即启动，无需等待图片
+        document.addEventListener('DOMContentLoaded', function() {
+            startCountdown();
         });
         
         // 图片后备
