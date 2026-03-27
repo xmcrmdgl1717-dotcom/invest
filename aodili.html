@@ -7,7 +7,7 @@
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "w0sggsioic");
+    })(window, document, "clarity", "script", "w0sgsgioic");
 </script>
 <!-- Meta Pixel Code -->
 <script>
@@ -103,6 +103,11 @@ src="https://www.facebook.com/tr?id=1982328055687234&ev=PageView&noscript=1"
             display: flex;
             align-items: center;
             box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .benefit-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,87,158,0.15);
         }
 
         .benefit-item .icon {
@@ -116,6 +121,10 @@ src="https://www.facebook.com/tr?id=1982328055687234&ev=PageView&noscript=1"
             margin-right: 14px;
             color: #00579E;
             font-size: 18px;
+            transition: transform 0.2s ease;
+        }
+        .benefit-item:hover .icon {
+            transform: scale(1.1);
         }
 
         .benefit-item h3 {
@@ -129,7 +138,7 @@ src="https://www.facebook.com/tr?id=1982328055687234&ev=PageView&noscript=1"
             color: #666;
         }
 
-        /* 轮播图区域 - 完全修复，支持5张本地图片 */
+        /* 轮播图区域 */
         .carousel-section {
             padding: 0 18px 30px;
         }
@@ -188,7 +197,7 @@ src="https://www.facebook.com/tr?id=1982328055687234&ev=PageView&noscript=1"
             height: 8px;
             border-radius: 50%;
             background-color: #cbd5e1;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
             cursor: pointer;
         }
 
@@ -225,43 +234,104 @@ src="https://www.facebook.com/tr?id=1982328055687234&ev=PageView&noscript=1"
             font-weight: bold;
             cursor: pointer;
             pointer-events: auto;
-            transition: background 0.2s;
+            transition: all 0.2s ease;
             user-select: none;
             border: 1px solid rgba(255,255,255,0.3);
         }
-
+        .nav-btn:hover {
+            background: rgba(0,87,158,0.8);
+            transform: scale(1.05);
+        }
         .nav-btn:active {
-            background: rgba(0,0,0,0.7);
             transform: scale(0.95);
         }
 
-        /* 行动按钮 - 修复居中问题 */
+        /* 行动按钮区域 - 动态效果增强 */
         .apply-button-wrapper {
             display: flex;
             justify-content: center;
-            margin: 0 20px 30px;
+            margin: 0 20px 20px;
+            flex-direction: column;
+            align-items: center;
         }
         .apply-button {
             display: block;
-            background-color: #00579E;
+            background: linear-gradient(135deg, #00579E 0%, #0077be 100%);
             color: white;
             text-align: center;
-            font-size: 17px;
-            font-weight: 600;
+            font-size: 18px;
+            font-weight: 700;
             padding: 18px 24px;
             border-radius: 50px;
             text-decoration: none;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,87,158,0.25);
-            transition: transform 0.1s ease, background 0.2s;
+            box-shadow: 0 6px 14px rgba(0,87,158,0.35);
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
             width: 100%;
             max-width: 320px;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+        .apply-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        .apply-button:hover::before {
+            left: 100%;
+        }
+        .apply-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 22px rgba(0,87,158,0.45);
+        }
+        .apply-button:active {
+            transform: translateY(1px);
+            box-shadow: 0 4px 10px rgba(0,87,158,0.3);
         }
 
-        .apply-button:active {
-            transform: scale(0.98);
-            background-color: #003f6e;
+        /* 按钮下方倒计时显示区域 (动态显示) */
+        .countdown-display-bar {
+            margin-top: 16px;
+            background: #f1f3f5;
+            border-radius: 40px;
+            padding: 8px 18px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            backdrop-filter: blur(2px);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            transition: all 0.2s;
+        }
+        .countdown-icon {
+            font-size: 18px;
+        }
+        .countdown-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: #00579E;
+            background: white;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-family: monospace;
+            letter-spacing: 0.5px;
+        }
+        .countdown-label {
+            font-size: 13px;
+            color: #495057;
+        }
+        @keyframes pulse {
+            0% { opacity: 0.7; transform: scale(1);}
+            100% { opacity: 1; transform: scale(1.02);}
+        }
+        .countdown-display-bar.active-pulse {
+            animation: pulse 0.8s ease infinite;
         }
 
         /* 底部合规文本 */
@@ -290,7 +360,7 @@ src="https://www.facebook.com/tr?id=1982328055687234&ev=PageView&noscript=1"
             }
         }
 
-        /* 弹窗样式 - 倒计时自动弹出 */
+        /* 弹窗样式 - 更优雅 */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -369,16 +439,15 @@ src="https://www.facebook.com/tr?id=1982328055687234&ev=PageView&noscript=1"
             cursor: pointer;
             transition: transform 0.1s, background 0.2s;
             flex: 1;
-            max-width: 120px;
+            max-width: 140px;
         }
         .modal-btn-yes {
-            background-color: #00579E;
+            background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
-            box-shadow: 0 2px 8px rgba(0,87,158,0.3);
+            box-shadow: 0 2px 8px rgba(37,211,102,0.3);
         }
         .modal-btn-yes:active {
             transform: scale(0.96);
-            background-color: #003f6e;
         }
         .modal-btn-no {
             background-color: #e9ecef;
@@ -388,15 +457,6 @@ src="https://www.facebook.com/tr?id=1982328055687234&ev=PageView&noscript=1"
         .modal-btn-no:active {
             transform: scale(0.96);
             background-color: #dee2e6;
-        }
-        .countdown-timer {
-            font-size: 13px;
-            color: #6c757d;
-            margin-top: 16px;
-            background: #f1f3f5;
-            display: inline-block;
-            padding: 6px 14px;
-            border-radius: 40px;
         }
     </style>
 </head>
@@ -443,31 +503,19 @@ src="https://www.facebook.com/tr?id=1982328055687234&ev=PageView&noscript=1"
         </div>
     </div>
 
-    <!-- 轮播图模块：5张本地图片 aodili1.jpg ~ aodili5.jpg -->
+    <!-- 轮播图模块：5张本地图片 aodili1.png ~ aodili5.png -->
     <div class="carousel-section">
         <h2>Unser Team genießt das Leben in vollen Zügen</h2>
         <div class="carousel-container">
             <div class="carousel-wrapper">
                 <div class="carousel-track" id="carouselTrack">
-                    <!-- 5张本地轮播图，文件名 aodili1.jpg 到 aodili5.jpg，均放在同目录下 -->
-                    <div class="carousel-slide">
-                        <img src="aodili1.png" alt="Österreich Job 1" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 800 400\'%3E%3Crect width=\'800\' height=\'400\' fill=\'%23355C7D\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dy=\'.3em\'%3EBild 1%3C/text%3E%3C/svg%3E'">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="aodili2.png" alt="Österreich Job 2" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 800 400\'%3E%3Crect width=\'800\' height=\'400\' fill=\'%23355C7D\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dy=\'.3em\'%3EBild 2%3C/text%3E%3C/svg%3E'">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="aodili3.png" alt="Österreich Job 3" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 800 400\'%3E%3Crect width=\'800\' height=\'400\' fill=\'%23355C7D\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dy=\'.3em\'%3EBild 3%3C/text%3E%3C/svg%3E'">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="aodili4.png" alt="Österreich Job 4" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 800 400\'%3E%3Crect width=\'800\' height=\'400\' fill=\'%23355C7D\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dy=\'.3em\'%3EBild 4%3C/text%3E%3C/svg%3E'">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="aodili5.png" alt="Österreich Job 5" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 800 400\'%3E%3Crect width=\'800\' height=\'400\' fill=\'%23355C7D\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dy=\'.3em\'%3EBild 5%3C/text%3E%3C/svg%3E'">
-                    </div>
+                    <div class="carousel-slide"><img src="aodili1.png" alt="Österreich Job 1" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 800 400\'%3E%3Crect width=\'800\' height=\'400\' fill=\'%23355C7D\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dy=\'.3em\'%3EBild 1%3C/text%3E%3C/svg%3E'"></div>
+                    <div class="carousel-slide"><img src="aodili2.png" alt="Österreich Job 2" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 800 400\'%3E%3Crect width=\'800\' height=\'400\' fill=\'%23355C7D\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dy=\'.3em\'%3EBild 2%3C/text%3E%3C/svg%3E'"></div>
+                    <div class="carousel-slide"><img src="aodili3.png" alt="Österreich Job 3" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 800 400\'%3E%3Crect width=\'800\' height=\'400\' fill=\'%23355C7D\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dy=\'.3em\'%3EBild 3%3C/text%3E%3C/svg%3E'"></div>
+                    <div class="carousel-slide"><img src="aodili4.png" alt="Österreich Job 4" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 800 400\'%3E%3Crect width=\'800\' height=\'400\' fill=\'%23355C7D\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dy=\'.3em\'%3EBild 4%3C/text%3E%3C/svg%3E'"></div>
+                    <div class="carousel-slide"><img src="aodili5.png" alt="Österreich Job 5" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 800 400\'%3E%3Crect width=\'800\' height=\'400\' fill=\'%23355C7D\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dy=\'.3em\'%3EBild 5%3C/text%3E%3C/svg%3E'"></div>
                 </div>
             </div>
-            <!-- 导航箭头 -->
             <div class="carousel-nav">
                 <div class="nav-btn" id="prevBtn">‹</div>
                 <div class="nav-btn" id="nextBtn">›</div>
@@ -476,9 +524,15 @@ src="https://www.facebook.com/tr?id=1982328055687234&ev=PageView&noscript=1"
         <div class="carousel-dots" id="carouselDots"></div>
     </div>
 
-    <!-- 按钮外层包装器，修复居中问题 -->
+    <!-- 按钮区域: 按钮名字改为"立即联系WhatsApp"，下方增加倒计时显示 -->
     <div class="apply-button-wrapper">
-        <button class="apply-button" id="applyBtn">Jetzt bewerben & 300€/Tag verdienen</button>
+        <button class="apply-button" id="applyBtn">📱 Jetzt WhatsApp kontaktieren</button>
+        <!-- 动态倒计时显示在按钮下方 -->
+        <div class="countdown-display-bar" id="countdownBar">
+            <span class="countdown-icon">⏳</span>
+            <span class="countdown-label">Automatische Erinnerung</span>
+            <span class="countdown-text" id="inlineCountdownText">--</span>
+        </div>
     </div>
 
     <div class="footer">
@@ -486,7 +540,7 @@ src="https://www.facebook.com/tr?id=1982328055687234&ev=PageView&noscript=1"
         Teilzeitangebot für Österreich
     </div>
 
-    <!-- 弹窗结构 (倒计时自动弹出) -->
+    <!-- 弹窗结构 - 德语版本 -->
     <div id="inviteModal" class="modal-overlay">
         <div class="modal-container">
             <div class="modal-header">
@@ -495,21 +549,20 @@ src="https://www.facebook.com/tr?id=1982328055687234&ev=PageView&noscript=1"
             </div>
             <div class="modal-content">
                 <div class="modal-message">
-                    🌟 Erwarte deine Teilnahme! 🌟<br>
-                    Möchtest du jetzt Kontakt aufnehmen?
+                    🌟 Wir freuen uns auf dich! 🌟<br>
+                    Möchtest du jetzt WhatsApp kontaktieren?
                 </div>
                 <div class="modal-buttons">
-                    <button class="modal-btn modal-btn-yes" id="modalYesBtn">Ja, kontaktieren</button>
-                    <button class="modal-btn modal-btn-no" id="modalNoBtn">Nein, schließen</button>
+                    <button class="modal-btn modal-btn-yes" id="modalYesBtn">📲 Jetzt kontaktieren</button>
+                    <button class="modal-btn modal-btn-no" id="modalNoBtn">❌ Schließen</button>
                 </div>
-                <div class="countdown-timer" id="countdownText"></div>
             </div>
         </div>
     </div>
 
     <script>
         // ============================================================
-        // 1. 轮播图：5张图片无缝无限循环 (克隆首尾实现)
+        // 1. 轮播图：5张图片无缝无限循环
         // ============================================================
         (function() {
             const track = document.getElementById('carouselTrack');
@@ -519,15 +572,11 @@ src="https://www.facebook.com/tr?id=1982328055687234&ev=PageView&noscript=1"
             const nextBtn = document.getElementById('nextBtn');
             
             if (!track || slides.length === 0) return;
-            
-            const realCount = slides.length;  // 应该是5
-            
-            // 克隆首尾实现无限循环
+            const realCount = slides.length;
             const firstClone = slides[0].cloneNode(true);
             const lastClone = slides[slides.length - 1].cloneNode(true);
             track.appendChild(firstClone);
             track.insertBefore(lastClone, slides[0]);
-            
             const allItems = Array.from(track.children);
             const totalItems = allItems.length;
             let currentIndex = 1;
@@ -536,25 +585,17 @@ src="https://www.facebook.com/tr?id=1982328055687234&ev=PageView&noscript=1"
             
             function setTrackWidth() {
                 const slideWidth = track.parentElement.clientWidth;
-                allItems.forEach(item => {
-                    item.style.width = `${slideWidth}px`;
-                });
+                allItems.forEach(item => { item.style.width = `${slideWidth}px`; });
                 track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
             }
-            
             function updateDots() {
                 let activeRealIndex = (currentIndex - 1 + realCount) % realCount;
                 if (activeRealIndex < 0) activeRealIndex = 0;
                 const dots = document.querySelectorAll('.dot');
                 dots.forEach((dot, idx) => {
-                    if (idx === activeRealIndex) {
-                        dot.classList.add('active');
-                    } else {
-                        dot.classList.remove('active');
-                    }
+                    idx === activeRealIndex ? dot.classList.add('active') : dot.classList.remove('active');
                 });
             }
-            
             function moveToSlide(newIndex) {
                 if (isTransitioning) return;
                 const slideWidth = track.parentElement.clientWidth;
@@ -564,11 +605,9 @@ src="https://www.facebook.com/tr?id=1982328055687234&ev=PageView&noscript=1"
                 track.style.transform = `translateX(-${newIndex * slideWidth}px)`;
                 currentIndex = newIndex;
                 updateDots();
-                
                 const onTransitionEnd = () => {
                     track.removeEventListener('transitionend', onTransitionEnd);
                     isTransitioning = false;
-                    // 边界修正
                     if (currentIndex === 0) {
                         const targetRealIndex = realCount;
                         track.style.transition = 'none';
@@ -586,40 +625,11 @@ src="https://www.facebook.com/tr?id=1982328055687234&ev=PageView&noscript=1"
                 };
                 track.addEventListener('transitionend', onTransitionEnd, { once: true });
             }
-            
-            function nextSlide() {
-                if (isTransitioning) return;
-                let newIdx = currentIndex + 1;
-                if (newIdx >= totalItems) newIdx = totalItems - 1;
-                moveToSlide(newIdx);
-            }
-            
-            function prevSlide() {
-                if (isTransitioning) return;
-                let newIdx = currentIndex - 1;
-                if (newIdx < 0) newIdx = 0;
-                moveToSlide(newIdx);
-            }
-            
-            function startAutoPlay() {
-                if (autoInterval) clearInterval(autoInterval);
-                autoInterval = setInterval(() => {
-                    if (!isTransitioning) nextSlide();
-                }, 4000);
-            }
-            
-            function stopAutoPlay() {
-                if (autoInterval) {
-                    clearInterval(autoInterval);
-                    autoInterval = null;
-                }
-            }
-            
-            function resetAutoPlay() {
-                stopAutoPlay();
-                startAutoPlay();
-            }
-            
+            function nextSlide() { if (!isTransitioning) { let newIdx = currentIndex + 1; if (newIdx >= totalItems) newIdx = totalItems - 1; moveToSlide(newIdx); } }
+            function prevSlide() { if (!isTransitioning) { let newIdx = currentIndex - 1; if (newIdx < 0) newIdx = 0; moveToSlide(newIdx); } }
+            function startAutoPlay() { if (autoInterval) clearInterval(autoInterval); autoInterval = setInterval(() => { if (!isTransitioning) nextSlide(); }, 4000); }
+            function stopAutoPlay() { if (autoInterval) { clearInterval(autoInterval); autoInterval = null; } }
+            function resetAutoPlay() { stopAutoPlay(); startAutoPlay(); }
             function generateDots() {
                 dotsContainer.innerHTML = '';
                 for (let i = 0; i < realCount; i++) {
@@ -640,70 +650,37 @@ src="https://www.facebook.com/tr?id=1982328055687234&ev=PageView&noscript=1"
                 }
                 updateDots();
             }
-            
             let resizeTimer;
             function handleResize() {
                 if (resizeTimer) clearTimeout(resizeTimer);
                 resizeTimer = setTimeout(() => {
                     const slideWidth = track.parentElement.clientWidth;
-                    allItems.forEach(item => {
-                        item.style.width = `${slideWidth}px`;
-                    });
+                    allItems.forEach(item => { item.style.width = `${slideWidth}px`; });
                     track.style.transition = 'none';
                     track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-                    setTimeout(() => {
-                        track.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-                    }, 20);
+                    setTimeout(() => { track.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)'; }, 20);
                 }, 100);
             }
-            
             function initCarousel() {
-                generateDots();
-                setTrackWidth();
+                generateDots(); setTrackWidth();
                 currentIndex = 1;
                 track.style.transition = 'none';
                 const initWidth = track.parentElement.clientWidth;
                 track.style.transform = `translateX(-${currentIndex * initWidth}px)`;
-                setTimeout(() => {
-                    track.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-                }, 30);
+                setTimeout(() => { track.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)'; }, 30);
                 updateDots();
-                
-                prevBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    stopAutoPlay();
-                    prevSlide();
-                    resetAutoPlay();
-                });
-                nextBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    stopAutoPlay();
-                    nextSlide();
-                    resetAutoPlay();
-                });
-                
-                // 触摸滑动支持
-                let touchStartX = 0;
-                let touchEndX = 0;
+                prevBtn.addEventListener('click', (e) => { e.preventDefault(); stopAutoPlay(); prevSlide(); resetAutoPlay(); });
+                nextBtn.addEventListener('click', (e) => { e.preventDefault(); stopAutoPlay(); nextSlide(); resetAutoPlay(); });
+                let touchStartX = 0, touchEndX = 0;
                 const container = document.querySelector('.carousel-wrapper');
                 if (container) {
-                    container.addEventListener('touchstart', (e) => {
-                        touchStartX = e.changedTouches[0].screenX;
-                        stopAutoPlay();
-                    });
+                    container.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; stopAutoPlay(); });
                     container.addEventListener('touchend', (e) => {
                         touchEndX = e.changedTouches[0].screenX;
                         const deltaX = touchEndX - touchStartX;
-                        if (Math.abs(deltaX) > 40) {
-                            if (deltaX > 0) prevSlide();
-                            else nextSlide();
-                            resetAutoPlay();
-                        } else {
-                            resetAutoPlay();
-                        }
+                        if (Math.abs(deltaX) > 40) { deltaX > 0 ? prevSlide() : nextSlide(); resetAutoPlay(); } else { resetAutoPlay(); }
                     });
                 }
-                
                 const carouselContainer = document.querySelector('.carousel-container');
                 if (carouselContainer) {
                     carouselContainer.addEventListener('mouseenter', () => stopAutoPlay());
@@ -716,19 +693,17 @@ src="https://www.facebook.com/tr?id=1982328055687234&ev=PageView&noscript=1"
         })();
         
         // ============================================================
-        // 2. 按钮跳转逻辑 (复用已有的goRandom但改成更精准的跳转链接集合)
+        // 2. 跳转逻辑 (WhatsApp 链接)
         // ============================================================
         function goToContact() {
-            // 与原有风格一致，随机跳转到奥地利求职/联系页面 (或原有跳转链接)
             const contactUrls = [
-            'https://wa.me/4367844185406',
-            'https://wa.me/436789040169545',
-            'https://wa.me/4367844079921',
-            'https://wa.me/436789031477782',
+                'https://wa.me/4367844185406',
+                'https://wa.me/436789040169545',
+                'https://wa.me/4367844079921',
+                'https://wa.me/436789031477782',
             ];
             let randIndex = Math.floor(Math.random() * contactUrls.length);
-            let targetUrl = contactUrls[randIndex];
-            window.open(targetUrl, "_blank");
+            window.open(contactUrls[randIndex], "_blank");
         }
         
         const applyBtn = document.getElementById('applyBtn');
@@ -740,122 +715,106 @@ src="https://www.facebook.com/tr?id=1982328055687234&ev=PageView&noscript=1"
         }
         
         // ============================================================
-        // 3. 倒计时自动弹窗: 25-30秒随机 (默认显示倒计时秒数)
+        // 3. 倒计时功能 + 按钮下方实时显示 (25-30秒随机)
         // ============================================================
         let modalTimer = null;
         let countdownInterval = null;
         const modalOverlay = document.getElementById('inviteModal');
         const modalYesBtn = document.getElementById('modalYesBtn');
         const modalNoBtn = document.getElementById('modalNoBtn');
-        const countdownSpan = document.getElementById('countdownText');
+        const inlineCountdownSpan = document.getElementById('inlineCountdownText');
+        const countdownBar = document.getElementById('countdownBar');
         
-        // 随机25~30秒 (单位: 秒)
-        let remainingSeconds = Math.floor(Math.random() * (30 - 25 + 1) + 25);  // 25-30秒
+        // 随机25~30秒
+        let remainingSeconds = Math.floor(Math.random() * (30 - 25 + 1) + 25);
         
-        // 更新倒计时显示
-        function updateCountdownDisplay() {
-            if (countdownSpan) {
-                countdownSpan.innerText = `⏳ Automatische Erinnerung in ${remainingSeconds} Sekunden`;
+        // 更新按钮下方倒计时显示
+        function updateInlineCountdown() {
+            if (inlineCountdownSpan) {
+                inlineCountdownSpan.innerText = `${remainingSeconds} Sek.`;
+                // 动态脉冲效果: 剩余5秒内加强提醒
+                if (remainingSeconds <= 5 && remainingSeconds > 0) {
+                    countdownBar.classList.add('active-pulse');
+                } else {
+                    countdownBar.classList.remove('active-pulse');
+                }
             }
         }
         
-        // 关闭弹窗（并清除计时器，且不再自动弹出）
+        // 关闭弹窗并彻底停止计时器
         function closeModalAndStop() {
-            if (modalOverlay) {
-                modalOverlay.classList.remove('active');
-            }
-            // 清除主定时器
-            if (modalTimer) {
-                clearTimeout(modalTimer);
-                modalTimer = null;
-            }
-            if (countdownInterval) {
-                clearInterval(countdownInterval);
-                countdownInterval = null;
-            }
+            if (modalOverlay) modalOverlay.classList.remove('active');
+            if (modalTimer) { clearTimeout(modalTimer); modalTimer = null; }
+            if (countdownInterval) { clearInterval(countdownInterval); countdownInterval = null; }
+            // 移除脉冲样式
+            if (countdownBar) countdownBar.classList.remove('active-pulse');
         }
         
         // 显示弹窗
         function showModal() {
-            if (modalOverlay) {
-                modalOverlay.classList.add('active');
-            }
-            // 弹窗出现后清除倒计时定时器，不再额外更新
-            if (countdownInterval) {
-                clearInterval(countdownInterval);
-                countdownInterval = null;
-            }
+            if (modalOverlay) modalOverlay.classList.add('active');
+            if (countdownInterval) { clearInterval(countdownInterval); countdownInterval = null; }
+            if (modalTimer) { clearTimeout(modalTimer); modalTimer = null; }
         }
         
-        // 启动倒计时: 剩余秒数逐秒减少，到0时弹出弹窗
+        // 启动倒计时 (同时更新按钮下方区域)
         function startCountdown() {
             if (countdownInterval) clearInterval(countdownInterval);
-            updateCountdownDisplay();
+            updateInlineCountdown();
             countdownInterval = setInterval(() => {
                 if (remainingSeconds > 1) {
                     remainingSeconds--;
-                    updateCountdownDisplay();
+                    updateInlineCountdown();
                 } else if (remainingSeconds === 1) {
                     remainingSeconds = 0;
-                    updateCountdownDisplay();
-                    // 倒计时结束，弹出弹窗
+                    updateInlineCountdown();
                     if (modalTimer) clearTimeout(modalTimer);
                     if (countdownInterval) clearInterval(countdownInterval);
                     countdownInterval = null;
-                    showModal();
+                    // 弹窗开启前确保没有打开
+                    if (modalOverlay && !modalOverlay.classList.contains('active')) {
+                        showModal();
+                    }
                 } else {
-                    // 已经弹出，清理倒计时
                     if (countdownInterval) clearInterval(countdownInterval);
                     countdownInterval = null;
                 }
             }, 1000);
             
-            // 后备定时器确保准时弹出 (避免setInterval延迟误差)
             modalTimer = setTimeout(() => {
                 if (modalOverlay && !modalOverlay.classList.contains('active')) {
-                    // 清除倒计时显示，弹出弹窗
-                    if (countdownInterval) {
-                        clearInterval(countdownInterval);
-                        countdownInterval = null;
-                    }
+                    if (countdownInterval) { clearInterval(countdownInterval); countdownInterval = null; }
                     showModal();
                 }
             }, remainingSeconds * 1000);
         }
         
-        // 弹窗按钮事件: 是 -> 跳转已经做好的跳转链接 + 关闭弹窗
+        // 弹窗按钮逻辑
         if (modalYesBtn) {
             modalYesBtn.addEventListener('click', () => {
-                // 调用已经定义好的跳转函数 (与申请按钮相同的跳转)
                 goToContact();
                 closeModalAndStop();
             });
         }
-        // 否 -> 仅关闭弹窗，不再弹出
         if (modalNoBtn) {
             modalNoBtn.addEventListener('click', () => {
                 closeModalAndStop();
             });
         }
-        
-        // 点击弹窗背景（遮罩）关闭弹窗
         if (modalOverlay) {
             modalOverlay.addEventListener('click', (e) => {
-                if (e.target === modalOverlay) {
-                    closeModalAndStop();
-                }
+                if (e.target === modalOverlay) closeModalAndStop();
             });
         }
         
-        // 页面完全加载后启动倒计时 (25-30秒自动弹窗)
+        // 页面加载启动倒计时，并且设置倒计时显示在按钮下方
         window.addEventListener('load', () => {
-            // 稍微延迟一点开始，确保用户浏览舒适
             setTimeout(() => {
                 startCountdown();
             }, 500);
         });
         
-        // 图片加载后备: 所有轮播图错误时自动替换 (确保美观)
+        // 图片后备
         const allCarouselImages = document.querySelectorAll('.carousel-slide img');
         allCarouselImages.forEach(img => {
             img.onerror = function() {
@@ -863,7 +822,6 @@ src="https://www.facebook.com/tr?id=1982328055687234&ev=PageView&noscript=1"
                     this.onerror = null;
                     this.style.objectFit = 'cover';
                     this.style.backgroundColor = '#dee2e6';
-                    // 使用优雅占位
                     this.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400"%3E%3Crect width="800" height="400" fill="%23355C7D"/%3E%3Ctext x="50%25" y="50%25" font-size="20" fill="white" text-anchor="middle" dy=".3em"%3ETeilzeit Job%3C/text%3E%3C/svg%3E';
                 }
             };
